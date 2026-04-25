@@ -1,0 +1,301 @@
+target_id,target_name,sector,sub_sector,geography,ownership_type,founded_date,employee_count,ltm_revenue_mm,ebitda_margin_pct,revenue_growth_pct
+TGT-0001,Quest Health Data,Health IT,EHR/EMR,Southwest,PE-Backed,1991-01-01,5593,664.9,22.7,15.7
+TGT-0002,Keystone Healthcare,Healthcare Services,Ambulatory Surgery Centers,Southwest,Physician-Owned,1986-01-01,4647,250.3,25.5,14.1
+TGT-0003,Halcyon Smile Partners,Dental,Pediatric Dental,Northeast,PE-Backed,2012-01-01,2837,179.7,13.8,21.7
+TGT-0004,Foundation Technologies,Health IT,EHR/EMR,Mid-Atlantic,Public,2001-01-01,6661,234.6,20.4,-0.6
+TGT-0005,Continuum Biopharma,Pharma/Biotech,Specialty Pharma,National,Public,1997-01-01,5821,223.2,25.9,22.1
+TGT-0006,Legacy Health Analytics,Health IT,Revenue Cycle Tech,West Coast,Family-Owned,2008-01-01,1382,102.9,13.7,4.3
+TGT-0007,Cascade Systems,Health IT,Population Health,Southwest,PE-Backed,2014-01-01,3158,197.0,33.0,19.1
+TGT-0008,Crest Dental Group,Dental,Oral Surgery,Northeast,Public,2010-01-01,2243,85.1,32.7,14.9
+TGT-0009,Voyager Biomedical,Medical Devices,Diagnostic Equipment,Great Plains,PE-Backed,2001-01-01,1193,71.1,23.2,4.2
+TGT-0010,Greenfield Managed Care,Health Insurance,Dental Insurance,Mid-Atlantic,PE-Backed,1993-01-01,4224,376.9,28.4,25.1
+TGT-0011,Latitude Wellness Group,Behavioral Health,Mental Health Clinics,Southeast,Family-Owned,2009-01-01,4931,737.4,22.3,29.0
+TGT-0012,Optima Care Partners,Healthcare Services,Lab Services,Multi-Regional,Public,2006-01-01,963,62.8,12.3,-4.9
+TGT-0013,Delta Visiting Health,Home Health/Hospice,Personal Care,Southeast,Nonprofit,2004-01-01,6944,740.7,24.4,0.3
+TGT-0014,Zephyr Behavioral,Behavioral Health,Psychiatric Hospitals,National,Public,2016-01-01,209,9.1,17.8,29.5
+TGT-0015,Crest Hospice Care,Home Health/Hospice,Hospice,National,Private,1990-01-01,6045,533.9,9.9,21.6
+TGT-0016,Sapphire Wellness Group,Behavioral Health,Mental Health Clinics,Midwest,Public,2018-01-01,7196,739.7,34.0,27.5
+TGT-0017,Illuminate Smile Partners,Dental,Oral Surgery,Great Plains,Physician-Owned,2013-01-01,1041,62.2,9.7,-4.3
+TGT-0018,Halcyon Physician Partners,Physician Groups,Primary Care Groups,Northeast,Private,1988-01-01,1925,73.3,8.8,6.6
+TGT-0019,Quest Specialty Medicine,Physician Groups,Primary Care Groups,Southwest,Physician-Owned,1993-01-01,5975,850.0,23.4,11.5
+TGT-0020,Forge Revenue Solutions,Revenue Cycle,Patient Financial Services,Southeast,Nonprofit,2012-01-01,2952,238.6,20.6,20.5
+TGT-0021,Illuminate Tech Solutions,Health IT,EHR/EMR,Mid-Atlantic,Private,2000-01-01,1619,85.5,20.1,9.8
+TGT-0022,Mosaic Home Health,Home Health/Hospice,Home Infusion,Great Plains,Physician-Owned,1991-01-01,464,50.2,22.6,-4.5
+TGT-0023,Cascade Health Analytics,Health IT,Revenue Cycle Tech,Great Plains,Family-Owned,1998-01-01,7133,557.3,9.6,8.3
+TGT-0024,Prism Biopharma,Pharma/Biotech,Biotech Therapeutics,Mountain West,Nonprofit,2016-01-01,1318,69.6,13.9,-3.0
+TGT-0025,Vertex Medical Associates,Physician Groups,Multi-Specialty Groups,Northeast,Physician-Owned,2015-01-01,4169,585.0,22.3,-3.0
+TGT-0026,Encore Medical Associates,Physician Groups,Multi-Specialty Groups,National,Private,2000-01-01,3357,149.0,32.0,3.6
+TGT-0027,Luminary Health Plans,Health Insurance,Managed Care,Mountain West,Nonprofit,2018-01-01,2641,375.5,13.5,20.1
+TGT-0028,Highland Dental Group,Dental,Oral Surgery,West Coast,Family-Owned,2005-01-01,7660,920.9,10.0,11.0
+TGT-0029,Frontier Health Coverage,Health Insurance,Managed Care,Southwest,Physician-Owned,2001-01-01,1135,161.2,31.8,25.8
+TGT-0030,Alpine Biomedical,Medical Devices,Orthopedic Devices,Multi-Regional,Nonprofit,2004-01-01,5060,749.2,29.8,13.5
+TGT-0031,Nexus Physician Partners,Physician Groups,Cardiology Groups,West Coast,Private,1991-01-01,6131,590.9,15.4,16.2
+TGT-0032,Onyx Device Solutions,Medical Devices,Diagnostic Equipment,Great Plains,Public,1988-01-01,806,85.5,30.4,-3.5
+TGT-0033,Onyx Surgical,Medical Devices,Diagnostic Equipment,Great Plains,Physician-Owned,2012-01-01,4644,144.7,10.0,25.9
+TGT-0034,Apex Recovery Centers,Behavioral Health,Psychiatric Hospitals,National,Physician-Owned,1994-01-01,3570,161.7,16.3,26.5
+TGT-0035,Haven Care Partners,Healthcare Services,Post-Acute Care,Southwest,Nonprofit,1991-01-01,2947,364.3,31.9,9.2
+TGT-0036,Landmark Insurance Solutions,Health Insurance,Medicare Advantage,Midwest,Family-Owned,1986-01-01,1519,179.8,17.0,27.6
+TGT-0037,Alpine Dental,Dental,Oral Surgery,Mountain West,Private,2015-01-01,1872,101.0,32.8,7.2
+TGT-0038,Meridian Dental Group,Dental,Orthodontics,Mountain West,Public,2002-01-01,7130,273.3,28.9,7.3
+TGT-0039,Acumen Medical Practice,Physician Groups,Orthopedic Groups,Northeast,Private,2001-01-01,1512,150.7,34.6,-3.7
+TGT-0040,Bridgepoint Benefits Group,Health Insurance,Dental Insurance,Mountain West,Physician-Owned,2017-01-01,997,76.0,23.6,3.9
+TGT-0041,Yarrow Biosciences,Pharma/Biotech,Specialty Pharma,Southwest,Public,2012-01-01,623,89.6,32.9,16.8
+TGT-0042,Trident Systems,Health IT,Data Analytics,West Coast,Nonprofit,2011-01-01,2722,213.1,16.0,-0.5
+TGT-0043,Delta Biosciences,Pharma/Biotech,CDMO,National,Public,2010-01-01,4538,590.2,16.2,2.4
+TGT-0044,Westward Managed Care,Health Insurance,Supplemental Insurance,Great Plains,Family-Owned,1998-01-01,4237,367.7,32.3,22.9
+TGT-0045,Ridgeline Wellness Group,Behavioral Health,Substance Abuse Treatment,National,Public,1990-01-01,6754,974.2,14.3,5.9
+TGT-0046,Meridian Dental,Dental,Orthodontics,Southwest,Family-Owned,1989-01-01,3780,301.4,25.0,1.8
+TGT-0047,Illuminate Therapeutics,Pharma/Biotech,CDMO,Midwest,Nonprofit,1985-01-01,7362,884.3,28.8,-1.3
+TGT-0048,Delta Biosciences,Pharma/Biotech,Generic Pharma,Great Plains,Private,2000-01-01,7565,997.1,20.3,23.0
+TGT-0049,Ironwood Medical Practice,Physician Groups,Anesthesia Groups,Great Plains,Physician-Owned,2017-01-01,3545,459.7,22.8,26.4
+TGT-0050,Onyx RCM Services,Revenue Cycle,Patient Financial Services,West Coast,Physician-Owned,2016-01-01,5184,304.4,19.9,20.0
+TGT-0051,Zenith Smile Partners,Dental,Oral Surgery,Multi-Regional,Private,1993-01-01,1285,74.2,26.7,19.7
+TGT-0052,Junction Digital Health,Health IT,Clinical Decision Support,Multi-Regional,Family-Owned,2011-01-01,560,30.7,19.3,26.7
+TGT-0053,Flatiron Managed Care,Health Insurance,Managed Care,Great Plains,Private,2007-01-01,2496,300.6,31.0,28.4
+TGT-0054,Benchmark Biosciences,Pharma/Biotech,Drug Delivery,Southwest,Family-Owned,1999-01-01,2285,188.1,8.8,6.8
+TGT-0055,Resolute Therapeutics,Pharma/Biotech,Generic Pharma,National,Physician-Owned,1986-01-01,7479,578.0,23.2,-4.1
+TGT-0056,Resolute Therapeutics,Pharma/Biotech,Generic Pharma,Northeast,Public,2009-01-01,2731,151.3,16.8,21.6
+TGT-0057,Keybridge Biopharma,Pharma/Biotech,Biotech Therapeutics,Southeast,Family-Owned,1986-01-01,6186,586.0,35.0,7.2
+TGT-0058,Atlas Software,Health IT,Data Analytics,Northeast,PE-Backed,1997-01-01,6924,224.7,12.1,-0.6
+TGT-0059,Integrity Health Analytics,Health IT,Population Health,West Coast,Public,1995-01-01,5013,515.7,28.2,-1.0
+TGT-0060,Nexus Wellness Group,Behavioral Health,Autism Services,Northeast,Public,2009-01-01,3299,471.7,13.4,15.7
+TGT-0061,Trident Oral Health,Dental,DSO (Dental Support Org),Southeast,Physician-Owned,1987-01-01,2894,271.8,25.9,-2.6
+TGT-0062,Keybridge Biomedical,Medical Devices,Surgical Instruments,Southeast,Family-Owned,2008-01-01,5256,720.0,20.4,0.4
+TGT-0063,Pacific Wellness Group,Behavioral Health,Psychiatric Hospitals,Multi-Regional,Family-Owned,2014-01-01,3618,467.0,24.0,6.3
+TGT-0064,Quest Dental Care,Dental,DSO (Dental Support Org),Southwest,Family-Owned,2009-01-01,2805,93.8,31.0,1.4
+TGT-0065,Onyx Smile Partners,Dental,Oral Surgery,West Coast,Physician-Owned,2002-01-01,4603,143.7,33.6,-2.0
+TGT-0066,Daybreak Therapeutics,Pharma/Biotech,CDMO,Great Plains,Nonprofit,2016-01-01,3721,465.7,10.5,2.8
+TGT-0067,Greenfield Smile Partners,Dental,Oral Surgery,Great Plains,Physician-Owned,2018-01-01,2866,232.3,28.1,6.6
+TGT-0068,Unity Billing Solutions,Revenue Cycle,Claims Management,Southwest,Private,1997-01-01,2634,116.8,22.5,21.7
+TGT-0069,Integrity Behavioral Health,Behavioral Health,Mental Health Clinics,West Coast,Nonprofit,2018-01-01,4938,315.8,10.7,1.8
+TGT-0070,Delta Smile Partners,Dental,Oral Surgery,Northeast,Nonprofit,1993-01-01,2297,81.5,9.5,5.2
+TGT-0071,Nexus Behavioral,Behavioral Health,Eating Disorder Treatment,National,Public,2015-01-01,3971,329.0,13.0,-3.2
+TGT-0072,Eclipse Financial Services,Revenue Cycle,Coding Services,Great Plains,Private,1988-01-01,1292,61.9,23.2,5.6
+TGT-0073,Daybreak Dental Care,Dental,DSO (Dental Support Org),National,Physician-Owned,1999-01-01,6404,593.7,20.2,10.5
+TGT-0074,Unity Health Coverage,Health Insurance,Dental Insurance,National,Private,1991-01-01,7812,949.4,24.9,4.3
+TGT-0075,Landmark Health Data,Health IT,Revenue Cycle Tech,Multi-Regional,Private,1995-01-01,71,5.6,26.6,11.4
+TGT-0076,Ridgeline Care Partners,Healthcare Services,Urgent Care,West Coast,Nonprofit,2014-01-01,633,71.2,32.9,22.6
+TGT-0077,Latitude Health Plans,Health Insurance,Medicare Advantage,Multi-Regional,PE-Backed,1994-01-01,7491,463.5,11.8,-2.9
+TGT-0078,Equinox Home Care,Home Health/Hospice,Personal Care,Great Plains,Private,2014-01-01,5691,378.4,18.9,4.5
+TGT-0079,Navigator Medical Associates,Physician Groups,Orthopedic Groups,National,Private,2012-01-01,6067,416.7,14.8,-1.8
+TGT-0080,Horizon Benefits Group,Health Insurance,Supplemental Insurance,National,Private,1996-01-01,3904,360.2,19.9,4.7
+TGT-0081,Uplift Health Plans,Health Insurance,Dental Insurance,Great Plains,Public,2011-01-01,2780,190.5,10.8,0.6
+TGT-0082,Ridgeline Life Sciences,Pharma/Biotech,CDMO,Multi-Regional,Private,2014-01-01,771,52.2,16.7,29.0
+TGT-0083,Pinnacle Biosciences,Pharma/Biotech,Drug Delivery,Great Plains,Family-Owned,1988-01-01,1586,146.2,24.8,12.4
+TGT-0084,Haven Billing Solutions,Revenue Cycle,Coding Services,Multi-Regional,PE-Backed,2003-01-01,3639,493.8,21.1,-4.0
+TGT-0085,Alpine Benefits Group,Health Insurance,Medicare Advantage,Multi-Regional,Private,2011-01-01,813,46.3,30.7,-1.0
+TGT-0086,Vanguard Health Analytics,Health IT,Data Analytics,West Coast,Physician-Owned,2002-01-01,3453,449.5,34.5,3.5
+TGT-0087,Granite Physician Partners,Physician Groups,Primary Care Groups,National,Physician-Owned,1993-01-01,7128,273.6,28.9,24.9
+TGT-0088,Pacific Medical Devices,Medical Devices,Wound Care,West Coast,Nonprofit,2004-01-01,6910,694.0,35.0,12.1
+TGT-0089,Acumen Behavioral Health,Behavioral Health,Eating Disorder Treatment,Mid-Atlantic,Public,2009-01-01,3780,536.5,31.5,29.3
+TGT-0090,Granite Dental Group,Dental,General Dentistry,Mountain West,Private,2005-01-01,6150,533.6,32.7,8.3
+TGT-0091,Apex Mental Wellness,Behavioral Health,Eating Disorder Treatment,Multi-Regional,Physician-Owned,2006-01-01,7174,301.6,30.8,-1.5
+TGT-0092,Titan Financial Services,Revenue Cycle,Coding Services,Midwest,Private,2015-01-01,6452,944.0,17.1,19.2
+TGT-0093,Acumen Health Analytics,Health IT,Telehealth,Mid-Atlantic,Nonprofit,2016-01-01,7196,683.1,24.7,3.2
+TGT-0094,Keystone Care at Home,Home Health/Hospice,Hospice,Southeast,Nonprofit,1991-01-01,3684,184.1,16.1,-4.0
+TGT-0095,Sterling MedTech,Medical Devices,Surgical Instruments,Mid-Atlantic,Family-Owned,1994-01-01,2050,192.2,23.3,22.7
+TGT-0096,Harbor Wellness Group,Behavioral Health,Mental Health Clinics,Mountain West,Physician-Owned,2000-01-01,4126,575.7,11.9,11.1
+TGT-0097,Noble Home Health,Home Health/Hospice,Home Infusion,Great Plains,Public,1995-01-01,655,54.4,17.3,15.6
+TGT-0098,Prism Biopharma,Pharma/Biotech,Biotech Therapeutics,Southwest,Family-Owned,2015-01-01,923,54.0,23.4,15.1
+TGT-0099,Highland Home Care,Home Health/Hospice,Home Health,Northeast,Physician-Owned,1988-01-01,7509,771.7,21.4,26.6
+TGT-0100,Jetstream Home Care,Home Health/Hospice,Hospice,Southwest,Nonprofit,1997-01-01,5136,308.5,28.4,21.9
+TGT-0101,Atlas Recovery Centers,Behavioral Health,Substance Abuse Treatment,Great Plains,Private,2008-01-01,6049,276.9,32.6,6.4
+TGT-0102,Gateway Therapeutics,Pharma/Biotech,Generic Pharma,Multi-Regional,Public,2018-01-01,4160,580.8,30.4,4.0
+TGT-0103,Axis Revenue Solutions,Revenue Cycle,Claims Management,Great Plains,Private,1994-01-01,6228,909.2,31.2,20.3
+TGT-0104,Domain Pharma,Pharma/Biotech,Drug Delivery,Mountain West,Private,2001-01-01,4445,199.3,18.0,21.2
+TGT-0105,Foundation Home Care,Home Health/Hospice,Personal Care,Southeast,Nonprofit,1999-01-01,3912,129.1,31.9,14.6
+TGT-0106,Eclipse Managed Care,Health Insurance,Medicare Advantage,West Coast,Nonprofit,2011-01-01,1005,47.0,33.5,5.7
+TGT-0107,Legacy RCM Services,Revenue Cycle,Coding Services,Multi-Regional,PE-Backed,2009-01-01,3766,280.6,33.6,19.4
+TGT-0108,Halcyon Physician Partners,Physician Groups,Orthopedic Groups,Mountain West,Nonprofit,1991-01-01,6879,610.3,19.0,28.3
+TGT-0109,Embark Healthcare,Healthcare Services,Lab Services,Great Plains,Family-Owned,2000-01-01,7057,518.8,34.5,7.9
+TGT-0110,Highland MedTech,Medical Devices,Surgical Instruments,Southwest,Private,2014-01-01,800,87.6,25.3,15.9
+TGT-0111,Zenith Healthcare,Healthcare Services,Ambulatory Surgery Centers,Midwest,Physician-Owned,1998-01-01,612,79.3,23.0,15.5
+TGT-0112,Titan Oral Health,Dental,Oral Surgery,Northeast,Public,1994-01-01,1114,105.6,29.6,-1.2
+TGT-0113,Summit Medical Group,Healthcare Services,Urgent Care,Southwest,Physician-Owned,2005-01-01,179,9.1,9.4,21.0
+TGT-0114,Eclipse Specialty Medicine,Physician Groups,Multi-Specialty Groups,Great Plains,Public,2017-01-01,4913,211.7,21.6,28.1
+TGT-0115,Yarrow Medical Group,Healthcare Services,Lab Services,Great Plains,Nonprofit,1986-01-01,548,82.1,30.9,9.9
+TGT-0116,Navigator Technologies,Health IT,Clinical Decision Support,Southeast,Public,1994-01-01,588,26.5,24.9,15.5
+TGT-0117,Ironwood Device Solutions,Medical Devices,Cardiac Devices,West Coast,Family-Owned,2017-01-01,5009,408.9,29.4,-1.0
+TGT-0118,Momentum Specialty Medicine,Physician Groups,Primary Care Groups,Southwest,Family-Owned,2006-01-01,6828,576.4,19.2,-1.7
+TGT-0119,Noble Biopharma,Pharma/Biotech,Biotech Therapeutics,Midwest,Nonprofit,2015-01-01,599,24.5,10.3,10.1
+TGT-0120,Daybreak Medical Devices,Medical Devices,Diagnostic Equipment,National,Physician-Owned,2006-01-01,5538,247.4,17.5,18.3
+TGT-0121,Ridgeline Biosciences,Pharma/Biotech,Specialty Pharma,West Coast,Public,1991-01-01,4784,434.8,12.2,11.9
+TGT-0122,Daybreak Digital Health,Health IT,Telehealth,Southeast,Public,1999-01-01,6662,542.9,23.1,21.9
+TGT-0123,Daybreak Health Plans,Health Insurance,Supplemental Insurance,National,Nonprofit,2002-01-01,287,14.8,27.0,5.8
+TGT-0124,Pinnacle Surgical,Medical Devices,Orthopedic Devices,Midwest,Physician-Owned,2010-01-01,620,29.2,25.1,-3.9
+TGT-0125,Foundation Specialty Medicine,Physician Groups,Primary Care Groups,Great Plains,Public,1995-01-01,3081,207.6,16.8,27.9
+TGT-0126,Beacon Insurance Solutions,Health Insurance,Managed Care,Midwest,Physician-Owned,1988-01-01,5571,221.7,20.0,9.8
+TGT-0127,Keybridge Benefits Group,Health Insurance,Dental Insurance,Southwest,Physician-Owned,1992-01-01,2877,234.7,15.6,18.7
+TGT-0128,Unity Revenue Solutions,Revenue Cycle,Denial Management,Southwest,Family-Owned,1988-01-01,112,6.1,33.5,21.9
+TGT-0129,Westward Home Health,Home Health/Hospice,Palliative Care,Northeast,Family-Owned,2012-01-01,1489,67.8,22.4,3.1
+TGT-0130,Frontier Specialty Medicine,Physician Groups,Cardiology Groups,Northeast,Family-Owned,1986-01-01,3816,536.3,31.3,15.2
+TGT-0131,Keybridge Benefits Group,Health Insurance,Dental Insurance,Southeast,Family-Owned,1986-01-01,7965,549.4,29.6,16.6
+TGT-0132,Momentum Medical Devices,Medical Devices,Surgical Instruments,Southwest,Family-Owned,2010-01-01,4342,171.2,31.5,21.1
+TGT-0133,Cascade Dental,Dental,Oral Surgery,Multi-Regional,Nonprofit,1992-01-01,4396,400.9,32.5,7.2
+TGT-0134,Nexus Mental Wellness,Behavioral Health,Mental Health Clinics,West Coast,PE-Backed,1996-01-01,4984,240.9,28.5,-2.4
+TGT-0135,Equinox Claims Solutions,Revenue Cycle,Patient Financial Services,Great Plains,Nonprofit,2005-01-01,7129,1044.5,16.5,10.4
+TGT-0136,Trident Billing Solutions,Revenue Cycle,Patient Financial Services,National,Private,2007-01-01,4206,163.6,20.5,-3.7
+TGT-0137,Frontier Medical Devices,Medical Devices,Orthopedic Devices,National,Physician-Owned,2017-01-01,3199,273.6,23.0,22.7
+TGT-0138,Flatiron Care Partners,Healthcare Services,Specialty Clinics,Southwest,Public,2015-01-01,4157,200.0,9.7,-1.4
+TGT-0139,Wellspring Surgical,Medical Devices,Surgical Instruments,Northeast,PE-Backed,2013-01-01,3649,338.9,24.5,7.7
+TGT-0140,Junction Home Care,Home Health/Hospice,Home Infusion,National,Private,2006-01-01,589,41.0,23.1,8.5
+TGT-0141,Vanguard Home Care,Home Health/Hospice,Personal Care,Southeast,Physician-Owned,1994-01-01,7559,544.1,34.1,19.4
+TGT-0142,Ironwood Pharma,Pharma/Biotech,Generic Pharma,West Coast,Physician-Owned,2009-01-01,5321,665.1,30.0,18.5
+TGT-0143,Latitude Clinical Group,Physician Groups,Multi-Specialty Groups,Mid-Atlantic,Private,2008-01-01,2580,133.2,13.8,28.2
+TGT-0144,Jubilee RCM Services,Revenue Cycle,Billing Services,Midwest,Private,2003-01-01,6967,867.9,21.7,13.9
+TGT-0145,Axis Clinical Group,Physician Groups,Multi-Specialty Groups,Midwest,Physician-Owned,2009-01-01,1313,65.0,30.4,22.0
+TGT-0146,Atlas Behavioral Health,Behavioral Health,Eating Disorder Treatment,Mid-Atlantic,Nonprofit,2000-01-01,7992,665.8,15.7,21.2
+TGT-0147,Acumen RCM Services,Revenue Cycle,Billing Services,West Coast,Family-Owned,1997-01-01,3063,341.2,23.4,10.4
+TGT-0148,Wellspring Visiting Health,Home Health/Hospice,Home Infusion,Mountain West,PE-Backed,1997-01-01,6613,678.2,31.6,-3.2
+TGT-0149,Continuum Revenue Solutions,Revenue Cycle,Claims Management,Multi-Regional,Private,2003-01-01,737,89.6,15.4,26.7
+TGT-0150,Keystone Mental Wellness,Behavioral Health,Eating Disorder Treatment,Great Plains,Public,1986-01-01,3448,125.5,21.6,3.3
+TGT-0151,Jubilee Technologies,Health IT,Telehealth,Mid-Atlantic,Private,2006-01-01,6532,310.4,9.0,27.1
+TGT-0152,Sapphire Financial Services,Revenue Cycle,Billing Services,National,Private,1990-01-01,205,12.4,30.5,14.2
+TGT-0153,Latitude Health Plans,Health Insurance,Supplemental Insurance,West Coast,PE-Backed,2004-01-01,1048,37.4,19.3,22.8
+TGT-0154,Optima Financial Services,Revenue Cycle,Coding Services,National,Physician-Owned,1986-01-01,5226,480.0,14.5,0.0
+TGT-0155,Kensington Biopharma,Pharma/Biotech,Specialty Pharma,Southwest,Physician-Owned,2011-01-01,1584,173.8,10.3,29.1
+TGT-0156,Benchmark Systems,Health IT,Population Health,Multi-Regional,Physician-Owned,1986-01-01,3248,437.8,9.2,8.5
+TGT-0157,Horizon MedTech,Medical Devices,Orthopedic Devices,Southeast,Public,2000-01-01,6054,659.0,10.8,15.4
+TGT-0158,Atlas MedTech,Medical Devices,Diagnostic Equipment,Multi-Regional,Public,1996-01-01,6852,846.2,20.5,19.3
+TGT-0159,Eclipse Behavioral Health,Behavioral Health,Mental Health Clinics,Northeast,Public,1997-01-01,408,51.0,31.9,6.0
+TGT-0160,Highland Visiting Health,Home Health/Hospice,Personal Care,Great Plains,Public,1987-01-01,6220,669.4,15.7,25.2
+TGT-0161,Zenith Medical Group,Healthcare Services,Lab Services,Southeast,Public,2012-01-01,7336,572.2,19.9,28.5
+TGT-0162,Voyager Biomedical,Medical Devices,Diagnostic Equipment,Mid-Atlantic,Physician-Owned,2002-01-01,6613,263.9,19.5,10.1
+TGT-0163,Sterling Recovery Centers,Behavioral Health,Psychiatric Hospitals,Southeast,Private,2005-01-01,5464,357.8,20.0,20.1
+TGT-0164,Bridgepoint Behavioral Health,Behavioral Health,Eating Disorder Treatment,Northeast,Nonprofit,2007-01-01,5086,761.8,15.4,29.3
+TGT-0165,Illuminate Medical Group,Healthcare Services,Ambulatory Surgery Centers,Multi-Regional,Nonprofit,1995-01-01,7855,265.0,30.9,18.7
+TGT-0166,Radius Revenue Solutions,Revenue Cycle,Coding Services,Southwest,Nonprofit,2008-01-01,3016,229.0,23.3,16.2
+TGT-0167,Embark Financial Services,Revenue Cycle,Claims Management,Southeast,Physician-Owned,1993-01-01,4387,324.8,16.5,4.8
+TGT-0168,Encore Health Analytics,Health IT,EHR/EMR,Multi-Regional,Family-Owned,1992-01-01,2194,269.9,27.0,2.5
+TGT-0169,Uplift Insurance Solutions,Health Insurance,Medicaid Managed Care,Southeast,PE-Backed,1989-01-01,3753,190.3,27.3,29.9
+TGT-0170,Eclipse Device Solutions,Medical Devices,Orthopedic Devices,Multi-Regional,Public,2004-01-01,7024,343.5,27.2,19.5
+TGT-0171,Xcel Mental Wellness,Behavioral Health,Autism Services,Southeast,PE-Backed,1993-01-01,1989,248.3,8.7,14.4
+TGT-0172,Continuum Surgical,Medical Devices,Cardiac Devices,National,Private,1989-01-01,2583,200.9,27.4,11.8
+TGT-0173,Flatiron Pharma,Pharma/Biotech,CDMO,Midwest,Public,1989-01-01,3736,320.9,22.0,-0.5
+TGT-0174,Encore Physician Partners,Physician Groups,Anesthesia Groups,Mountain West,Physician-Owned,1988-01-01,6860,308.0,12.1,0.8
+TGT-0175,Bridgepoint Device Solutions,Medical Devices,Diagnostic Equipment,West Coast,Private,2001-01-01,1658,176.1,22.9,-0.6
+TGT-0176,Acumen Home Health,Home Health/Hospice,Personal Care,Multi-Regional,Nonprofit,1995-01-01,4898,700.4,12.2,18.1
+TGT-0177,Equinox Health Plans,Health Insurance,Medicaid Managed Care,Northeast,Private,1987-01-01,7820,836.5,23.6,17.8
+TGT-0178,Luminary Health Plans,Health Insurance,Dental Insurance,Great Plains,Nonprofit,2003-01-01,5308,768.6,21.0,23.2
+TGT-0179,Prism Pharma,Pharma/Biotech,Biotech Therapeutics,Northeast,PE-Backed,2013-01-01,3454,304.3,13.5,16.2
+TGT-0180,Bridgepoint Biomedical,Medical Devices,Orthopedic Devices,Midwest,Public,2017-01-01,4651,198.8,14.5,-0.7
+TGT-0181,Titan Revenue Solutions,Revenue Cycle,Billing Services,Northeast,Public,2009-01-01,7129,740.3,14.7,25.3
+TGT-0182,Flatiron Recovery Centers,Behavioral Health,Autism Services,Southwest,PE-Backed,2016-01-01,4266,367.0,31.7,12.4
+TGT-0183,Wellspring Health Analytics,Health IT,Clinical Decision Support,Southwest,PE-Backed,2007-01-01,448,16.2,21.4,25.9
+TGT-0184,Acumen Revenue Solutions,Revenue Cycle,Claims Management,Southeast,Family-Owned,1993-01-01,7279,449.4,17.9,9.1
+TGT-0185,Beacon Medical,Healthcare Services,Specialty Clinics,Multi-Regional,PE-Backed,2008-01-01,4582,296.1,18.4,10.8
+TGT-0186,Luminary Clinical Group,Physician Groups,Cardiology Groups,Southeast,PE-Backed,1991-01-01,3276,245.0,34.6,14.5
+TGT-0187,Gateway Device Solutions,Medical Devices,Diagnostic Equipment,Multi-Regional,Family-Owned,2017-01-01,379,13.4,11.7,6.7
+TGT-0188,Prism RCM Services,Revenue Cycle,Denial Management,National,Physician-Owned,1993-01-01,2736,387.9,16.6,8.8
+TGT-0189,Halcyon Benefits Group,Health Insurance,Medicaid Managed Care,Multi-Regional,Physician-Owned,2016-01-01,5855,571.2,20.8,-4.4
+TGT-0190,Keybridge Device Solutions,Medical Devices,Surgical Instruments,West Coast,Nonprofit,1986-01-01,4939,429.5,34.1,22.4
+TGT-0191,Kinetic Health Plans,Health Insurance,Supplemental Insurance,National,Family-Owned,1995-01-01,4344,458.2,24.7,24.4
+TGT-0192,Apex Wellness Group,Behavioral Health,Mental Health Clinics,Southeast,PE-Backed,1986-01-01,3662,247.7,12.1,19.2
+TGT-0193,Kensington Life Sciences,Pharma/Biotech,Drug Delivery,Northeast,Nonprofit,1993-01-01,4299,235.9,16.8,18.2
+TGT-0194,Vertex Physician Partners,Physician Groups,Orthopedic Groups,Great Plains,Physician-Owned,2006-01-01,4525,328.1,28.8,20.2
+TGT-0195,Tidewater Hospice Care,Home Health/Hospice,Personal Care,Southwest,Public,2004-01-01,1892,270.5,34.5,22.0
+TGT-0196,Vertex Dental Care,Dental,Pediatric Dental,Mid-Atlantic,Physician-Owned,2002-01-01,2407,107.4,26.3,8.3
+TGT-0197,Titan Biopharma,Pharma/Biotech,Biotech Therapeutics,Northeast,Public,1990-01-01,2887,406.7,25.7,21.2
+TGT-0198,Acumen Smile Partners,Dental,Orthodontics,Multi-Regional,Nonprofit,2002-01-01,1174,50.6,28.0,3.4
+TGT-0199,Zephyr Healthcare,Healthcare Services,Lab Services,Southwest,Private,1991-01-01,3435,239.2,20.8,18.8
+TGT-0200,Continuum Mental Wellness,Behavioral Health,Substance Abuse Treatment,Mountain West,Nonprofit,2015-01-01,3961,428.0,28.4,5.1
+TGT-0201,Keystone Visiting Health,Home Health/Hospice,Home Health,Southwest,Physician-Owned,1987-01-01,7531,1058.7,19.3,24.3
+TGT-0202,Voyager Healthcare,Healthcare Services,Specialty Clinics,West Coast,Private,1985-01-01,2494,244.8,10.9,29.4
+TGT-0203,Benchmark Visiting Health,Home Health/Hospice,Home Infusion,Great Plains,PE-Backed,2017-01-01,3884,243.7,29.8,6.6
+TGT-0204,Encore Revenue Solutions,Revenue Cycle,Claims Management,Mid-Atlantic,Public,1997-01-01,1487,153.6,25.2,9.2
+TGT-0205,Westward Pharma,Pharma/Biotech,Drug Delivery,Mountain West,Nonprofit,1991-01-01,1563,231.0,20.9,27.8
+TGT-0206,Granite Healthcare,Healthcare Services,Post-Acute Care,Great Plains,Public,2006-01-01,2523,252.0,23.5,4.2
+TGT-0207,Crest Medical Devices,Medical Devices,Diagnostic Equipment,Great Plains,Public,1995-01-01,3371,378.7,32.9,26.1
+TGT-0208,Sterling Home Care,Home Health/Hospice,Home Health,National,PE-Backed,1999-01-01,7892,363.3,12.1,21.2
+TGT-0209,Keybridge Health Coverage,Health Insurance,Medicaid Managed Care,Great Plains,Physician-Owned,1998-01-01,6291,375.5,28.4,25.6
+TGT-0210,Osprey Systems,Health IT,Population Health,Mid-Atlantic,Private,1992-01-01,555,71.8,32.4,2.1
+TGT-0211,Cascade Medical Practice,Physician Groups,Primary Care Groups,Multi-Regional,Family-Owned,1992-01-01,5622,307.2,23.7,-1.8
+TGT-0212,Crest Specialty Medicine,Physician Groups,Orthopedic Groups,Midwest,Physician-Owned,2011-01-01,3792,370.4,23.1,18.5
+TGT-0213,Highland Home Care,Home Health/Hospice,Home Health,Northeast,Nonprofit,1998-01-01,4787,185.6,19.4,19.5
+TGT-0214,Eclipse Specialty Medicine,Physician Groups,Multi-Specialty Groups,Northeast,Public,2011-01-01,1524,186.3,28.7,29.2
+TGT-0215,Foundation Life Sciences,Pharma/Biotech,Biotech Therapeutics,Mountain West,Family-Owned,1990-01-01,5642,822.0,31.6,-0.3
+TGT-0216,Delta Device Solutions,Medical Devices,Surgical Instruments,Mountain West,Physician-Owned,1993-01-01,6012,886.5,30.5,21.5
+TGT-0217,Benchmark Care at Home,Home Health/Hospice,Home Infusion,Multi-Regional,Family-Owned,1999-01-01,2077,177.1,12.2,1.6
+TGT-0218,Keybridge Systems,Health IT,EHR/EMR,Northeast,PE-Backed,1998-01-01,601,25.3,8.9,15.9
+TGT-0219,Atlas Health Services,Healthcare Services,Urgent Care,Great Plains,PE-Backed,1998-01-01,6229,832.5,9.5,12.6
+TGT-0220,Flatiron Home Care,Home Health/Hospice,Hospice,National,Physician-Owned,2005-01-01,1990,131.8,11.9,18.1
+TGT-0221,Trident Smile Partners,Dental,Pediatric Dental,Northeast,Physician-Owned,1996-01-01,5178,577.1,23.0,-3.4
+TGT-0222,Zephyr MedTech,Medical Devices,Cardiac Devices,Mountain West,Family-Owned,1994-01-01,2506,188.4,28.4,11.6
+TGT-0223,Titan Dental Care,Dental,Oral Surgery,Northeast,Physician-Owned,2011-01-01,7978,638.1,22.3,8.6
+TGT-0224,Zenith Home Health,Home Health/Hospice,Hospice,Great Plains,Public,1990-01-01,4437,518.9,13.1,4.4
+TGT-0225,Atlas Health Plans,Health Insurance,Supplemental Insurance,Southwest,Physician-Owned,1998-01-01,3977,219.0,32.5,5.6
+TGT-0226,Forge Care Partners,Healthcare Services,Urgent Care,Southeast,Nonprofit,2015-01-01,7541,445.8,24.3,2.2
+TGT-0227,Westward Smile Partners,Dental,General Dentistry,Mountain West,Family-Owned,2007-01-01,2576,158.1,21.8,12.4
+TGT-0228,Sapphire Software,Health IT,Data Analytics,Mid-Atlantic,PE-Backed,2008-01-01,2613,208.2,23.2,2.7
+TGT-0229,Onyx Wellness Group,Behavioral Health,Substance Abuse Treatment,National,Physician-Owned,2011-01-01,2468,119.2,16.9,8.3
+TGT-0230,Continuum Smile Partners,Dental,Pediatric Dental,West Coast,Family-Owned,2016-01-01,3825,192.0,29.5,0.9
+TGT-0231,Encore Clinical Group,Physician Groups,Orthopedic Groups,Northeast,Physician-Owned,1987-01-01,6923,911.1,33.5,18.4
+TGT-0232,Sentinel Health Systems,Healthcare Services,Specialty Clinics,Southwest,Private,1994-01-01,124,7.0,20.3,-2.9
+TGT-0233,Uplift Health Plans,Health Insurance,Dental Insurance,Northeast,Physician-Owned,2011-01-01,147,4.7,27.5,13.8
+TGT-0234,Wellspring Care at Home,Home Health/Hospice,Home Health,Midwest,Private,1991-01-01,4345,208.0,13.2,13.4
+TGT-0235,Highland Medical Devices,Medical Devices,Orthopedic Devices,Mid-Atlantic,Family-Owned,2014-01-01,4678,276.9,26.8,5.5
+TGT-0236,Apex Technologies,Health IT,Data Analytics,Mountain West,Family-Owned,2009-01-01,4577,398.8,25.2,19.6
+TGT-0237,Momentum Tech Solutions,Health IT,Clinical Decision Support,Mid-Atlantic,Physician-Owned,1991-01-01,7380,689.1,9.1,2.4
+TGT-0238,Pacific Health Plans,Health Insurance,Dental Insurance,Southeast,Nonprofit,2002-01-01,7417,705.8,25.8,1.3
+TGT-0239,Haven Device Solutions,Medical Devices,Surgical Instruments,Midwest,Nonprofit,2010-01-01,7659,300.5,12.4,3.4
+TGT-0240,Zenith Life Sciences,Pharma/Biotech,Drug Delivery,Midwest,Nonprofit,1990-01-01,4152,496.0,17.3,-1.6
+TGT-0241,Axis Oral Health,Dental,DSO (Dental Support Org),National,Physician-Owned,2010-01-01,7987,981.0,8.8,4.6
+TGT-0242,Kinetic Billing Solutions,Revenue Cycle,Patient Financial Services,Multi-Regional,Family-Owned,2012-01-01,1571,175.3,25.8,-2.0
+TGT-0243,Mosaic Health Plans,Health Insurance,Medicaid Managed Care,Southeast,Public,1994-01-01,3162,364.9,25.1,20.9
+TGT-0244,Nexus Medical Devices,Medical Devices,Orthopedic Devices,Northeast,Public,2013-01-01,2998,363.8,10.8,-1.9
+TGT-0245,Daybreak Biosciences,Pharma/Biotech,CDMO,Multi-Regional,Family-Owned,1991-01-01,265,10.8,23.0,15.9
+TGT-0246,Summit MedTech,Medical Devices,Cardiac Devices,Mountain West,Family-Owned,1990-01-01,5987,827.0,32.4,29.2
+TGT-0247,Cascade Managed Care,Health Insurance,Supplemental Insurance,Midwest,PE-Backed,2002-01-01,2516,156.5,11.9,0.9
+TGT-0248,Trident Care at Home,Home Health/Hospice,Home Infusion,Southeast,Public,2001-01-01,7785,463.9,24.9,15.8
+TGT-0249,Nexus Dental Group,Dental,Pediatric Dental,West Coast,Private,2010-01-01,2771,363.0,18.3,25.2
+TGT-0250,Momentum Claims Solutions,Revenue Cycle,Claims Management,Midwest,Public,2005-01-01,4991,717.1,13.4,6.0
+TGT-0251,Sterling Life Sciences,Pharma/Biotech,Biotech Therapeutics,National,PE-Backed,2005-01-01,3130,199.2,29.2,7.8
+TGT-0252,Halcyon Health Coverage,Health Insurance,Medicare Advantage,Midwest,Nonprofit,1986-01-01,7857,921.4,33.5,2.3
+TGT-0253,Junction Care at Home,Home Health/Hospice,Home Health,Midwest,Nonprofit,2004-01-01,2032,122.6,12.2,9.8
+TGT-0254,Osprey Biosciences,Pharma/Biotech,Specialty Pharma,Great Plains,Physician-Owned,2010-01-01,4427,401.9,32.9,19.2
+TGT-0255,Domain Clinical Group,Physician Groups,Multi-Specialty Groups,National,Nonprofit,1990-01-01,945,115.5,25.8,7.4
+TGT-0256,Equinox Managed Care,Health Insurance,Managed Care,Mid-Atlantic,Family-Owned,1991-01-01,136,5.7,14.0,21.1
+TGT-0257,Flatiron Physician Partners,Physician Groups,Anesthesia Groups,Great Plains,Public,2010-01-01,3843,471.5,23.9,12.5
+TGT-0258,Tidewater Medical Devices,Medical Devices,Surgical Instruments,West Coast,Family-Owned,1990-01-01,1000,129.8,27.7,7.2
+TGT-0259,Haven Device Solutions,Medical Devices,Cardiac Devices,Great Plains,Public,2015-01-01,849,70.1,26.8,6.2
+TGT-0260,Optima Home Health,Home Health/Hospice,Home Health,Mid-Atlantic,Nonprofit,1991-01-01,5597,705.3,33.1,20.9
+TGT-0261,Continuum Physician Partners,Physician Groups,Primary Care Groups,Mid-Atlantic,Physician-Owned,2012-01-01,7901,675.1,29.5,17.0
+TGT-0262,Highland Behavioral,Behavioral Health,Eating Disorder Treatment,National,PE-Backed,2013-01-01,4901,399.7,8.1,2.5
+TGT-0263,Flatiron Home Health,Home Health/Hospice,Home Health,Multi-Regional,PE-Backed,2008-01-01,2720,145.9,11.1,18.5
+TGT-0264,Vertex Claims Solutions,Revenue Cycle,Denial Management,Mountain West,Physician-Owned,2010-01-01,4858,212.3,17.5,11.0
+TGT-0265,Kensington Wellness Group,Behavioral Health,Autism Services,Southeast,Nonprofit,1993-01-01,2615,115.4,16.2,1.4
+TGT-0266,Granite Behavioral Health,Behavioral Health,Psychiatric Hospitals,National,PE-Backed,2009-01-01,3515,183.8,25.2,19.3
+TGT-0267,Cascade Behavioral Health,Behavioral Health,Psychiatric Hospitals,West Coast,PE-Backed,1996-01-01,2627,344.2,24.7,25.3
+TGT-0268,Sentinel Healthcare,Healthcare Services,Specialty Clinics,Mountain West,Physician-Owned,2017-01-01,5399,482.7,26.5,9.5
+TGT-0269,Cascade Revenue Solutions,Revenue Cycle,Patient Financial Services,National,Private,1999-01-01,2442,82.8,14.1,5.1
+TGT-0270,Voyager Claims Solutions,Revenue Cycle,Denial Management,Multi-Regional,Private,1992-01-01,2244,276.0,30.2,7.8
+TGT-0271,Navigator Medical,Healthcare Services,Lab Services,Southwest,Family-Owned,1991-01-01,6079,787.9,28.3,5.4
+TGT-0272,Onyx Medical Group,Healthcare Services,Specialty Clinics,Southeast,Family-Owned,1992-01-01,6403,815.9,13.7,20.8
+TGT-0273,Latitude Surgical,Medical Devices,Wound Care,National,PE-Backed,1998-01-01,6714,368.1,9.6,7.3
+TGT-0274,Acumen Hospice Care,Home Health/Hospice,Personal Care,Mid-Atlantic,Nonprofit,2003-01-01,2420,238.9,33.7,13.0
+TGT-0275,Junction Technologies,Health IT,Revenue Cycle Tech,West Coast,Nonprofit,1993-01-01,5796,776.3,14.7,19.9
+TGT-0276,Uplift Dental Group,Dental,Pediatric Dental,National,Nonprofit,2002-01-01,5193,413.9,20.2,17.2
+TGT-0277,Xcel Tech Solutions,Health IT,Clinical Decision Support,West Coast,Nonprofit,2008-01-01,3774,543.6,16.8,-4.9
+TGT-0278,Prism Tech Solutions,Health IT,Data Analytics,Mid-Atlantic,Private,2010-01-01,1834,268.1,30.3,12.3
+TGT-0279,Axis Device Solutions,Medical Devices,Orthopedic Devices,National,PE-Backed,2016-01-01,6507,463.6,26.4,-3.3
+TGT-0280,Prism Technologies,Health IT,Data Analytics,Southeast,PE-Backed,2013-01-01,3789,114.0,33.9,2.1
+TGT-0281,Alpine Recovery Centers,Behavioral Health,Autism Services,Southeast,Nonprofit,2008-01-01,2101,83.8,25.9,17.7
+TGT-0282,Unity Care Partners,Healthcare Services,Specialty Clinics,Southwest,Family-Owned,1990-01-01,5814,240.8,13.8,-2.3
+TGT-0283,Yarrow Managed Care,Health Insurance,Medicare Advantage,Northeast,Private,2006-01-01,6743,299.9,31.2,19.3
+TGT-0284,Kinetic Financial Services,Revenue Cycle,Coding Services,Southeast,Nonprofit,1991-01-01,895,60.5,31.8,-0.2
+TGT-0285,Eclipse Wellness Group,Behavioral Health,Mental Health Clinics,National,Private,1995-01-01,3655,263.7,13.8,21.2
+TGT-0286,Navigator Therapeutics,Pharma/Biotech,Drug Delivery,Southeast,Private,1993-01-01,6214,278.3,27.7,7.3
+TGT-0287,Sentinel Therapeutics,Pharma/Biotech,Biotech Therapeutics,West Coast,Nonprofit,1990-01-01,2082,200.7,24.2,16.3
+TGT-0288,Trident Healthcare,Healthcare Services,Lab Services,Multi-Regional,Physician-Owned,2017-01-01,1595,191.0,16.0,-3.1
+TGT-0289,Granite Dental,Dental,Pediatric Dental,Southwest,Family-Owned,1989-01-01,4377,598.1,8.3,7.6
+TGT-0290,Granite Device Solutions,Medical Devices,Diagnostic Equipment,Mountain West,Public,1996-01-01,6298,544.9,34.7,-2.4
+TGT-0291,Summit Benefits Group,Health Insurance,Managed Care,Southwest,Private,1988-01-01,7821,975.4,21.7,17.0
+TGT-0292,Latitude Specialty Medicine,Physician Groups,Orthopedic Groups,Southeast,Nonprofit,1994-01-01,2323,93.0,10.1,27.2
+TGT-0293,Westward Behavioral Health,Behavioral Health,Psychiatric Hospitals,National,Nonprofit,1989-01-01,2590,294.8,27.7,24.6
+TGT-0294,Keystone Health Services,Healthcare Services,Urgent Care,Southeast,Family-Owned,1988-01-01,2583,283.9,25.8,1.1
+TGT-0295,Sentinel Care Partners,Healthcare Services,Lab Services,Northeast,PE-Backed,2016-01-01,7857,562.6,22.0,23.8
+TGT-0296,Embark Hospice Care,Home Health/Hospice,Hospice,West Coast,Nonprofit,1992-01-01,6369,878.8,17.0,10.0
+TGT-0297,Onyx Clinical Group,Physician Groups,Multi-Specialty Groups,Southeast,Family-Owned,2014-01-01,4234,310.0,21.5,14.8
+TGT-0298,Noble Medical Devices,Medical Devices,Diagnostic Equipment,National,Nonprofit,1992-01-01,1921,228.4,8.1,25.1
+TGT-0299,Atlas Health Services,Healthcare Services,Urgent Care,Mid-Atlantic,Family-Owned,1994-01-01,1516,214.9,31.2,14.4
+TGT-0300,Westward Therapeutics,Pharma/Biotech,Generic Pharma,Mountain West,Nonprofit,2005-01-01,2272,293.4,23.4,-0.8

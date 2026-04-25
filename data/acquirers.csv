@@ -1,0 +1,41 @@
+acquirer_id,acquirer_name,acquirer_type,primary_sector_focus,headquarters,ticker_or_status,employee_count,annual_revenue_mm,founded_date,geographic_reach
+ACQ-001,UnitedHealth Group,Strategic,Health Insurance,"Minneapolis, MN",NYSE: UNH,350000,22000,1977-01-01,National
+ACQ-002,CVS Health,Strategic,Healthcare Services,"Woonsocket, RI",NYSE: CVS,300000,12000,1963-01-01,National
+ACQ-003,HCA Healthcare,Strategic,Healthcare Services,"Nashville, TN",NYSE: HCA,60000,5200,1968-01-01,National
+ACQ-004,Elevance Health,Strategic,Health Insurance,"Indianapolis, IN",NYSE: ELV,170000,6800,1944-01-01,National
+ACQ-005,Tenet Healthcare,Strategic,Healthcare Services,"Dallas, TX",NYSE: THC,110000,3500,1969-01-01,Multi-Regional
+ACQ-006,Molina Healthcare,Strategic,Health Insurance,"Long Beach, CA",NYSE: MOH,36000,2200,1980-01-01,Multi-Regional
+ACQ-007,Amedisys,Strategic,Home Health/Hospice,"Baton Rouge, LA",NASDAQ: AMED,21000,1800,1982-01-01,National
+ACQ-008,Acadia Healthcare,Strategic,Behavioral Health,"Franklin, TN",NASDAQ: ACHC,23000,2400,2005-01-01,National
+ACQ-009,Encompass Health,Strategic,Home Health/Hospice,"Birmingham, AL",NYSE: EHC,40000,3100,1984-01-01,Multi-Regional
+ACQ-010,DaVita,Strategic,Healthcare Services,"Denver, CO",NYSE: DVA,69000,4500,1994-01-01,National
+ACQ-011,Veeva Systems,Strategic,Health IT,"Pleasanton, CA",NYSE: VEEV,7500,2300,2007-01-01,National
+ACQ-012,Phreesia,Strategic,Health IT,"Raleigh, NC",NYSE: PHR,2800,400,2005-01-01,National
+ACQ-013,Evolent Health,Strategic,Health IT,"Arlington, VA",NYSE: EVH,5000,800,2011-01-01,National
+ACQ-014,HealthStream,Strategic,Health IT,"Nashville, TN",NASDAQ: HSTM,1200,280,1990-01-01,National
+ACQ-015,Patterson Companies,Strategic,Dental,"Saint Paul, MN",NASDAQ: PDCO,7600,1500,1877-01-01,National
+ACQ-016,Henry Schein,Strategic,Medical Devices,"Melville, NY",NASDAQ: HSIC,25000,3200,1932-01-01,National
+ACQ-017,Hologic,Strategic,Medical Devices,"Marlborough, MA",NASDAQ: HOLX,7000,2100,1985-01-01,National
+ACQ-018,Medline Industries,Strategic,Medical Devices,"Northfield, IL",Private,35000,4200,1966-01-01,National
+ACQ-019,R1 RCM,Strategic,Revenue Cycle,"Murray, UT",NASDAQ: RCM,28000,2100,2003-01-01,National
+ACQ-020,Qualifacts,Strategic,Health IT,"Nashville, TN",Private,1500,350,2000-01-01,National
+ACQ-021,KKR,Financial Sponsor,Diversified,"New York, NY",NYSE: KKR,,,1976-01-01,National
+ACQ-022,Blackstone,Financial Sponsor,Diversified,"New York, NY",NYSE: BX,,,1985-01-01,National
+ACQ-023,TPG Capital,Financial Sponsor,Diversified,"San Francisco, CA",NASDAQ: TPG,,,1992-01-01,National
+ACQ-024,Hellman & Friedman,Financial Sponsor,Diversified,"San Francisco, CA",Private,,,1984-01-01,National
+ACQ-025,Welsh Carson,Financial Sponsor,Healthcare,"New York, NY",Private,,,1979-01-01,National
+ACQ-026,Warburg Pincus,Financial Sponsor,Healthcare,"New York, NY",Private,,,1966-01-01,National
+ACQ-027,Bain Capital,Financial Sponsor,Diversified,"Boston, MA",Private,,,1984-01-01,National
+ACQ-028,Advent International,Financial Sponsor,Diversified,"Boston, MA",Private,,,1984-01-01,National
+ACQ-029,General Atlantic,Financial Sponsor,Growth Equity,"New York, NY",Private,,,1980-01-01,National
+ACQ-030,Summit Partners,Financial Sponsor,Growth Equity,"Boston, MA",Private,,,1984-01-01,National
+ACQ-031,Thoma Bravo,Financial Sponsor,Technology,"Chicago, IL",Private,,,2008-01-01,National
+ACQ-032,Vista Equity Partners,Financial Sponsor,Technology,"Austin, TX",Private,,,2000-01-01,National
+ACQ-033,New Mountain Capital,Financial Sponsor,Healthcare,"New York, NY",Private,,,1999-01-01,National
+ACQ-034,Oak Hill Capital,Financial Sponsor,Diversified,"New York, NY",Private,,,1986-01-01,National
+ACQ-035,Cerberus Capital,Financial Sponsor,Diversified,"New York, NY",Private,,,1992-01-01,National
+ACQ-036,Water Street Healthcare,Financial Sponsor,Healthcare,"Chicago, IL",Private,,,2008-01-01,National
+ACQ-037,Frazier Healthcare,Financial Sponsor,Healthcare,"Seattle, WA",Private,,,1991-01-01,National
+ACQ-038,Great Hill Partners,Financial Sponsor,Technology,"Boston, MA",Private,,,1998-01-01,National
+ACQ-039,Apax Partners,Financial Sponsor,Diversified,"London, UK",Private,,,1969-01-01,National
+ACQ-040,Leonard Green,Financial Sponsor,Diversified,"Los Angeles, CA",Private,,,1989-01-01,National

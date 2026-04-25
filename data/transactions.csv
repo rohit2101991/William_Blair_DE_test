@@ -1,0 +1,501 @@
+transaction_id,target_id,acquirer_id,announce_date,close_date,deal_year,deal_quarter,deal_type,financing_type,deal_size_mm,ev_ebitda_multiple,ev_revenue_multiple,synergy_pct_of_deal,outcome,strategic_rationale_tags,num_bidders,days_to_close
+TXN-0001,TGT-0027,ACQ-012,2018-02-20,,2018,Q1,Minority Investment,All Cash,694.8,20.7,3.04,4.5,Pending,Diversification|Technology Capability,8,
+TXN-0002,TGT-0125,ACQ-030,2020-11-28,,2020,Q4,Leveraged Buyout,Mixed,612.0,10.7,0.85,10.0,Terminated,Regulatory Arbitrage|Revenue Synergies|Market Consolidation|Geographic Expansion,4,
+TXN-0003,TGT-0158,ACQ-007,2018-04-21,2019-02-26,2018,Q2,Minority Investment,Stock-for-Stock,778.5,8.7,2.81,3.7,Closed,Market Consolidation|Diversification|Margin Improvement|Brand Value|Platform Build,4,311
+TXN-0004,TGT-0202,ACQ-005,2024-03-06,2024-09-29,2024,Q1,Minority Investment,Mixed,200.9,11.0,3.07,16.6,Closed,Vertical Integration|Technology Capability|Platform Build|Revenue Synergies|Cost Synergies,6,207
+TXN-0005,TGT-0231,ACQ-030,2020-10-07,2021-01-06,2020,Q4,Bolt-on Acquisition,Seller Financing,772.2,9.9,3.02,7.5,Closed,Supply Chain Integration|Regulatory Arbitrage|Vertical Integration,2,91
+TXN-0006,TGT-0168,ACQ-010,2016-04-01,,2016,Q2,Merger of Equals,Stock-for-Stock,53.4,11.7,6.7,6.0,Terminated,Talent Acquisition|Market Consolidation|Brand Value|Technology Capability|Platform Build,7,
+TXN-0007,TGT-0032,ACQ-015,2017-05-19,2017-10-12,2017,Q2,Minority Investment,Leveraged,472.1,10.9,6.65,3.4,Closed,Supply Chain Integration|Cost Synergies|Platform Build|Diversification|Brand Value,2,146
+TXN-0008,TGT-0222,ACQ-026,2022-03-16,,2022,Q1,Minority Investment,Mixed,150.7,10.1,2.15,7.8,Withdrawn,Cross-Sell Opportunity|Brand Value,3,
+TXN-0009,TGT-0211,ACQ-036,2022-02-11,,2022,Q1,Bolt-on Acquisition,Leveraged,122.7,9.8,7.17,11.9,Withdrawn,Supply Chain Integration|Market Consolidation|Diversification|Margin Improvement|Talent Acquisition,1,
+TXN-0010,TGT-0199,ACQ-018,2017-01-09,2017-11-21,2017,Q1,Merger of Equals,Seller Financing,38.0,21.4,2.82,16.7,Closed,Supply Chain Integration|Cross-Sell Opportunity|Technology Capability|Cost Synergies,8,316
+TXN-0011,TGT-0274,ACQ-004,2018-10-16,2019-05-29,2018,Q4,Merger of Equals,Cash + Stock,200.7,12.0,6.11,9.1,Closed,Cross-Sell Opportunity|Technology Capability|Supply Chain Integration,1,225
+TXN-0012,TGT-0020,ACQ-006,2015-04-23,2015-11-28,2015,Q2,SPAC Merger,Cash + Stock,428.3,6.0,7.41,6.4,Closed,Brand Value|Supply Chain Integration|Diversification,3,219
+TXN-0013,TGT-0073,ACQ-008,2023-08-22,,2023,Q3,Bolt-on Acquisition,Leveraged,475.0,12.4,3.12,19.6,Withdrawn,Regulatory Arbitrage|Diversification|Cost Synergies|Market Consolidation|Talent Acquisition,7,
+TXN-0014,TGT-0090,ACQ-025,2019-07-05,2019-11-20,2019,Q3,Carve-out,Cash + Stock,759.8,24.0,3.62,19.9,Closed,Brand Value|Supply Chain Integration|Cross-Sell Opportunity|Technology Capability,1,138
+TXN-0015,TGT-0170,ACQ-005,2018-07-01,2018-12-28,2018,Q3,Merger of Equals,Cash + Stock,660.0,18.7,6.05,8.7,Closed,Technology Capability|Market Consolidation|Platform Build,1,180
+TXN-0016,TGT-0025,ACQ-025,2022-11-09,,2022,Q4,Carve-out,Stock-for-Stock,707.2,12.7,3.5,17.1,Pending,Margin Improvement|Platform Build|Supply Chain Integration,4,
+TXN-0017,TGT-0054,ACQ-005,2020-04-07,2020-06-06,2020,Q2,Minority Investment,Cash + Stock,444.4,23.1,1.47,13.1,Closed,Regulatory Arbitrage|Cost Synergies|Cross-Sell Opportunity|High Growth|Revenue Synergies,8,60
+TXN-0018,TGT-0210,ACQ-036,2023-09-16,2024-05-02,2023,Q3,Platform Investment,Leveraged,90.3,13.5,4.76,11.3,Closed,High Growth|Platform Build,1,229
+TXN-0019,TGT-0103,ACQ-007,2015-05-06,2016-02-25,2015,Q2,Carve-out,Mixed,782.0,15.0,1.63,16.3,Closed,Platform Build|Regulatory Arbitrage|Talent Acquisition|High Growth,8,295
+TXN-0020,TGT-0229,ACQ-003,2019-11-27,2020-02-23,2019,Q4,Recapitalization,Leveraged,672.1,16.7,1.89,14.8,Closed,Supply Chain Integration|Talent Acquisition|High Growth|Cross-Sell Opportunity,2,88
+TXN-0021,TGT-0268,ACQ-027,2023-10-05,,2023,Q4,SPAC Merger,Cash + Stock,249.6,13.5,6.95,3.6,Pending,Supply Chain Integration|Margin Improvement,3,
+TXN-0022,TGT-0022,ACQ-028,2016-12-20,2017-03-19,2016,Q4,Leveraged Buyout,Mixed,669.8,10.9,7.36,18.5,Closed,Talent Acquisition|High Growth|Brand Value|Diversification|Vertical Integration,2,89
+TXN-0023,TGT-0268,ACQ-027,2016-11-19,,2016,Q4,Carve-out,Cash + Stock,476.5,20.4,7.57,18.7,Rumored,Revenue Synergies|Talent Acquisition|Diversification|High Growth,2,
+TXN-0024,TGT-0243,ACQ-003,2017-07-27,,2017,Q3,Minority Investment,Cash + Stock,492.8,19.2,1.08,18.1,Rumored,Geographic Expansion|Market Consolidation|Margin Improvement,6,
+TXN-0025,TGT-0156,ACQ-020,2019-11-25,2020-11-13,2019,Q4,Bolt-on Acquisition,Cash + Stock,250.9,20.1,6.37,8.5,Closed,Technology Capability|Margin Improvement,7,354
+TXN-0026,TGT-0265,ACQ-024,2015-04-02,,2015,Q2,Bolt-on Acquisition,Leveraged,331.7,20.8,4.57,12.7,Terminated,Brand Value|Revenue Synergies|Technology Capability,3,
+TXN-0027,TGT-0185,ACQ-013,2019-08-27,,2019,Q3,Recapitalization,Seller Financing,513.8,8.4,1.02,9.3,Withdrawn,Revenue Synergies|Margin Improvement|Cross-Sell Opportunity,8,
+TXN-0028,TGT-0133,ACQ-006,2019-03-16,2020-04-10,2019,Q1,Minority Investment,All Cash,685.2,20.8,2.34,6.8,Closed,Vertical Integration|Regulatory Arbitrage|High Growth,4,391
+TXN-0029,TGT-0068,ACQ-012,2024-02-27,,2024,Q1,Leveraged Buyout,Leveraged,647.0,11.8,7.76,13.9,Rumored,Revenue Synergies|Diversification|Margin Improvement|Vertical Integration|Technology Capability,7,
+TXN-0030,TGT-0204,ACQ-038,2016-02-10,2016-04-27,2016,Q1,Management Buyout,Mixed,455.7,17.3,2.84,14.6,Closed,Vertical Integration|Regulatory Arbitrage|Diversification|Brand Value,8,77
+TXN-0031,TGT-0097,ACQ-010,2023-04-19,,2023,Q2,Strategic Acquisition,Seller Financing,533.5,18.9,5.99,14.1,Withdrawn,Brand Value|High Growth|Revenue Synergies|Supply Chain Integration,5,
+TXN-0032,TGT-0098,ACQ-022,2018-11-21,2019-09-03,2018,Q4,Merger of Equals,Seller Financing,678.7,22.0,7.11,6.1,Closed,Market Consolidation|Vertical Integration|Brand Value,2,286
+TXN-0033,TGT-0046,ACQ-015,2020-04-17,2021-04-21,2020,Q2,Platform Investment,Stock-for-Stock,306.8,17.1,4.14,5.0,Closed,Margin Improvement|Technology Capability,1,369
+TXN-0034,TGT-0153,ACQ-027,2015-04-02,2015-08-17,2015,Q2,Carve-out,Cash + Stock,336.2,16.8,7.33,10.8,Closed,Margin Improvement|Diversification,6,137
+TXN-0035,TGT-0003,ACQ-029,2019-06-11,2020-02-17,2019,Q2,Carve-out,Seller Financing,399.3,20.5,1.43,13.4,Closed,Margin Improvement|High Growth|Geographic Expansion|Supply Chain Integration|Talent Acquisition,7,251
+TXN-0036,TGT-0272,ACQ-013,2015-03-22,2015-05-29,2015,Q1,Leveraged Buyout,Cash + Stock,260.0,8.0,4.42,8.2,Closed,Vertical Integration|Margin Improvement|Market Consolidation|Talent Acquisition,2,68
+TXN-0037,TGT-0069,ACQ-022,2022-08-09,,2022,Q3,Leveraged Buyout,Cash + Stock,30.0,10.3,7.89,6.6,Withdrawn,Platform Build|Diversification|Market Consolidation,1,
+TXN-0038,TGT-0274,ACQ-040,2015-03-22,2016-01-03,2015,Q1,Bolt-on Acquisition,Mixed,52.9,8.2,4.0,5.1,Closed,Technology Capability|Market Consolidation|Regulatory Arbitrage,5,287
+TXN-0039,TGT-0052,ACQ-034,2019-05-10,,2019,Q2,Minority Investment,All Cash,579.2,8.2,1.62,4.8,Terminated,Supply Chain Integration|Vertical Integration|Talent Acquisition,4,
+TXN-0040,TGT-0083,ACQ-003,2023-10-09,,2023,Q4,Leveraged Buyout,Mixed,274.5,6.1,5.64,18.4,Pending,Platform Build|Supply Chain Integration|Talent Acquisition,8,
+TXN-0041,TGT-0119,ACQ-030,2019-07-21,2020-04-09,2019,Q3,Recapitalization,All Cash,653.3,22.6,6.94,9.1,Closed,Platform Build|Revenue Synergies,6,263
+TXN-0042,TGT-0088,ACQ-022,2020-12-24,2021-06-26,2020,Q4,SPAC Merger,Leveraged,307.5,12.5,1.62,9.8,Closed,Market Consolidation|Revenue Synergies|Margin Improvement|High Growth|Regulatory Arbitrage,8,184
+TXN-0043,TGT-0031,ACQ-011,2016-10-09,,2016,Q4,SPAC Merger,Stock-for-Stock,547.5,9.4,3.53,9.1,Rumored,Margin Improvement|Brand Value|Platform Build,1,
+TXN-0044,TGT-0161,ACQ-001,2023-06-01,,2023,Q2,Merger of Equals,Seller Financing,555.3,17.7,3.92,15.4,Terminated,Regulatory Arbitrage|Brand Value|Revenue Synergies|High Growth,8,
+TXN-0045,TGT-0081,ACQ-033,2022-11-15,,2022,Q4,Carve-out,All Cash,266.7,12.3,2.8,11.6,Pending,Revenue Synergies|Technology Capability|Platform Build|Margin Improvement|Market Consolidation,7,
+TXN-0046,TGT-0162,ACQ-008,2022-02-28,,2022,Q1,Bolt-on Acquisition,Stock-for-Stock,43.1,16.4,6.75,16.5,Withdrawn,Regulatory Arbitrage|Brand Value|Margin Improvement,5,
+TXN-0047,TGT-0233,ACQ-022,2023-12-24,,2023,Q4,Merger of Equals,Mixed,104.5,20.4,2.4,8.8,Pending,Market Consolidation|Platform Build|Geographic Expansion|Cost Synergies,5,
+TXN-0048,TGT-0210,ACQ-007,2019-06-15,,2019,Q2,Leveraged Buyout,All Cash,184.2,21.7,2.17,8.7,Withdrawn,Brand Value|Regulatory Arbitrage,7,
+TXN-0049,TGT-0259,ACQ-009,2022-01-20,2023-02-23,2022,Q1,Management Buyout,Mixed,449.3,14.2,5.01,18.7,Closed,Market Consolidation|Revenue Synergies|Cost Synergies,3,399
+TXN-0050,TGT-0165,ACQ-033,2021-12-24,2022-04-18,2021,Q4,SPAC Merger,Mixed,229.8,24.3,7.79,10.7,Closed,Cross-Sell Opportunity|Market Consolidation|Revenue Synergies|Talent Acquisition|Vertical Integration,3,115
+TXN-0051,TGT-0284,ACQ-014,2018-05-22,2019-03-20,2018,Q2,SPAC Merger,Mixed,554.0,23.5,1.76,15.1,Closed,Market Consolidation|Platform Build|Supply Chain Integration|Diversification,3,302
+TXN-0052,TGT-0214,ACQ-035,2019-10-12,2020-04-20,2019,Q4,Strategic Acquisition,Seller Financing,34.8,8.8,5.63,6.4,Closed,Cost Synergies|Revenue Synergies|Geographic Expansion|Market Consolidation,3,191
+TXN-0053,TGT-0232,ACQ-007,2024-04-07,2024-12-03,2024,Q2,Management Buyout,Stock-for-Stock,416.1,21.1,5.81,14.8,Closed,High Growth|Supply Chain Integration|Regulatory Arbitrage|Diversification|Talent Acquisition,1,240
+TXN-0054,TGT-0227,ACQ-015,2020-04-01,,2020,Q2,Leveraged Buyout,Leveraged,154.3,19.0,2.15,6.0,Pending,Geographic Expansion|High Growth|Vertical Integration|Talent Acquisition|Supply Chain Integration,2,
+TXN-0055,TGT-0170,ACQ-030,2017-03-03,,2017,Q1,Carve-out,Leveraged,54.9,23.7,5.23,14.3,Rumored,Platform Build|Supply Chain Integration|Market Consolidation|Diversification,8,
+TXN-0056,TGT-0259,ACQ-011,2021-12-20,2022-11-17,2021,Q4,Bolt-on Acquisition,Leveraged,708.5,18.6,3.18,8.0,Closed,Platform Build|Regulatory Arbitrage,8,332
+TXN-0057,TGT-0125,ACQ-003,2020-10-06,2021-08-10,2020,Q4,Bolt-on Acquisition,Stock-for-Stock,439.1,11.4,7.36,17.0,Closed,Margin Improvement|Geographic Expansion|Vertical Integration|Regulatory Arbitrage|Technology Capability,6,308
+TXN-0058,TGT-0276,ACQ-035,2015-01-11,2016-01-22,2015,Q1,Leveraged Buyout,Mixed,694.0,14.1,1.55,12.1,Closed,Market Consolidation|Regulatory Arbitrage,7,376
+TXN-0059,TGT-0020,ACQ-006,2016-01-24,,2016,Q1,Carve-out,Leveraged,70.3,21.6,7.36,9.9,Terminated,High Growth|Diversification|Geographic Expansion|Brand Value|Regulatory Arbitrage,8,
+TXN-0060,TGT-0033,ACQ-038,2015-03-13,2015-11-08,2015,Q1,Merger of Equals,Seller Financing,242.5,19.0,5.17,7.8,Closed,Revenue Synergies|Regulatory Arbitrage|Geographic Expansion|Margin Improvement|Cost Synergies,8,240
+TXN-0061,TGT-0280,ACQ-019,2017-09-07,,2017,Q3,Merger of Equals,All Cash,701.7,8.7,1.1,12.7,Terminated,Vertical Integration|Technology Capability,7,
+TXN-0062,TGT-0212,ACQ-033,2017-05-24,,2017,Q2,Carve-out,Cash + Stock,670.3,9.7,2.11,16.6,Rumored,Regulatory Arbitrage|Talent Acquisition|Platform Build|Vertical Integration|Brand Value,1,
+TXN-0063,TGT-0298,ACQ-032,2020-08-06,2021-03-07,2020,Q3,Carve-out,Mixed,93.5,17.8,7.28,8.4,Closed,Market Consolidation|Cross-Sell Opportunity|Cost Synergies|Revenue Synergies,8,213
+TXN-0064,TGT-0003,ACQ-021,2018-05-07,2018-11-24,2018,Q2,Minority Investment,Leveraged,120.4,19.9,7.12,10.9,Closed,Talent Acquisition|Platform Build|Cost Synergies|Regulatory Arbitrage|Cross-Sell Opportunity,6,201
+TXN-0065,TGT-0135,ACQ-005,2016-01-25,2016-12-17,2016,Q1,Management Buyout,Mixed,652.9,17.0,6.34,6.6,Closed,Talent Acquisition|Brand Value|Margin Improvement|Regulatory Arbitrage,1,327
+TXN-0066,TGT-0149,ACQ-009,2022-03-24,,2022,Q1,Minority Investment,Leveraged,23.3,10.5,7.74,19.7,Terminated,Margin Improvement|Cost Synergies|Revenue Synergies,3,
+TXN-0067,TGT-0248,ACQ-023,2015-04-21,2015-12-20,2015,Q2,Recapitalization,Cash + Stock,222.5,10.4,5.61,11.8,Closed,Brand Value|Margin Improvement|Geographic Expansion|Supply Chain Integration|Regulatory Arbitrage,6,243
+TXN-0068,TGT-0141,ACQ-017,2024-05-01,,2024,Q2,Minority Investment,Mixed,301.8,18.4,6.82,11.8,Withdrawn,Talent Acquisition|High Growth|Diversification,7,
+TXN-0069,TGT-0257,ACQ-009,2022-04-16,,2022,Q2,Leveraged Buyout,All Cash,520.1,10.0,2.15,9.2,Terminated,High Growth|Supply Chain Integration|Diversification,2,
+TXN-0070,TGT-0246,ACQ-014,2024-06-19,2025-05-23,2024,Q2,Minority Investment,All Cash,48.9,16.9,1.96,13.7,Closed,Geographic Expansion|Cost Synergies|Vertical Integration,1,338
+TXN-0071,TGT-0010,ACQ-019,2016-06-08,,2016,Q2,Recapitalization,Seller Financing,695.8,9.2,6.78,13.2,Pending,Cost Synergies|Market Consolidation|Regulatory Arbitrage|Diversification,3,
+TXN-0072,TGT-0194,ACQ-025,2017-01-03,,2017,Q1,Strategic Acquisition,Cash + Stock,689.8,15.6,3.82,5.5,Terminated,Margin Improvement|Cross-Sell Opportunity|Revenue Synergies,2,
+TXN-0073,TGT-0247,ACQ-009,2024-01-16,,2024,Q1,Minority Investment,Seller Financing,305.7,6.8,4.61,6.9,Withdrawn,Diversification|Cross-Sell Opportunity|Supply Chain Integration|Market Consolidation|Revenue Synergies,8,
+TXN-0074,TGT-0120,ACQ-006,2019-10-14,2020-06-07,2019,Q4,Platform Investment,Cash + Stock,571.7,21.0,4.96,5.0,Closed,Market Consolidation|Supply Chain Integration|Diversification,1,237
+TXN-0075,TGT-0300,ACQ-017,2019-12-12,,2019,Q4,SPAC Merger,Leveraged,231.3,18.9,6.24,10.0,Rumored,Diversification|Talent Acquisition|Revenue Synergies,8,
+TXN-0076,TGT-0204,ACQ-009,2016-06-03,2016-10-08,2016,Q2,Recapitalization,Mixed,93.7,15.7,6.46,16.6,Closed,Regulatory Arbitrage|Geographic Expansion|Supply Chain Integration|Platform Build|Cost Synergies,1,127
+TXN-0077,TGT-0135,ACQ-015,2020-01-10,,2020,Q1,SPAC Merger,All Cash,745.6,13.6,5.52,7.9,Withdrawn,Regulatory Arbitrage|Margin Improvement|Revenue Synergies,1,
+TXN-0078,TGT-0100,ACQ-003,2024-06-23,2025-02-27,2024,Q2,SPAC Merger,Cash + Stock,297.4,18.4,7.82,4.5,Closed,Regulatory Arbitrage|High Growth|Revenue Synergies|Cross-Sell Opportunity,5,249
+TXN-0079,TGT-0036,ACQ-006,2023-07-03,2024-03-10,2023,Q3,Management Buyout,Seller Financing,287.8,21.5,2.43,19.4,Closed,Vertical Integration|Cost Synergies,8,251
+TXN-0080,TGT-0258,ACQ-019,2020-02-28,,2020,Q1,Management Buyout,Leveraged,653.3,16.9,5.8,19.4,Terminated,Supply Chain Integration|Diversification|Brand Value,8,
+TXN-0081,TGT-0015,ACQ-031,2016-08-18,2017-02-13,2016,Q3,Bolt-on Acquisition,Stock-for-Stock,546.4,10.4,3.07,19.2,Closed,Vertical Integration|Platform Build|High Growth,1,179
+TXN-0082,TGT-0092,ACQ-031,2020-07-12,2020-12-24,2020,Q3,Leveraged Buyout,Seller Financing,158.5,20.2,7.5,6.2,Closed,Revenue Synergies|Vertical Integration|Technology Capability,4,165
+TXN-0083,TGT-0080,ACQ-007,2016-02-05,2016-11-28,2016,Q1,Recapitalization,Seller Financing,614.9,16.3,1.1,11.2,Closed,Margin Improvement|Cost Synergies|Supply Chain Integration|Talent Acquisition,6,297
+TXN-0084,TGT-0028,ACQ-034,2021-10-11,,2021,Q4,Management Buyout,All Cash,287.6,22.3,6.39,10.8,Terminated,Diversification|Market Consolidation|Geographic Expansion|Supply Chain Integration|Regulatory Arbitrage,2,
+TXN-0085,TGT-0186,ACQ-040,2019-05-05,2019-10-04,2019,Q2,Management Buyout,Leveraged,226.5,24.2,3.27,6.1,Closed,Market Consolidation|Supply Chain Integration|Diversification|Revenue Synergies|High Growth,7,152
+TXN-0086,TGT-0295,ACQ-015,2016-09-18,,2016,Q3,Leveraged Buyout,Seller Financing,687.2,9.7,6.56,15.6,Withdrawn,Cost Synergies|High Growth,8,
+TXN-0087,TGT-0162,ACQ-032,2019-08-18,2020-08-19,2019,Q3,Management Buyout,Seller Financing,327.7,19.1,1.23,16.8,Closed,Margin Improvement|Market Consolidation,8,367
+TXN-0088,TGT-0286,ACQ-017,2020-03-20,2020-09-26,2020,Q1,Minority Investment,All Cash,695.9,24.3,2.23,12.8,Closed,Diversification|Regulatory Arbitrage|Talent Acquisition|Margin Improvement,3,190
+TXN-0089,TGT-0147,ACQ-030,2017-06-09,,2017,Q2,Merger of Equals,Stock-for-Stock,463.7,22.1,1.31,5.8,Rumored,Diversification|Regulatory Arbitrage|Vertical Integration|Market Consolidation,4,
+TXN-0090,TGT-0228,ACQ-024,2024-10-01,2025-03-02,2024,Q4,Minority Investment,Cash + Stock,685.6,8.4,2.49,7.3,Closed,High Growth|Platform Build|Revenue Synergies,2,152
+TXN-0091,TGT-0204,ACQ-034,2016-01-28,2016-10-25,2016,Q1,Platform Investment,Seller Financing,81.2,23.7,3.61,6.9,Closed,Cost Synergies|Talent Acquisition|Brand Value,5,271
+TXN-0092,TGT-0167,ACQ-031,2022-08-12,2023-06-21,2022,Q3,Management Buyout,Stock-for-Stock,776.1,19.3,2.07,13.2,Closed,Brand Value|Diversification|Margin Improvement|Talent Acquisition,7,313
+TXN-0093,TGT-0212,ACQ-017,2017-07-18,,2017,Q3,Strategic Acquisition,All Cash,655.1,22.1,3.28,11.0,Terminated,Supply Chain Integration|Margin Improvement|Vertical Integration|Geographic Expansion|High Growth,1,
+TXN-0094,TGT-0192,ACQ-013,2021-11-10,2022-07-29,2021,Q4,Minority Investment,Cash + Stock,576.2,18.3,6.76,6.8,Closed,Talent Acquisition|Supply Chain Integration|Revenue Synergies,2,261
+TXN-0095,TGT-0273,ACQ-018,2021-04-09,2021-08-28,2021,Q2,Bolt-on Acquisition,Cash + Stock,242.3,18.1,5.25,7.6,Closed,Geographic Expansion|Cost Synergies|Brand Value|Talent Acquisition,8,141
+TXN-0096,TGT-0065,ACQ-029,2015-04-03,2016-01-10,2015,Q2,Bolt-on Acquisition,Cash + Stock,402.5,12.5,3.04,16.6,Closed,Diversification|Platform Build,6,282
+TXN-0097,TGT-0279,ACQ-031,2017-04-07,2017-09-25,2017,Q2,Platform Investment,Stock-for-Stock,110.7,20.6,2.59,16.1,Closed,Technology Capability|Margin Improvement,8,171
+TXN-0098,TGT-0243,ACQ-025,2019-09-11,2020-02-04,2019,Q3,Carve-out,Mixed,599.6,16.4,1.68,11.2,Closed,Brand Value|Geographic Expansion|Regulatory Arbitrage|Technology Capability,5,146
+TXN-0099,TGT-0008,ACQ-011,2019-02-11,2019-10-04,2019,Q1,Minority Investment,Cash + Stock,775.5,17.0,5.77,14.7,Closed,Technology Capability|Cost Synergies,3,235
+TXN-0100,TGT-0031,ACQ-004,2020-06-02,2021-02-26,2020,Q2,Management Buyout,All Cash,398.0,12.0,4.82,14.0,Closed,Geographic Expansion|Market Consolidation|High Growth,6,269
+TXN-0101,TGT-0249,ACQ-029,2023-08-12,,2023,Q3,Management Buyout,Mixed,164.0,9.5,3.3,15.5,Pending,Platform Build|Talent Acquisition|Cost Synergies,5,
+TXN-0102,TGT-0233,ACQ-001,2023-11-11,,2023,Q4,Carve-out,All Cash,687.6,20.7,2.52,15.3,Rumored,Talent Acquisition|Regulatory Arbitrage|Margin Improvement,7,
+TXN-0103,TGT-0210,ACQ-021,2016-03-17,2017-01-04,2016,Q1,Management Buyout,Mixed,49.4,23.8,2.09,3.5,Closed,Platform Build|Geographic Expansion|Cross-Sell Opportunity,2,293
+TXN-0104,TGT-0132,ACQ-004,2020-05-02,2021-02-10,2020,Q2,SPAC Merger,Mixed,25.3,23.5,5.52,18.8,Closed,Diversification|Talent Acquisition,2,284
+TXN-0105,TGT-0137,ACQ-034,2015-03-24,2015-08-14,2015,Q1,Platform Investment,All Cash,769.1,7.8,6.02,12.0,Closed,Cross-Sell Opportunity|Regulatory Arbitrage|Cost Synergies,4,143
+TXN-0106,TGT-0055,ACQ-037,2020-11-20,2021-07-03,2020,Q4,Minority Investment,All Cash,637.1,16.4,4.43,14.2,Closed,Talent Acquisition|Diversification|Revenue Synergies|High Growth,8,225
+TXN-0107,TGT-0124,ACQ-037,2023-04-07,2023-10-14,2023,Q2,Minority Investment,Seller Financing,297.6,14.6,7.71,3.0,Closed,Talent Acquisition|Cost Synergies,1,190
+TXN-0108,TGT-0162,ACQ-002,2019-06-03,,2019,Q2,Bolt-on Acquisition,All Cash,294.2,8.6,3.44,12.9,Pending,Supply Chain Integration|Vertical Integration|Platform Build|Cross-Sell Opportunity,4,
+TXN-0109,TGT-0167,ACQ-031,2017-12-28,,2017,Q4,SPAC Merger,All Cash,519.2,6.7,6.62,9.5,Rumored,Diversification|Revenue Synergies|High Growth|Supply Chain Integration,1,
+TXN-0110,TGT-0006,ACQ-025,2015-08-26,2016-09-18,2015,Q3,Management Buyout,All Cash,438.8,8.8,4.42,6.8,Closed,Margin Improvement|Supply Chain Integration|Cross-Sell Opportunity|Revenue Synergies|Talent Acquisition,1,389
+TXN-0111,TGT-0202,ACQ-010,2017-08-21,,2017,Q3,Bolt-on Acquisition,Stock-for-Stock,600.1,16.4,2.69,9.8,Rumored,Supply Chain Integration|Cost Synergies|Margin Improvement,7,
+TXN-0112,TGT-0293,ACQ-013,2023-06-06,2024-02-22,2023,Q2,Leveraged Buyout,All Cash,624.8,12.1,7.45,4.5,Closed,Diversification|Technology Capability|Brand Value|Supply Chain Integration,7,261
+TXN-0113,TGT-0180,ACQ-040,2022-05-10,2022-07-21,2022,Q2,Recapitalization,All Cash,171.8,13.1,6.26,17.5,Closed,Cross-Sell Opportunity|Cost Synergies|Vertical Integration,2,72
+TXN-0114,TGT-0231,ACQ-031,2015-07-06,,2015,Q3,Leveraged Buyout,Mixed,181.3,16.4,6.2,12.3,Terminated,High Growth|Cross-Sell Opportunity,3,
+TXN-0115,TGT-0031,ACQ-019,2018-07-17,2018-10-25,2018,Q3,Strategic Acquisition,Stock-for-Stock,67.3,18.5,5.57,18.5,Closed,Vertical Integration|Revenue Synergies,6,100
+TXN-0116,TGT-0051,ACQ-021,2022-01-12,,2022,Q1,Carve-out,Cash + Stock,773.9,16.7,5.93,3.7,Terminated,Margin Improvement|High Growth|Market Consolidation|Cost Synergies,5,
+TXN-0117,TGT-0155,ACQ-016,2023-09-17,2024-02-24,2023,Q3,Strategic Acquisition,Mixed,704.8,22.9,6.67,3.5,Closed,Diversification|High Growth|Regulatory Arbitrage,5,160
+TXN-0118,TGT-0117,ACQ-027,2018-04-21,,2018,Q2,Minority Investment,Leveraged,273.5,16.3,2.29,5.4,Rumored,Vertical Integration|Market Consolidation|Revenue Synergies,4,
+TXN-0119,TGT-0290,ACQ-011,2020-01-06,2020-09-18,2020,Q1,Management Buyout,Seller Financing,159.5,22.0,1.85,3.5,Closed,Vertical Integration|Margin Improvement|Market Consolidation|Regulatory Arbitrage|Brand Value,6,256
+TXN-0120,TGT-0014,ACQ-040,2024-09-06,,2024,Q3,SPAC Merger,Seller Financing,196.3,10.4,5.75,9.1,Rumored,Talent Acquisition|Revenue Synergies|Cross-Sell Opportunity,8,
+TXN-0121,TGT-0199,ACQ-032,2022-05-23,2022-10-28,2022,Q2,Carve-out,Cash + Stock,40.3,20.5,0.91,7.6,Closed,Supply Chain Integration|Technology Capability|Platform Build,7,158
+TXN-0122,TGT-0167,ACQ-030,2018-12-13,,2018,Q4,Minority Investment,All Cash,592.2,13.2,3.05,13.4,Rumored,Margin Improvement|Brand Value,1,
+TXN-0123,TGT-0021,ACQ-036,2021-01-03,,2021,Q1,Leveraged Buyout,Leveraged,327.5,11.8,6.76,10.8,Pending,Cross-Sell Opportunity|Geographic Expansion|Market Consolidation|Talent Acquisition,7,
+TXN-0124,TGT-0257,ACQ-008,2017-06-23,2018-03-27,2017,Q2,Minority Investment,Stock-for-Stock,368.9,9.4,5.05,15.1,Closed,Vertical Integration|Diversification,4,277
+TXN-0125,TGT-0064,ACQ-006,2016-10-28,,2016,Q4,Merger of Equals,All Cash,570.2,19.8,7.82,13.4,Terminated,Talent Acquisition|High Growth|Geographic Expansion|Cost Synergies|Diversification,3,
+TXN-0126,TGT-0075,ACQ-012,2015-11-08,,2015,Q4,Platform Investment,Leveraged,241.7,9.4,7.27,19.3,Pending,Geographic Expansion|Margin Improvement|Revenue Synergies|Supply Chain Integration,1,
+TXN-0127,TGT-0112,ACQ-038,2022-10-22,2022-12-31,2022,Q4,Minority Investment,Stock-for-Stock,487.0,6.1,7.15,7.7,Closed,Cost Synergies|Geographic Expansion|Regulatory Arbitrage,4,70
+TXN-0128,TGT-0296,ACQ-039,2019-08-25,2020-05-29,2019,Q3,Bolt-on Acquisition,All Cash,342.3,9.4,5.64,13.4,Closed,Brand Value|Geographic Expansion|Platform Build|Vertical Integration,3,278
+TXN-0129,TGT-0219,ACQ-036,2016-09-16,2017-09-09,2016,Q3,Recapitalization,Cash + Stock,560.3,11.2,4.59,11.9,Closed,Platform Build|Cross-Sell Opportunity,4,358
+TXN-0130,TGT-0148,ACQ-028,2024-07-15,,2024,Q3,Platform Investment,Seller Financing,796.1,12.7,1.73,12.6,Rumored,Supply Chain Integration|Cost Synergies|Cross-Sell Opportunity|Technology Capability|Vertical Integration,8,
+TXN-0131,TGT-0061,ACQ-014,2024-10-04,2025-03-28,2024,Q4,Minority Investment,All Cash,289.5,21.3,2.33,13.9,Closed,Vertical Integration|Brand Value,5,175
+TXN-0132,TGT-0171,ACQ-022,2021-02-26,2022-03-08,2021,Q1,Carve-out,Cash + Stock,669.6,23.5,4.25,11.1,Closed,Margin Improvement|Cost Synergies|Regulatory Arbitrage,1,375
+TXN-0133,TGT-0212,ACQ-004,2023-09-27,2023-12-14,2023,Q3,SPAC Merger,Mixed,450.8,6.4,4.96,8.6,Closed,Vertical Integration|Revenue Synergies|Geographic Expansion,6,78
+TXN-0134,TGT-0085,ACQ-037,2024-11-06,2025-05-09,2024,Q4,Carve-out,Seller Financing,693.7,20.3,5.88,8.3,Closed,Platform Build|Margin Improvement|Technology Capability|Diversification|Revenue Synergies,1,184
+TXN-0135,TGT-0058,ACQ-024,2015-06-24,,2015,Q2,Bolt-on Acquisition,Stock-for-Stock,34.6,15.2,4.4,6.2,Terminated,Supply Chain Integration|Diversification|Cost Synergies|Platform Build,8,
+TXN-0136,TGT-0019,ACQ-030,2021-03-07,2021-06-12,2021,Q1,Strategic Acquisition,Leveraged,554.3,17.3,1.43,10.9,Closed,Geographic Expansion|Cross-Sell Opportunity|Supply Chain Integration|Vertical Integration,1,97
+TXN-0137,TGT-0147,ACQ-018,2023-09-06,2024-02-03,2023,Q3,Recapitalization,Mixed,229.0,9.0,1.62,19.3,Closed,Talent Acquisition|Diversification|Vertical Integration|Cost Synergies,2,150
+TXN-0138,TGT-0037,ACQ-020,2024-09-20,2024-12-18,2024,Q3,Management Buyout,Stock-for-Stock,117.1,14.9,5.66,4.8,Closed,High Growth|Cost Synergies|Market Consolidation|Cross-Sell Opportunity|Supply Chain Integration,1,89
+TXN-0139,TGT-0183,ACQ-020,2020-04-28,,2020,Q2,Management Buyout,All Cash,460.7,7.8,6.58,14.9,Pending,Vertical Integration|Regulatory Arbitrage|Revenue Synergies|Market Consolidation|Margin Improvement,2,
+TXN-0140,TGT-0133,ACQ-024,2021-06-27,,2021,Q2,Merger of Equals,Leveraged,397.7,7.2,1.61,11.1,Pending,Supply Chain Integration|Diversification|Cross-Sell Opportunity|Brand Value,3,
+TXN-0141,TGT-0055,ACQ-021,2023-02-18,,2023,Q1,Platform Investment,Seller Financing,329.6,13.9,5.27,12.3,Pending,Platform Build|Diversification|Technology Capability|Market Consolidation|Cross-Sell Opportunity,8,
+TXN-0142,TGT-0121,ACQ-012,2016-11-16,,2016,Q4,Bolt-on Acquisition,Seller Financing,378.4,16.5,6.72,6.0,Rumored,Cross-Sell Opportunity|Platform Build,7,
+TXN-0143,TGT-0032,ACQ-006,2018-06-23,2018-11-15,2018,Q2,SPAC Merger,Mixed,609.3,18.6,4.06,8.0,Closed,Regulatory Arbitrage|Diversification|Vertical Integration,8,145
+TXN-0144,TGT-0177,ACQ-006,2024-02-08,,2024,Q1,SPAC Merger,Seller Financing,680.4,22.2,1.25,18.3,Withdrawn,Market Consolidation|Talent Acquisition,1,
+TXN-0145,TGT-0222,ACQ-038,2021-07-03,,2021,Q3,Minority Investment,Stock-for-Stock,356.6,10.0,2.05,5.4,Withdrawn,Revenue Synergies|High Growth|Cost Synergies|Vertical Integration,7,
+TXN-0146,TGT-0009,ACQ-010,2022-11-08,2023-11-07,2022,Q4,Carve-out,All Cash,519.2,13.9,4.08,16.4,Closed,Margin Improvement|Talent Acquisition|High Growth,7,364
+TXN-0147,TGT-0096,ACQ-028,2024-03-24,2024-05-27,2024,Q1,SPAC Merger,Stock-for-Stock,574.0,11.1,7.47,12.8,Closed,Market Consolidation|Diversification|Platform Build|Cross-Sell Opportunity|Margin Improvement,1,64
+TXN-0148,TGT-0270,ACQ-018,2022-03-17,2023-03-10,2022,Q1,Management Buyout,Seller Financing,207.5,18.0,5.58,14.4,Closed,Brand Value|Diversification,5,358
+TXN-0149,TGT-0241,ACQ-037,2020-10-10,2020-12-25,2020,Q4,Merger of Equals,Leveraged,146.5,19.2,5.1,8.2,Closed,Cross-Sell Opportunity|Cost Synergies|Brand Value|Geographic Expansion|Regulatory Arbitrage,5,76
+TXN-0150,TGT-0249,ACQ-006,2017-01-16,2017-12-29,2017,Q1,Platform Investment,Leveraged,498.4,11.2,2.65,15.6,Closed,Regulatory Arbitrage|Margin Improvement|Diversification,3,347
+TXN-0151,TGT-0093,ACQ-034,2015-07-24,,2015,Q3,Bolt-on Acquisition,Cash + Stock,748.1,8.9,4.37,19.9,Rumored,Regulatory Arbitrage|Margin Improvement|Market Consolidation,7,
+TXN-0152,TGT-0177,ACQ-004,2019-01-10,,2019,Q1,Strategic Acquisition,Cash + Stock,328.0,11.7,6.17,15.8,Pending,Regulatory Arbitrage|Market Consolidation|High Growth|Margin Improvement|Vertical Integration,4,
+TXN-0153,TGT-0230,ACQ-025,2020-03-24,2020-09-23,2020,Q1,Bolt-on Acquisition,Seller Financing,765.6,14.2,7.41,17.6,Closed,Supply Chain Integration|Platform Build|Vertical Integration|Regulatory Arbitrage,6,183
+TXN-0154,TGT-0124,ACQ-038,2018-07-03,,2018,Q3,Carve-out,Leveraged,23.3,6.2,1.29,10.0,Terminated,Diversification|Technology Capability|Market Consolidation|Vertical Integration|Supply Chain Integration,2,
+TXN-0155,TGT-0030,ACQ-039,2018-02-03,,2018,Q1,Bolt-on Acquisition,All Cash,117.0,18.5,7.28,12.6,Rumored,Market Consolidation|Cost Synergies,3,
+TXN-0156,TGT-0233,ACQ-018,2021-08-21,2022-02-17,2021,Q3,Platform Investment,Cash + Stock,232.7,7.2,3.6,19.9,Closed,Margin Improvement|Platform Build|Brand Value,5,180
+TXN-0157,TGT-0252,ACQ-007,2017-10-02,2018-07-02,2017,Q4,Leveraged Buyout,Seller Financing,731.4,19.6,1.54,4.2,Closed,Brand Value|Margin Improvement,5,273
+TXN-0158,TGT-0200,ACQ-018,2017-09-12,2018-07-30,2017,Q3,Minority Investment,Seller Financing,419.6,23.9,4.33,10.4,Closed,Geographic Expansion|High Growth|Market Consolidation,2,321
+TXN-0159,TGT-0171,ACQ-020,2021-02-23,,2021,Q1,Bolt-on Acquisition,Leveraged,684.9,12.5,6.86,15.9,Terminated,Cost Synergies|Talent Acquisition|Geographic Expansion,5,
+TXN-0160,TGT-0200,ACQ-007,2020-11-01,,2020,Q4,Bolt-on Acquisition,Mixed,592.2,8.7,2.19,15.2,Pending,High Growth|Platform Build|Supply Chain Integration|Talent Acquisition|Regulatory Arbitrage,4,
+TXN-0161,TGT-0019,ACQ-022,2015-08-01,2016-07-07,2015,Q3,Strategic Acquisition,Stock-for-Stock,181.2,18.4,4.57,19.0,Closed,Brand Value|Platform Build|Geographic Expansion,3,341
+TXN-0162,TGT-0242,ACQ-040,2015-04-26,2016-04-07,2015,Q2,Carve-out,All Cash,511.6,23.2,6.71,4.7,Closed,Revenue Synergies|Brand Value,3,347
+TXN-0163,TGT-0113,ACQ-005,2018-11-05,,2018,Q4,Merger of Equals,Mixed,269.5,24.5,4.95,5.3,Withdrawn,Cross-Sell Opportunity|Cost Synergies,4,
+TXN-0164,TGT-0213,ACQ-011,2020-04-03,,2020,Q2,Recapitalization,Cash + Stock,46.9,7.9,6.9,13.4,Rumored,Brand Value|Margin Improvement,3,
+TXN-0165,TGT-0146,ACQ-027,2022-06-14,2023-05-30,2022,Q2,Leveraged Buyout,Cash + Stock,425.6,13.8,7.55,13.4,Closed,Market Consolidation|Margin Improvement|Cross-Sell Opportunity,1,350
+TXN-0166,TGT-0003,ACQ-036,2018-04-16,2019-04-16,2018,Q2,Bolt-on Acquisition,Seller Financing,500.9,22.4,7.9,11.6,Closed,Vertical Integration|Geographic Expansion|Technology Capability,8,365
+TXN-0167,TGT-0091,ACQ-011,2015-01-17,2015-04-25,2015,Q1,Merger of Equals,Leveraged,356.2,12.4,6.6,15.9,Closed,Brand Value|Talent Acquisition,1,98
+TXN-0168,TGT-0060,ACQ-005,2018-10-03,2019-05-02,2018,Q4,SPAC Merger,Seller Financing,344.0,20.2,7.27,6.9,Closed,Platform Build|Technology Capability|Market Consolidation,2,211
+TXN-0169,TGT-0242,ACQ-038,2022-01-09,2023-01-12,2022,Q1,Minority Investment,Cash + Stock,743.4,14.6,3.59,5.3,Closed,Vertical Integration|Technology Capability|Diversification|Cost Synergies,4,368
+TXN-0170,TGT-0070,ACQ-008,2022-11-27,2023-11-02,2022,Q4,Minority Investment,Cash + Stock,187.6,11.6,1.93,16.5,Closed,Platform Build|High Growth|Talent Acquisition,3,340
+TXN-0171,TGT-0237,ACQ-018,2015-11-17,2016-08-01,2015,Q4,Leveraged Buyout,Cash + Stock,355.9,10.2,7.48,19.1,Closed,Geographic Expansion|Margin Improvement,1,258
+TXN-0172,TGT-0202,ACQ-031,2016-10-23,2017-06-08,2016,Q4,Recapitalization,Cash + Stock,453.4,6.2,6.07,19.1,Closed,Technology Capability|Regulatory Arbitrage|Platform Build|Geographic Expansion,3,228
+TXN-0173,TGT-0236,ACQ-037,2024-01-17,2025-01-20,2024,Q1,Recapitalization,Stock-for-Stock,701.2,13.7,6.49,9.3,Closed,Revenue Synergies|Regulatory Arbitrage,8,369
+TXN-0174,TGT-0017,ACQ-019,2021-09-12,,2021,Q3,SPAC Merger,Seller Financing,638.7,21.0,1.38,18.0,Rumored,Brand Value|Geographic Expansion|Platform Build|High Growth,1,
+TXN-0175,TGT-0188,ACQ-012,2023-02-12,2023-07-22,2023,Q1,Management Buyout,Mixed,123.6,12.4,4.69,14.0,Closed,Diversification|Vertical Integration|Talent Acquisition|Regulatory Arbitrage,4,160
+TXN-0176,TGT-0177,ACQ-029,2022-01-03,,2022,Q1,Recapitalization,Mixed,547.5,16.1,2.9,13.6,Terminated,Brand Value|Margin Improvement|Platform Build,2,
+TXN-0177,TGT-0056,ACQ-011,2019-01-01,2019-10-15,2019,Q1,Carve-out,Stock-for-Stock,701.9,15.9,5.32,8.0,Closed,High Growth|Margin Improvement|Market Consolidation|Regulatory Arbitrage,3,287
+TXN-0178,TGT-0119,ACQ-034,2020-11-12,2021-05-31,2020,Q4,SPAC Merger,Leveraged,396.6,18.7,4.62,12.3,Closed,Brand Value|Supply Chain Integration|Vertical Integration,8,200
+TXN-0179,TGT-0148,ACQ-004,2017-09-15,2018-10-19,2017,Q3,Platform Investment,Stock-for-Stock,500.6,9.1,4.65,6.1,Closed,Cost Synergies|Technology Capability|Platform Build,3,399
+TXN-0180,TGT-0134,ACQ-024,2017-05-01,2018-03-15,2017,Q2,Management Buyout,Mixed,537.5,24.6,1.87,10.6,Closed,Platform Build|Geographic Expansion|High Growth|Margin Improvement,3,318
+TXN-0181,TGT-0280,ACQ-033,2020-09-04,,2020,Q3,Recapitalization,Leveraged,538.5,21.2,6.05,18.7,Rumored,Market Consolidation|Margin Improvement,6,
+TXN-0182,TGT-0158,ACQ-002,2021-06-17,2021-11-09,2021,Q2,Recapitalization,Leveraged,271.2,17.6,2.21,11.9,Closed,Platform Build|Talent Acquisition,5,145
+TXN-0183,TGT-0202,ACQ-013,2022-08-28,,2022,Q3,SPAC Merger,Seller Financing,755.6,23.3,3.4,5.5,Terminated,High Growth|Diversification|Geographic Expansion|Vertical Integration,7,
+TXN-0184,TGT-0288,ACQ-006,2018-11-03,2019-02-27,2018,Q4,Minority Investment,Stock-for-Stock,143.6,19.8,7.26,15.4,Closed,Cost Synergies|Technology Capability,7,116
+TXN-0185,TGT-0193,ACQ-006,2015-12-24,2016-08-20,2015,Q4,Platform Investment,Stock-for-Stock,451.3,19.5,6.24,5.3,Closed,Talent Acquisition|Margin Improvement|Geographic Expansion|Vertical Integration,3,240
+TXN-0186,TGT-0238,ACQ-015,2015-01-16,2015-10-01,2015,Q1,Carve-out,Leveraged,765.5,21.9,4.2,14.1,Closed,Margin Improvement|Market Consolidation|Regulatory Arbitrage,5,258
+TXN-0187,TGT-0035,ACQ-039,2020-10-12,2021-04-07,2020,Q4,SPAC Merger,Stock-for-Stock,508.0,15.0,5.8,5.0,Closed,Cross-Sell Opportunity|Geographic Expansion|Cost Synergies,1,177
+TXN-0188,TGT-0084,ACQ-004,2019-08-27,2020-08-27,2019,Q3,Minority Investment,Mixed,53.2,11.5,5.4,4.3,Closed,Supply Chain Integration|Platform Build|Cross-Sell Opportunity,4,366
+TXN-0189,TGT-0155,ACQ-018,2020-01-26,2020-10-07,2020,Q1,Management Buyout,Seller Financing,661.3,6.2,4.53,9.3,Closed,Brand Value|Cost Synergies|Platform Build|Technology Capability,8,255
+TXN-0190,TGT-0287,ACQ-040,2023-03-27,2023-07-21,2023,Q1,Minority Investment,Stock-for-Stock,106.5,8.5,0.93,8.9,Closed,Brand Value|Cross-Sell Opportunity|Talent Acquisition|Diversification|Cost Synergies,6,116
+TXN-0191,TGT-0061,ACQ-015,2017-04-02,2017-06-25,2017,Q2,Leveraged Buyout,Leveraged,179.7,24.6,3.86,16.0,Closed,Supply Chain Integration|Margin Improvement,2,84
+TXN-0192,TGT-0263,ACQ-038,2015-12-09,2016-11-18,2015,Q4,Bolt-on Acquisition,Leveraged,67.0,18.7,6.23,16.3,Closed,Cost Synergies|Regulatory Arbitrage|Diversification,4,345
+TXN-0193,TGT-0297,ACQ-023,2020-06-04,,2020,Q2,Management Buyout,Mixed,204.8,16.8,1.51,12.8,Rumored,Market Consolidation|Technology Capability|Vertical Integration,1,
+TXN-0194,TGT-0110,ACQ-033,2022-07-04,,2022,Q3,SPAC Merger,Cash + Stock,543.7,8.0,6.81,19.7,Pending,Talent Acquisition|Technology Capability|High Growth,7,
+TXN-0195,TGT-0267,ACQ-009,2022-08-12,2023-09-12,2022,Q3,Platform Investment,Seller Financing,79.6,15.4,3.57,10.8,Closed,Technology Capability|Talent Acquisition|High Growth|Vertical Integration|Supply Chain Integration,5,396
+TXN-0196,TGT-0092,ACQ-001,2022-02-04,,2022,Q1,Minority Investment,Stock-for-Stock,532.0,7.6,1.83,9.8,Terminated,Platform Build|Diversification|Technology Capability,2,
+TXN-0197,TGT-0120,ACQ-028,2022-08-08,2023-05-28,2022,Q3,SPAC Merger,Seller Financing,608.7,21.2,7.59,9.1,Closed,Cost Synergies|Supply Chain Integration|Margin Improvement|Platform Build,7,293
+TXN-0198,TGT-0069,ACQ-002,2016-02-18,2016-05-12,2016,Q1,Bolt-on Acquisition,Stock-for-Stock,778.1,13.3,5.69,5.6,Closed,Supply Chain Integration|Margin Improvement|Technology Capability|Vertical Integration|Regulatory Arbitrage,2,84
+TXN-0199,TGT-0176,ACQ-035,2023-02-13,2023-06-28,2023,Q1,Strategic Acquisition,Stock-for-Stock,316.1,12.0,3.51,10.8,Closed,Brand Value|Market Consolidation|Cost Synergies|Margin Improvement,1,135
+TXN-0200,TGT-0250,ACQ-008,2024-11-02,,2024,Q4,Management Buyout,Mixed,464.2,15.0,6.95,11.6,Terminated,Margin Improvement|Cross-Sell Opportunity|High Growth|Revenue Synergies,7,
+TXN-0201,TGT-0015,ACQ-038,2015-04-10,,2015,Q2,Merger of Equals,Leveraged,36.1,22.9,3.26,4.7,Rumored,High Growth|Diversification|Geographic Expansion|Regulatory Arbitrage,6,
+TXN-0202,TGT-0044,ACQ-005,2019-03-19,2019-09-16,2019,Q1,Merger of Equals,Cash + Stock,437.7,6.7,5.54,10.2,Closed,Market Consolidation|Margin Improvement,7,181
+TXN-0203,TGT-0200,ACQ-021,2024-01-10,2024-08-28,2024,Q1,Recapitalization,All Cash,278.7,15.6,6.31,8.8,Closed,Technology Capability|Margin Improvement|Regulatory Arbitrage|Platform Build|Talent Acquisition,5,231
+TXN-0204,TGT-0294,ACQ-026,2018-03-18,,2018,Q1,SPAC Merger,All Cash,279.4,7.3,6.57,11.1,Rumored,Supply Chain Integration|Platform Build|Regulatory Arbitrage|Vertical Integration,4,
+TXN-0205,TGT-0161,ACQ-013,2021-11-19,,2021,Q4,Platform Investment,Seller Financing,370.8,20.5,2.1,3.3,Terminated,Technology Capability|Regulatory Arbitrage|Market Consolidation|Margin Improvement|Vertical Integration,3,
+TXN-0206,TGT-0031,ACQ-034,2018-07-22,2018-10-07,2018,Q3,Recapitalization,Cash + Stock,133.1,19.0,2.96,10.4,Closed,Revenue Synergies|High Growth|Vertical Integration,6,77
+TXN-0207,TGT-0121,ACQ-026,2018-02-26,2018-11-14,2018,Q1,Carve-out,Cash + Stock,207.8,21.7,4.14,12.5,Closed,Technology Capability|Cost Synergies,7,261
+TXN-0208,TGT-0143,ACQ-036,2017-03-19,2017-11-05,2017,Q1,Recapitalization,All Cash,689.8,7.6,5.13,17.7,Closed,High Growth|Revenue Synergies,7,231
+TXN-0209,TGT-0257,ACQ-008,2023-08-28,2024-02-09,2023,Q3,Recapitalization,All Cash,485.9,20.7,3.06,17.1,Closed,Technology Capability|Cost Synergies|Platform Build|Revenue Synergies|Brand Value,7,165
+TXN-0210,TGT-0029,ACQ-032,2023-09-27,,2023,Q3,Bolt-on Acquisition,Leveraged,347.7,19.0,7.74,18.0,Terminated,Margin Improvement|Market Consolidation|Diversification|Vertical Integration,3,
+TXN-0211,TGT-0028,ACQ-016,2019-10-10,2020-06-09,2019,Q4,Platform Investment,Mixed,724.0,19.0,4.65,7.0,Closed,Brand Value|High Growth,8,243
+TXN-0212,TGT-0108,ACQ-011,2022-08-20,2023-03-23,2022,Q3,Minority Investment,All Cash,695.2,21.6,7.57,11.0,Closed,Brand Value|Revenue Synergies|Platform Build|Cost Synergies|Vertical Integration,7,215
+TXN-0213,TGT-0281,ACQ-021,2022-01-25,2022-08-18,2022,Q1,Strategic Acquisition,Mixed,509.7,21.0,1.78,9.8,Closed,Platform Build|Cost Synergies,5,205
+TXN-0214,TGT-0067,ACQ-039,2021-07-21,2021-10-17,2021,Q3,Recapitalization,Stock-for-Stock,219.6,19.1,6.75,16.6,Closed,Diversification|Cost Synergies|High Growth|Supply Chain Integration|Cross-Sell Opportunity,4,88
+TXN-0215,TGT-0118,ACQ-006,2022-05-16,2022-09-25,2022,Q2,Platform Investment,Mixed,54.1,17.7,5.12,5.5,Closed,Geographic Expansion|Market Consolidation,6,132
+TXN-0216,TGT-0061,ACQ-015,2018-04-08,,2018,Q2,Platform Investment,Leveraged,314.9,14.2,2.29,6.7,Pending,High Growth|Cost Synergies|Brand Value,5,
+TXN-0217,TGT-0231,ACQ-016,2020-11-08,,2020,Q4,Bolt-on Acquisition,All Cash,119.6,12.1,5.79,14.7,Pending,Market Consolidation|Cross-Sell Opportunity|Vertical Integration|Platform Build|Brand Value,7,
+TXN-0218,TGT-0242,ACQ-023,2024-02-03,,2024,Q1,Strategic Acquisition,Leveraged,501.4,11.7,3.64,9.3,Terminated,Vertical Integration|Cost Synergies|Talent Acquisition,1,
+TXN-0219,TGT-0163,ACQ-034,2021-05-11,2022-01-31,2021,Q2,Platform Investment,All Cash,49.7,8.4,7.08,17.2,Closed,Brand Value|Vertical Integration|Cross-Sell Opportunity|Revenue Synergies,6,265
+TXN-0220,TGT-0252,ACQ-010,2023-12-18,2024-09-11,2023,Q4,Strategic Acquisition,Cash + Stock,57.8,9.5,4.19,5.8,Closed,Brand Value|Margin Improvement,8,268
+TXN-0221,TGT-0249,ACQ-030,2022-03-08,2023-02-04,2022,Q1,Carve-out,All Cash,88.5,22.5,2.1,5.9,Closed,Cross-Sell Opportunity|Geographic Expansion|Talent Acquisition,5,333
+TXN-0222,TGT-0256,ACQ-007,2020-03-21,2020-05-19,2020,Q1,Platform Investment,Mixed,324.4,17.2,7.65,17.2,Closed,Margin Improvement|Revenue Synergies,3,59
+TXN-0223,TGT-0138,ACQ-039,2015-08-24,,2015,Q3,Strategic Acquisition,Mixed,761.5,12.2,6.07,15.5,Rumored,Revenue Synergies|Geographic Expansion|Supply Chain Integration,3,
+TXN-0224,TGT-0037,ACQ-036,2024-11-26,2025-04-03,2024,Q4,Bolt-on Acquisition,Stock-for-Stock,154.7,24.3,7.03,4.5,Closed,Supply Chain Integration|High Growth|Vertical Integration|Regulatory Arbitrage|Market Consolidation,4,128
+TXN-0225,TGT-0222,ACQ-020,2024-05-03,2024-11-01,2024,Q2,Merger of Equals,Mixed,668.2,15.7,4.33,18.1,Closed,Platform Build|Supply Chain Integration|High Growth|Diversification|Cross-Sell Opportunity,8,182
+TXN-0226,TGT-0021,ACQ-033,2020-10-22,2021-07-17,2020,Q4,Leveraged Buyout,Mixed,745.6,16.0,5.46,4.4,Closed,Brand Value|Supply Chain Integration,8,268
+TXN-0227,TGT-0154,ACQ-016,2023-12-01,2024-03-03,2023,Q4,Platform Investment,Seller Financing,447.5,23.4,4.5,11.7,Closed,Regulatory Arbitrage|Market Consolidation|Cross-Sell Opportunity|Vertical Integration|Diversification,7,93
+TXN-0228,TGT-0059,ACQ-030,2017-04-20,2018-04-19,2017,Q2,Minority Investment,All Cash,341.8,19.4,3.06,15.3,Closed,Diversification|Revenue Synergies|Supply Chain Integration|Cost Synergies,8,364
+TXN-0229,TGT-0133,ACQ-007,2021-02-05,2021-08-24,2021,Q1,Strategic Acquisition,Stock-for-Stock,25.4,18.5,4.11,9.9,Closed,Market Consolidation|Regulatory Arbitrage|Brand Value|Revenue Synergies,8,200
+TXN-0230,TGT-0008,ACQ-013,2016-02-05,2016-05-04,2016,Q1,Leveraged Buyout,All Cash,392.7,8.8,2.54,17.3,Closed,Supply Chain Integration|Margin Improvement|Cost Synergies|Revenue Synergies,4,89
+TXN-0231,TGT-0228,ACQ-032,2022-03-02,2022-06-07,2022,Q1,Recapitalization,Seller Financing,173.1,16.8,6.8,3.9,Closed,High Growth|Revenue Synergies|Margin Improvement|Market Consolidation|Cross-Sell Opportunity,1,97
+TXN-0232,TGT-0250,ACQ-026,2022-12-14,2023-09-27,2022,Q4,Leveraged Buyout,Mixed,429.7,14.0,3.07,4.1,Closed,Margin Improvement|Cross-Sell Opportunity,7,287
+TXN-0233,TGT-0011,ACQ-011,2019-05-21,,2019,Q2,Recapitalization,Leveraged,197.2,10.2,7.35,8.8,Pending,Brand Value|Vertical Integration|Market Consolidation,8,
+TXN-0234,TGT-0185,ACQ-031,2017-05-22,2018-02-03,2017,Q2,Platform Investment,Mixed,538.6,8.5,2.24,13.3,Closed,Vertical Integration|Technology Capability|Revenue Synergies|Talent Acquisition|Geographic Expansion,2,257
+TXN-0235,TGT-0082,ACQ-012,2023-02-20,,2023,Q1,Bolt-on Acquisition,Leveraged,104.5,10.3,4.85,11.3,Withdrawn,Supply Chain Integration|Geographic Expansion|Brand Value|Talent Acquisition,6,
+TXN-0236,TGT-0054,ACQ-004,2022-11-23,,2022,Q4,Bolt-on Acquisition,All Cash,493.6,22.3,1.53,12.6,Rumored,Regulatory Arbitrage|Platform Build|Technology Capability,2,
+TXN-0237,TGT-0227,ACQ-033,2022-02-03,2022-03-23,2022,Q1,Carve-out,Mixed,277.7,8.6,6.91,10.5,Closed,Revenue Synergies|Supply Chain Integration|Margin Improvement,7,48
+TXN-0238,TGT-0137,ACQ-024,2021-07-23,,2021,Q3,Leveraged Buyout,Cash + Stock,346.1,10.3,6.57,10.0,Terminated,Revenue Synergies|Talent Acquisition|Supply Chain Integration|Regulatory Arbitrage|Diversification,7,
+TXN-0239,TGT-0265,ACQ-005,2016-08-13,2017-07-18,2016,Q3,Merger of Equals,Stock-for-Stock,355.7,13.5,1.07,18.7,Closed,Regulatory Arbitrage|Market Consolidation,3,339
+TXN-0240,TGT-0284,ACQ-020,2020-08-02,,2020,Q3,Strategic Acquisition,Leveraged,494.2,8.8,3.71,13.9,Terminated,Brand Value|Supply Chain Integration|Revenue Synergies|Regulatory Arbitrage,8,
+TXN-0241,TGT-0276,ACQ-022,2021-06-27,2021-08-22,2021,Q2,Management Buyout,Seller Financing,182.8,15.7,3.05,8.8,Closed,Brand Value|Supply Chain Integration,3,56
+TXN-0242,TGT-0156,ACQ-028,2023-02-19,2023-11-20,2023,Q1,Strategic Acquisition,Leveraged,507.2,12.7,1.14,14.1,Closed,Cross-Sell Opportunity|Market Consolidation|Geographic Expansion|Margin Improvement,2,274
+TXN-0243,TGT-0274,ACQ-039,2018-07-14,,2018,Q3,Platform Investment,Leveraged,542.9,19.6,4.54,7.2,Rumored,Revenue Synergies|Supply Chain Integration|Diversification,6,
+TXN-0244,TGT-0211,ACQ-006,2016-02-14,,2016,Q1,Minority Investment,Cash + Stock,183.6,7.5,5.67,9.8,Pending,Cross-Sell Opportunity|Margin Improvement|Regulatory Arbitrage|High Growth,7,
+TXN-0245,TGT-0084,ACQ-010,2023-04-04,,2023,Q2,Recapitalization,Mixed,116.6,19.4,7.02,5.0,Pending,Margin Improvement|Geographic Expansion|Market Consolidation|Cost Synergies|Talent Acquisition,4,
+TXN-0246,TGT-0062,ACQ-024,2024-08-06,2024-12-02,2024,Q3,Strategic Acquisition,Seller Financing,107.4,11.8,3.5,8.0,Closed,Supply Chain Integration|Cross-Sell Opportunity|High Growth,1,118
+TXN-0247,TGT-0251,ACQ-001,2016-08-22,,2016,Q3,Bolt-on Acquisition,All Cash,392.7,11.9,4.06,8.7,Withdrawn,Revenue Synergies|Market Consolidation|Cross-Sell Opportunity|Cost Synergies|Brand Value,7,
+TXN-0248,TGT-0230,ACQ-010,2020-01-10,,2020,Q1,SPAC Merger,Mixed,336.6,10.4,3.65,12.2,Rumored,Regulatory Arbitrage|Platform Build|Cost Synergies|Market Consolidation,8,
+TXN-0249,TGT-0288,ACQ-008,2023-03-26,,2023,Q1,Leveraged Buyout,Seller Financing,467.8,7.0,4.91,6.2,Terminated,Platform Build|Regulatory Arbitrage,8,
+TXN-0250,TGT-0106,ACQ-016,2024-10-04,,2024,Q4,Bolt-on Acquisition,Seller Financing,266.5,17.2,4.34,18.9,Rumored,Cost Synergies|High Growth|Geographic Expansion|Talent Acquisition|Diversification,6,
+TXN-0251,TGT-0278,ACQ-011,2019-05-05,2019-09-19,2019,Q2,Carve-out,Leveraged,136.1,24.1,5.69,4.0,Closed,Market Consolidation|Geographic Expansion,6,137
+TXN-0252,TGT-0212,ACQ-021,2019-10-14,2020-01-25,2019,Q4,Bolt-on Acquisition,All Cash,203.1,17.3,2.5,11.6,Closed,Geographic Expansion|Diversification|Margin Improvement|Talent Acquisition,7,103
+TXN-0253,TGT-0120,ACQ-002,2019-03-02,2019-06-27,2019,Q1,Leveraged Buyout,Seller Financing,254.1,13.7,1.4,13.8,Closed,Talent Acquisition|Cost Synergies|Supply Chain Integration|Technology Capability,4,117
+TXN-0254,TGT-0001,ACQ-030,2024-07-18,2025-02-27,2024,Q3,Carve-out,All Cash,747.8,15.2,5.1,17.3,Closed,Cross-Sell Opportunity|Revenue Synergies|Talent Acquisition,7,224
+TXN-0255,TGT-0289,ACQ-005,2019-02-08,2020-01-31,2019,Q1,Minority Investment,Mixed,666.9,19.8,7.99,17.9,Closed,Brand Value|Regulatory Arbitrage|Diversification|Revenue Synergies,4,357
+TXN-0256,TGT-0165,ACQ-022,2018-12-03,2019-01-21,2018,Q4,SPAC Merger,Leveraged,732.5,8.5,7.44,13.3,Closed,High Growth|Talent Acquisition|Market Consolidation,1,49
+TXN-0257,TGT-0040,ACQ-035,2015-10-24,,2015,Q4,Bolt-on Acquisition,Leveraged,664.6,12.8,2.08,16.1,Withdrawn,Margin Improvement|Diversification,1,
+TXN-0258,TGT-0011,ACQ-018,2020-04-04,2020-10-09,2020,Q2,Bolt-on Acquisition,Seller Financing,649.6,10.2,7.86,19.4,Closed,Brand Value|Market Consolidation|Revenue Synergies|Cross-Sell Opportunity|Technology Capability,1,188
+TXN-0259,TGT-0143,ACQ-037,2023-12-24,2024-12-04,2023,Q4,Carve-out,Seller Financing,533.0,16.7,5.71,12.6,Closed,Market Consolidation|Platform Build|Cost Synergies,2,346
+TXN-0260,TGT-0141,ACQ-013,2015-09-24,2016-06-16,2015,Q3,Management Buyout,Stock-for-Stock,751.2,18.2,7.59,3.9,Closed,Vertical Integration|Platform Build|Regulatory Arbitrage|Talent Acquisition|Margin Improvement,6,266
+TXN-0261,TGT-0115,ACQ-004,2019-12-04,2020-05-12,2019,Q4,Management Buyout,Stock-for-Stock,19.1,9.7,1.39,12.7,Closed,Platform Build|Technology Capability|Revenue Synergies|Cost Synergies|Diversification,1,160
+TXN-0262,TGT-0015,ACQ-031,2021-03-15,2021-10-16,2021,Q1,SPAC Merger,Mixed,674.8,10.7,4.21,19.3,Closed,Platform Build|Supply Chain Integration|Cross-Sell Opportunity,1,215
+TXN-0263,TGT-0297,ACQ-008,2016-01-02,2016-03-15,2016,Q1,Strategic Acquisition,Stock-for-Stock,713.7,19.2,6.44,4.1,Closed,Cross-Sell Opportunity|Regulatory Arbitrage|High Growth|Platform Build,8,73
+TXN-0264,TGT-0151,ACQ-025,2021-03-11,2021-11-30,2021,Q1,SPAC Merger,Stock-for-Stock,693.7,21.0,5.29,10.7,Closed,Diversification|Regulatory Arbitrage,8,264
+TXN-0265,TGT-0099,ACQ-007,2016-01-05,2016-08-18,2016,Q1,SPAC Merger,Mixed,480.4,22.0,7.31,5.1,Closed,Margin Improvement|Market Consolidation|Cross-Sell Opportunity|Brand Value|Cost Synergies,5,226
+TXN-0266,TGT-0160,ACQ-038,2021-07-08,,2021,Q3,Platform Investment,Seller Financing,623.8,8.8,3.02,8.8,Terminated,Talent Acquisition|Cross-Sell Opportunity,6,
+TXN-0267,TGT-0260,ACQ-036,2015-11-11,2016-12-15,2015,Q4,Merger of Equals,Cash + Stock,517.8,9.8,1.29,6.2,Closed,Cross-Sell Opportunity|Market Consolidation|Diversification|Brand Value|Revenue Synergies,8,400
+TXN-0268,TGT-0084,ACQ-007,2022-01-18,2022-08-20,2022,Q1,Recapitalization,Cash + Stock,516.4,19.2,4.16,6.6,Closed,Technology Capability|High Growth|Cost Synergies|Geographic Expansion|Diversification,8,214
+TXN-0269,TGT-0059,ACQ-010,2019-10-06,,2019,Q4,Leveraged Buyout,Mixed,731.5,12.8,7.82,6.4,Rumored,Technology Capability|Vertical Integration|Market Consolidation,5,
+TXN-0270,TGT-0101,ACQ-002,2017-09-14,2018-06-19,2017,Q3,Bolt-on Acquisition,All Cash,312.5,21.0,1.6,18.9,Closed,Diversification|Supply Chain Integration|Brand Value,5,278
+TXN-0271,TGT-0034,ACQ-008,2017-04-26,,2017,Q2,Leveraged Buyout,Cash + Stock,311.9,13.1,5.12,19.6,Terminated,Supply Chain Integration|Cross-Sell Opportunity,4,
+TXN-0272,TGT-0077,ACQ-021,2018-02-16,,2018,Q1,Platform Investment,Cash + Stock,775.2,22.8,2.31,4.4,Terminated,Cost Synergies|Talent Acquisition,8,
+TXN-0273,TGT-0266,ACQ-030,2017-07-14,,2017,Q3,Merger of Equals,Seller Financing,576.8,15.4,2.73,9.8,Pending,Technology Capability|Brand Value|Margin Improvement,1,
+TXN-0274,TGT-0194,ACQ-037,2017-08-09,2018-05-19,2017,Q3,Platform Investment,Seller Financing,120.4,7.6,4.0,9.0,Closed,High Growth|Margin Improvement|Revenue Synergies|Brand Value,1,283
+TXN-0275,TGT-0196,ACQ-002,2017-10-11,2018-04-15,2017,Q4,Leveraged Buyout,Leveraged,296.9,7.6,6.87,11.7,Closed,Platform Build|Brand Value|Revenue Synergies,2,186
+TXN-0276,TGT-0101,ACQ-022,2019-08-27,,2019,Q3,Platform Investment,Cash + Stock,798.4,25.0,6.22,15.6,Rumored,Supply Chain Integration|Vertical Integration,5,
+TXN-0277,TGT-0297,ACQ-001,2022-06-15,2023-03-23,2022,Q2,Minority Investment,Cash + Stock,582.8,10.0,2.48,13.0,Closed,Supply Chain Integration|Platform Build|Diversification|Technology Capability,8,281
+TXN-0278,TGT-0231,ACQ-036,2015-09-11,2016-04-16,2015,Q3,Carve-out,Seller Financing,254.9,20.0,4.4,14.2,Closed,High Growth|Brand Value|Regulatory Arbitrage,6,218
+TXN-0279,TGT-0012,ACQ-037,2015-04-11,,2015,Q2,Carve-out,Leveraged,509.4,17.5,5.18,17.7,Rumored,High Growth|Platform Build|Talent Acquisition,7,
+TXN-0280,TGT-0292,ACQ-029,2019-02-22,,2019,Q1,Carve-out,All Cash,154.4,21.7,5.14,3.5,Terminated,Brand Value|High Growth,4,
+TXN-0281,TGT-0269,ACQ-005,2022-01-27,2022-05-18,2022,Q1,Merger of Equals,Seller Financing,149.9,22.3,3.76,5.7,Closed,Margin Improvement|Market Consolidation|Platform Build|High Growth|Technology Capability,2,111
+TXN-0282,TGT-0244,ACQ-011,2024-09-19,,2024,Q3,SPAC Merger,Cash + Stock,577.7,14.7,2.25,19.8,Terminated,Revenue Synergies|High Growth,8,
+TXN-0283,TGT-0252,ACQ-030,2022-02-23,,2022,Q1,Bolt-on Acquisition,Leveraged,287.2,22.0,6.5,9.6,Pending,Technology Capability|Cost Synergies|Cross-Sell Opportunity|Market Consolidation|High Growth,3,
+TXN-0284,TGT-0292,ACQ-007,2021-01-15,2021-11-08,2021,Q1,Leveraged Buyout,Cash + Stock,707.8,16.2,5.6,4.1,Closed,Supply Chain Integration|Talent Acquisition|Platform Build|Diversification|Brand Value,4,297
+TXN-0285,TGT-0085,ACQ-017,2018-02-16,2018-07-10,2018,Q1,Recapitalization,All Cash,516.5,18.8,4.13,8.8,Closed,Geographic Expansion|Brand Value|Vertical Integration|Platform Build|Cost Synergies,7,144
+TXN-0286,TGT-0237,ACQ-005,2016-05-22,,2016,Q2,Recapitalization,Cash + Stock,659.0,22.0,2.03,3.3,Pending,Vertical Integration|Platform Build|Talent Acquisition,2,
+TXN-0287,TGT-0006,ACQ-018,2017-12-01,2018-12-06,2017,Q4,Merger of Equals,Cash + Stock,575.8,23.0,4.63,10.5,Closed,High Growth|Market Consolidation,1,370
+TXN-0288,TGT-0025,ACQ-025,2018-04-02,2019-04-30,2018,Q2,Merger of Equals,Cash + Stock,86.7,14.0,7.92,8.7,Closed,Technology Capability|Platform Build,4,393
+TXN-0289,TGT-0213,ACQ-033,2016-08-11,2017-01-12,2016,Q3,Merger of Equals,Seller Financing,505.4,23.8,3.64,10.3,Closed,Diversification|Brand Value,4,154
+TXN-0290,TGT-0007,ACQ-025,2018-11-21,2019-11-07,2018,Q4,Leveraged Buyout,All Cash,525.2,13.0,1.28,6.7,Closed,Platform Build|Market Consolidation|Talent Acquisition|Cross-Sell Opportunity|Cost Synergies,5,351
+TXN-0291,TGT-0199,ACQ-009,2020-04-24,,2020,Q2,Merger of Equals,Mixed,68.0,6.3,7.37,10.6,Pending,Technology Capability|Geographic Expansion,4,
+TXN-0292,TGT-0220,ACQ-016,2024-03-21,2025-03-07,2024,Q1,Strategic Acquisition,Cash + Stock,406.5,9.8,3.51,13.9,Closed,Market Consolidation|Diversification|Cost Synergies|Vertical Integration|Revenue Synergies,4,351
+TXN-0293,TGT-0148,ACQ-002,2018-08-07,2019-07-29,2018,Q3,Merger of Equals,Cash + Stock,438.4,23.2,5.59,7.2,Closed,Talent Acquisition|Diversification|Cost Synergies|Margin Improvement|Regulatory Arbitrage,4,356
+TXN-0294,TGT-0027,ACQ-010,2018-04-10,,2018,Q2,Bolt-on Acquisition,Cash + Stock,445.8,21.1,2.27,11.6,Rumored,Vertical Integration|Cost Synergies|Market Consolidation|Technology Capability|Supply Chain Integration,7,
+TXN-0295,TGT-0147,ACQ-037,2022-05-20,2023-03-19,2022,Q2,Platform Investment,Stock-for-Stock,761.5,12.8,3.52,11.0,Closed,Supply Chain Integration|Cost Synergies|Brand Value|Margin Improvement|Geographic Expansion,7,303
+TXN-0296,TGT-0276,ACQ-010,2023-04-28,,2023,Q2,Platform Investment,Stock-for-Stock,255.1,11.4,4.85,11.2,Pending,Market Consolidation|Margin Improvement|Technology Capability,6,
+TXN-0297,TGT-0257,ACQ-024,2022-12-23,2023-04-10,2022,Q4,Minority Investment,Stock-for-Stock,316.5,11.8,7.91,4.2,Closed,Brand Value|Cross-Sell Opportunity|Cost Synergies|Technology Capability|High Growth,1,108
+TXN-0298,TGT-0251,ACQ-024,2015-10-20,2016-11-08,2015,Q4,Minority Investment,Mixed,205.2,6.7,6.65,13.7,Closed,Vertical Integration|Cross-Sell Opportunity|Margin Improvement,1,385
+TXN-0299,TGT-0297,ACQ-011,2015-03-19,,2015,Q1,Bolt-on Acquisition,Mixed,327.2,17.1,7.29,11.8,Withdrawn,Cost Synergies|Revenue Synergies|High Growth|Vertical Integration|Market Consolidation,4,
+TXN-0300,TGT-0158,ACQ-027,2016-03-24,2016-08-02,2016,Q1,SPAC Merger,Leveraged,226.2,10.0,6.19,14.9,Closed,Geographic Expansion|Platform Build|Revenue Synergies|Market Consolidation|High Growth,1,131
+TXN-0301,TGT-0221,ACQ-011,2017-08-21,2018-01-08,2017,Q3,Carve-out,Mixed,170.4,9.5,7.63,10.7,Closed,Geographic Expansion|Market Consolidation|Cost Synergies,4,140
+TXN-0302,TGT-0056,ACQ-011,2016-09-04,2016-10-23,2016,Q3,Bolt-on Acquisition,Stock-for-Stock,232.3,12.5,5.02,11.1,Closed,Vertical Integration|Supply Chain Integration,2,49
+TXN-0303,TGT-0109,ACQ-034,2015-12-02,2016-12-30,2015,Q4,SPAC Merger,Seller Financing,746.7,15.0,3.23,10.3,Closed,Diversification|Revenue Synergies|Technology Capability|Brand Value,6,394
+TXN-0304,TGT-0183,ACQ-022,2016-03-14,,2016,Q1,Recapitalization,Mixed,584.3,22.9,1.8,13.2,Withdrawn,Diversification|Margin Improvement|Cross-Sell Opportunity,5,
+TXN-0305,TGT-0097,ACQ-001,2020-03-07,2020-10-16,2020,Q1,Merger of Equals,All Cash,547.2,10.4,4.29,15.6,Closed,Brand Value|Margin Improvement|Regulatory Arbitrage|Market Consolidation|Platform Build,2,223
+TXN-0306,TGT-0074,ACQ-034,2024-03-06,2024-12-04,2024,Q1,Carve-out,Stock-for-Stock,251.6,18.8,4.75,17.9,Closed,Margin Improvement|Regulatory Arbitrage,3,273
+TXN-0307,TGT-0046,ACQ-007,2021-03-11,,2021,Q1,Carve-out,Leveraged,616.6,10.2,2.65,11.1,Withdrawn,Brand Value|Talent Acquisition|Regulatory Arbitrage,2,
+TXN-0308,TGT-0115,ACQ-037,2024-01-24,,2024,Q1,Merger of Equals,Stock-for-Stock,528.3,20.9,7.76,10.4,Withdrawn,Vertical Integration|Platform Build|Brand Value,4,
+TXN-0309,TGT-0097,ACQ-008,2024-09-08,,2024,Q3,Carve-out,Leveraged,467.9,6.0,1.25,12.1,Withdrawn,Diversification|Supply Chain Integration|Brand Value|Regulatory Arbitrage|Cost Synergies,7,
+TXN-0310,TGT-0055,ACQ-026,2015-10-09,2016-10-28,2015,Q4,Merger of Equals,Cash + Stock,672.2,15.5,4.08,13.2,Closed,Cross-Sell Opportunity|Diversification,3,385
+TXN-0311,TGT-0294,ACQ-031,2018-11-10,,2018,Q4,Platform Investment,Mixed,61.2,21.4,1.9,15.2,Withdrawn,Brand Value|Revenue Synergies,4,
+TXN-0312,TGT-0082,ACQ-002,2023-11-25,,2023,Q4,Merger of Equals,Stock-for-Stock,792.4,20.4,3.62,12.0,Pending,Market Consolidation|Technology Capability|Brand Value|Talent Acquisition,5,
+TXN-0313,TGT-0298,ACQ-004,2019-10-13,2020-10-25,2019,Q4,Carve-out,Seller Financing,361.9,15.2,7.26,6.6,Closed,Diversification|Market Consolidation,4,378
+TXN-0314,TGT-0219,ACQ-011,2015-02-06,2015-06-07,2015,Q1,Merger of Equals,Stock-for-Stock,756.9,8.2,4.51,8.8,Closed,Technology Capability|Geographic Expansion|Platform Build|Brand Value|High Growth,7,121
+TXN-0315,TGT-0193,ACQ-006,2022-12-24,,2022,Q4,Platform Investment,Mixed,303.3,8.3,1.39,11.3,Pending,Cross-Sell Opportunity|Brand Value,4,
+TXN-0316,TGT-0049,ACQ-038,2017-10-17,,2017,Q4,Recapitalization,Mixed,249.2,8.4,3.14,15.1,Withdrawn,Revenue Synergies|Market Consolidation|Geographic Expansion|High Growth|Talent Acquisition,3,
+TXN-0317,TGT-0300,ACQ-035,2016-04-28,,2016,Q2,Bolt-on Acquisition,Cash + Stock,560.7,6.1,4.02,8.3,Rumored,Cross-Sell Opportunity|Technology Capability|Regulatory Arbitrage,1,
+TXN-0318,TGT-0018,ACQ-006,2016-09-17,2017-10-04,2016,Q3,Merger of Equals,Seller Financing,347.1,24.0,0.8,8.1,Closed,Cost Synergies|Cross-Sell Opportunity|Margin Improvement|Market Consolidation|Diversification,5,382
+TXN-0319,TGT-0108,ACQ-007,2015-04-09,2016-03-21,2015,Q2,Strategic Acquisition,Cash + Stock,250.3,21.8,7.69,13.2,Closed,Vertical Integration|Cost Synergies|Market Consolidation|Cross-Sell Opportunity,4,347
+TXN-0320,TGT-0196,ACQ-011,2021-12-06,,2021,Q4,Bolt-on Acquisition,Leveraged,753.1,8.7,2.27,13.7,Withdrawn,Market Consolidation|Diversification|Cross-Sell Opportunity,5,
+TXN-0321,TGT-0215,ACQ-010,2020-11-05,,2020,Q4,Minority Investment,All Cash,209.3,11.1,4.63,14.6,Rumored,Diversification|Regulatory Arbitrage,7,
+TXN-0322,TGT-0116,ACQ-018,2015-02-04,,2015,Q1,Minority Investment,Cash + Stock,762.1,20.9,1.69,12.0,Withdrawn,Platform Build|Talent Acquisition|Diversification|Market Consolidation|Cross-Sell Opportunity,5,
+TXN-0323,TGT-0025,ACQ-011,2020-10-05,,2020,Q4,Carve-out,Leveraged,448.1,22.8,3.7,13.1,Terminated,Regulatory Arbitrage|Talent Acquisition,5,
+TXN-0324,TGT-0194,ACQ-037,2019-01-10,2019-10-21,2019,Q1,Merger of Equals,Mixed,547.4,13.9,4.1,10.5,Closed,Vertical Integration|High Growth|Talent Acquisition|Market Consolidation,6,284
+TXN-0325,TGT-0209,ACQ-021,2016-02-18,2016-04-08,2016,Q1,Bolt-on Acquisition,Mixed,756.7,9.1,1.21,15.6,Closed,Regulatory Arbitrage|Talent Acquisition|Market Consolidation|Cost Synergies|Margin Improvement,8,50
+TXN-0326,TGT-0064,ACQ-026,2015-04-17,,2015,Q2,Strategic Acquisition,Mixed,566.5,20.2,2.56,15.6,Withdrawn,Cost Synergies|Regulatory Arbitrage|Supply Chain Integration|Talent Acquisition|Technology Capability,1,
+TXN-0327,TGT-0181,ACQ-004,2021-12-13,2022-06-24,2021,Q4,Minority Investment,Cash + Stock,776.2,12.4,5.69,17.1,Closed,Margin Improvement|Vertical Integration|Revenue Synergies|Technology Capability,2,193
+TXN-0328,TGT-0112,ACQ-020,2023-01-04,,2023,Q1,Recapitalization,Seller Financing,60.1,6.1,4.11,8.1,Pending,Diversification|Market Consolidation,2,
+TXN-0329,TGT-0221,ACQ-032,2018-01-15,2018-06-24,2018,Q1,Management Buyout,Seller Financing,337.4,23.3,0.85,16.1,Closed,High Growth|Diversification|Vertical Integration|Revenue Synergies|Brand Value,5,160
+TXN-0330,TGT-0225,ACQ-011,2017-09-04,2018-05-09,2017,Q3,Minority Investment,All Cash,708.6,19.5,1.6,7.8,Closed,Market Consolidation|Diversification|Geographic Expansion|Cost Synergies|Regulatory Arbitrage,3,247
+TXN-0331,TGT-0216,ACQ-032,2023-12-01,,2023,Q4,Carve-out,Leveraged,409.0,23.5,6.87,9.6,Withdrawn,Supply Chain Integration|Geographic Expansion,2,
+TXN-0332,TGT-0122,ACQ-004,2020-11-23,2021-11-19,2020,Q4,SPAC Merger,Mixed,355.9,11.5,4.3,15.9,Closed,Market Consolidation|Talent Acquisition|Cost Synergies,4,361
+TXN-0333,TGT-0127,ACQ-028,2018-10-14,,2018,Q4,Bolt-on Acquisition,Mixed,494.7,9.6,6.96,13.7,Terminated,Platform Build|Cost Synergies|High Growth,3,
+TXN-0334,TGT-0010,ACQ-040,2018-02-09,,2018,Q1,Strategic Acquisition,Stock-for-Stock,427.1,19.3,7.86,6.8,Withdrawn,Geographic Expansion|Talent Acquisition|High Growth|Regulatory Arbitrage|Brand Value,7,
+TXN-0335,TGT-0180,ACQ-027,2018-08-10,2019-07-31,2018,Q3,Strategic Acquisition,Cash + Stock,15.4,18.5,3.12,7.9,Closed,High Growth|Cost Synergies,5,355
+TXN-0336,TGT-0058,ACQ-007,2015-04-27,2015-09-26,2015,Q2,Merger of Equals,Leveraged,598.2,17.2,5.15,7.1,Closed,Platform Build|Brand Value|Cost Synergies|Regulatory Arbitrage|Cross-Sell Opportunity,5,152
+TXN-0337,TGT-0098,ACQ-013,2022-02-25,,2022,Q1,Bolt-on Acquisition,Seller Financing,284.2,19.8,7.93,6.4,Rumored,Cost Synergies|Technology Capability,3,
+TXN-0338,TGT-0287,ACQ-023,2020-10-24,2021-10-10,2020,Q4,Bolt-on Acquisition,Stock-for-Stock,394.0,16.0,7.66,16.4,Closed,Market Consolidation|Cost Synergies|Vertical Integration|Geographic Expansion,3,351
+TXN-0339,TGT-0204,ACQ-032,2023-01-26,,2023,Q1,Carve-out,Stock-for-Stock,316.6,20.8,3.69,7.6,Terminated,Cost Synergies|Cross-Sell Opportunity,3,
+TXN-0340,TGT-0263,ACQ-030,2023-08-21,2024-03-02,2023,Q3,Platform Investment,Cash + Stock,571.0,16.5,2.03,3.8,Closed,Regulatory Arbitrage|Cost Synergies,4,194
+TXN-0341,TGT-0128,ACQ-014,2023-03-24,2023-07-15,2023,Q1,Strategic Acquisition,Mixed,511.7,24.5,3.14,19.1,Closed,Brand Value|Cross-Sell Opportunity|Vertical Integration|Diversification|Geographic Expansion,5,113
+TXN-0342,TGT-0144,ACQ-012,2019-03-08,,2019,Q1,Management Buyout,Mixed,98.6,20.2,3.55,14.1,Rumored,Technology Capability|Diversification|Vertical Integration|Brand Value|Cross-Sell Opportunity,4,
+TXN-0343,TGT-0223,ACQ-024,2017-10-03,2018-10-14,2017,Q4,Bolt-on Acquisition,Stock-for-Stock,375.6,21.5,2.07,12.7,Closed,Geographic Expansion|Vertical Integration|Cost Synergies|Supply Chain Integration,3,376
+TXN-0344,TGT-0074,ACQ-005,2021-04-09,,2021,Q2,Recapitalization,Mixed,93.7,16.0,6.03,16.7,Withdrawn,High Growth|Geographic Expansion|Platform Build|Revenue Synergies|Regulatory Arbitrage,2,
+TXN-0345,TGT-0074,ACQ-039,2015-01-21,2015-05-29,2015,Q1,Bolt-on Acquisition,Seller Financing,684.4,7.6,1.8,15.9,Closed,Diversification|Margin Improvement|Cost Synergies|Technology Capability,8,128
+TXN-0346,TGT-0279,ACQ-008,2015-02-22,2015-04-20,2015,Q1,Bolt-on Acquisition,Seller Financing,95.5,22.8,3.79,3.0,Closed,High Growth|Brand Value|Cost Synergies,4,57
+TXN-0347,TGT-0197,ACQ-008,2022-05-20,2022-08-16,2022,Q2,Bolt-on Acquisition,Cash + Stock,765.8,11.4,1.35,8.7,Closed,Cross-Sell Opportunity|Cost Synergies,6,88
+TXN-0348,TGT-0093,ACQ-028,2017-08-13,2017-11-05,2017,Q3,SPAC Merger,Leveraged,702.2,11.2,4.39,9.3,Closed,Revenue Synergies|Cost Synergies,5,84
+TXN-0349,TGT-0229,ACQ-031,2016-03-08,2016-10-02,2016,Q1,SPAC Merger,Stock-for-Stock,128.6,12.1,1.72,16.0,Closed,High Growth|Margin Improvement|Market Consolidation|Brand Value|Cross-Sell Opportunity,6,208
+TXN-0350,TGT-0197,ACQ-027,2023-10-12,,2023,Q4,Management Buyout,Seller Financing,433.0,21.6,3.57,12.9,Pending,Market Consolidation|Platform Build|Technology Capability,7,
+TXN-0351,TGT-0286,ACQ-031,2017-01-13,2017-12-06,2017,Q1,Strategic Acquisition,Leveraged,681.3,22.5,6.7,8.0,Closed,Technology Capability|Brand Value|Revenue Synergies|Geographic Expansion|Cost Synergies,3,327
+TXN-0352,TGT-0014,ACQ-028,2020-01-25,,2020,Q1,Bolt-on Acquisition,Mixed,72.9,21.9,7.07,3.5,Rumored,Platform Build|Technology Capability|Brand Value,6,
+TXN-0353,TGT-0094,ACQ-031,2017-07-13,2018-07-21,2017,Q3,Recapitalization,Stock-for-Stock,363.5,18.3,0.9,4.9,Closed,Cross-Sell Opportunity|Supply Chain Integration,1,373
+TXN-0354,TGT-0217,ACQ-030,2023-07-18,2023-11-04,2023,Q3,SPAC Merger,Seller Financing,571.8,14.0,1.93,19.5,Closed,High Growth|Cross-Sell Opportunity|Geographic Expansion,7,109
+TXN-0355,TGT-0040,ACQ-030,2022-07-04,2022-09-26,2022,Q3,Minority Investment,Stock-for-Stock,57.9,13.1,3.85,7.6,Closed,Cross-Sell Opportunity|Supply Chain Integration|Diversification|Geographic Expansion,2,84
+TXN-0356,TGT-0034,ACQ-014,2024-01-17,,2024,Q1,Platform Investment,Cash + Stock,173.4,23.7,2.53,4.4,Terminated,Geographic Expansion|Brand Value|Diversification|Platform Build|Vertical Integration,1,
+TXN-0357,TGT-0100,ACQ-021,2021-08-21,2021-10-17,2021,Q3,Carve-out,Mixed,275.1,23.0,4.43,11.5,Closed,Margin Improvement|Cross-Sell Opportunity|Geographic Expansion|Vertical Integration|Cost Synergies,3,57
+TXN-0358,TGT-0048,ACQ-015,2018-05-25,,2018,Q2,Carve-out,Seller Financing,793.9,17.6,4.57,16.1,Terminated,Diversification|Vertical Integration|Brand Value,8,
+TXN-0359,TGT-0199,ACQ-016,2018-01-12,,2018,Q1,Carve-out,Seller Financing,91.5,6.3,6.32,8.3,Pending,Platform Build|Margin Improvement|Diversification|Cost Synergies|Vertical Integration,2,
+TXN-0360,TGT-0181,ACQ-006,2016-06-12,,2016,Q2,Recapitalization,Leveraged,783.1,20.5,3.98,18.7,Pending,Geographic Expansion|Diversification|Vertical Integration|High Growth|Market Consolidation,2,
+TXN-0361,TGT-0263,ACQ-040,2020-07-13,,2020,Q3,Bolt-on Acquisition,Mixed,412.2,11.0,7.1,14.6,Withdrawn,Market Consolidation|Revenue Synergies|Talent Acquisition,1,
+TXN-0362,TGT-0082,ACQ-037,2021-03-07,,2021,Q1,Leveraged Buyout,Stock-for-Stock,540.3,12.6,4.17,12.1,Pending,Platform Build|Cost Synergies,8,
+TXN-0363,TGT-0206,ACQ-022,2016-08-26,,2016,Q3,Merger of Equals,Seller Financing,181.9,20.1,1.62,10.7,Pending,Cost Synergies|Regulatory Arbitrage|Technology Capability|Diversification|Cross-Sell Opportunity,3,
+TXN-0364,TGT-0186,ACQ-028,2022-05-28,2022-09-22,2022,Q2,Strategic Acquisition,Cash + Stock,762.8,19.0,2.74,13.8,Closed,Vertical Integration|High Growth,2,117
+TXN-0365,TGT-0215,ACQ-034,2018-08-19,2019-03-30,2018,Q3,Carve-out,All Cash,717.5,14.1,7.74,8.0,Closed,Margin Improvement|Brand Value|Talent Acquisition|Market Consolidation|Cost Synergies,4,223
+TXN-0366,TGT-0200,ACQ-001,2023-05-26,,2023,Q2,Bolt-on Acquisition,Mixed,499.0,12.2,7.9,19.0,Rumored,Cost Synergies|Margin Improvement,6,
+TXN-0367,TGT-0209,ACQ-017,2023-02-07,,2023,Q1,Recapitalization,Cash + Stock,516.5,17.0,1.06,15.7,Pending,Market Consolidation|Talent Acquisition|Supply Chain Integration|Cost Synergies|Cross-Sell Opportunity,4,
+TXN-0368,TGT-0296,ACQ-001,2020-07-14,2021-03-27,2020,Q3,Strategic Acquisition,Leveraged,409.1,22.5,5.84,14.0,Closed,Diversification|Brand Value|Talent Acquisition|High Growth|Supply Chain Integration,8,256
+TXN-0369,TGT-0192,ACQ-012,2023-04-20,,2023,Q2,Management Buyout,Stock-for-Stock,238.7,18.5,5.7,13.8,Withdrawn,Supply Chain Integration|Revenue Synergies,2,
+TXN-0370,TGT-0211,ACQ-007,2022-02-26,,2022,Q1,Recapitalization,Seller Financing,647.6,18.7,6.93,6.6,Rumored,Platform Build|Technology Capability|Margin Improvement|Brand Value|Diversification,8,
+TXN-0371,TGT-0203,ACQ-001,2020-04-27,2021-05-21,2020,Q2,Management Buyout,Leveraged,705.5,11.0,6.84,16.5,Closed,Geographic Expansion|High Growth|Brand Value,7,389
+TXN-0372,TGT-0266,ACQ-039,2020-09-14,,2020,Q3,Carve-out,Seller Financing,204.8,24.5,2.19,14.0,Withdrawn,Cost Synergies|Regulatory Arbitrage|High Growth|Market Consolidation|Brand Value,1,
+TXN-0373,TGT-0119,ACQ-007,2017-03-23,2017-12-16,2017,Q1,SPAC Merger,Stock-for-Stock,672.3,9.0,3.12,4.6,Closed,Regulatory Arbitrage|Supply Chain Integration,1,268
+TXN-0374,TGT-0279,ACQ-006,2024-12-02,2025-06-17,2024,Q4,Strategic Acquisition,Mixed,787.0,18.1,6.4,6.2,Closed,Talent Acquisition|Revenue Synergies|Technology Capability,4,197
+TXN-0375,TGT-0141,ACQ-006,2017-02-16,2017-05-19,2017,Q1,SPAC Merger,All Cash,375.4,17.3,1.57,7.8,Closed,Margin Improvement|Revenue Synergies,3,92
+TXN-0376,TGT-0012,ACQ-027,2016-10-11,,2016,Q4,Bolt-on Acquisition,Cash + Stock,309.6,12.0,7.34,16.7,Withdrawn,Geographic Expansion|Cost Synergies|Regulatory Arbitrage|Cross-Sell Opportunity,3,
+TXN-0377,TGT-0178,ACQ-031,2024-01-23,2024-06-26,2024,Q1,Carve-out,Seller Financing,742.4,9.7,1.01,3.4,Closed,Platform Build|Technology Capability|Geographic Expansion|Diversification,3,155
+TXN-0378,TGT-0065,ACQ-018,2019-11-04,2020-09-06,2019,Q4,Leveraged Buyout,All Cash,570.8,18.4,4.16,16.8,Closed,Brand Value|Technology Capability|Vertical Integration|Cost Synergies|Revenue Synergies,7,307
+TXN-0379,TGT-0299,ACQ-038,2019-04-12,,2019,Q2,Leveraged Buyout,Mixed,355.3,14.5,5.09,7.6,Pending,Cross-Sell Opportunity|High Growth,6,
+TXN-0380,TGT-0033,ACQ-029,2017-01-07,,2017,Q1,Management Buyout,Leveraged,336.7,17.5,7.12,19.2,Rumored,Geographic Expansion|Platform Build|Cost Synergies|Diversification|High Growth,6,
+TXN-0381,TGT-0191,ACQ-024,2017-09-04,2018-02-15,2017,Q3,Bolt-on Acquisition,All Cash,555.3,19.6,2.34,12.6,Closed,High Growth|Vertical Integration,6,164
+TXN-0382,TGT-0288,ACQ-018,2024-01-11,,2024,Q1,SPAC Merger,Mixed,550.5,14.3,6.66,6.4,Withdrawn,Margin Improvement|Geographic Expansion|Vertical Integration|High Growth|Platform Build,1,
+TXN-0383,TGT-0197,ACQ-016,2024-03-01,,2024,Q1,Platform Investment,All Cash,790.5,23.3,2.85,17.3,Rumored,Brand Value|Talent Acquisition,7,
+TXN-0384,TGT-0036,ACQ-031,2016-10-01,2017-06-04,2016,Q4,Platform Investment,Leveraged,606.6,13.6,4.81,8.3,Closed,Market Consolidation|Margin Improvement|Revenue Synergies|Regulatory Arbitrage,1,246
+TXN-0385,TGT-0115,ACQ-004,2015-04-03,,2015,Q2,Bolt-on Acquisition,Leveraged,192.7,7.7,6.01,16.8,Withdrawn,Vertical Integration|Supply Chain Integration,1,
+TXN-0386,TGT-0136,ACQ-022,2024-11-22,2025-11-01,2024,Q4,Platform Investment,Mixed,741.0,17.1,1.66,8.4,Closed,Regulatory Arbitrage|Margin Improvement|Brand Value|Platform Build|Talent Acquisition,3,344
+TXN-0387,TGT-0251,ACQ-018,2020-10-22,2021-11-08,2020,Q4,Leveraged Buyout,All Cash,616.5,19.5,3.34,17.2,Closed,Market Consolidation|Platform Build|Revenue Synergies,4,382
+TXN-0388,TGT-0111,ACQ-030,2021-04-15,2022-01-17,2021,Q2,Recapitalization,All Cash,178.8,17.2,4.6,17.6,Closed,Revenue Synergies|Talent Acquisition|Platform Build,5,277
+TXN-0389,TGT-0263,ACQ-013,2021-05-01,,2021,Q2,Bolt-on Acquisition,Leveraged,143.9,11.8,7.06,14.0,Withdrawn,Brand Value|Platform Build|Market Consolidation|Revenue Synergies|Technology Capability,3,
+TXN-0390,TGT-0244,ACQ-034,2022-07-13,,2022,Q3,Platform Investment,All Cash,81.0,14.2,1.88,11.5,Terminated,Margin Improvement|Vertical Integration,6,
+TXN-0391,TGT-0217,ACQ-013,2019-04-08,,2019,Q2,Minority Investment,Cash + Stock,231.6,17.5,4.53,4.9,Rumored,Platform Build|Technology Capability|Brand Value,1,
+TXN-0392,TGT-0034,ACQ-035,2016-09-10,,2016,Q3,Leveraged Buyout,Seller Financing,322.6,7.9,6.08,18.0,Withdrawn,Technology Capability|Cost Synergies|Supply Chain Integration|Brand Value|Diversification,5,
+TXN-0393,TGT-0002,ACQ-007,2017-10-09,2018-02-03,2017,Q4,Platform Investment,Mixed,148.6,18.9,2.0,8.6,Closed,Regulatory Arbitrage|Margin Improvement,8,117
+TXN-0394,TGT-0040,ACQ-011,2015-08-11,2016-01-19,2015,Q3,Recapitalization,Seller Financing,398.3,10.7,1.59,16.9,Closed,Supply Chain Integration|Cost Synergies|Brand Value,5,161
+TXN-0395,TGT-0232,ACQ-032,2020-08-22,2020-12-02,2020,Q3,Recapitalization,Leveraged,375.1,21.7,2.97,8.7,Closed,Regulatory Arbitrage|Talent Acquisition|Market Consolidation|Brand Value,8,102
+TXN-0396,TGT-0073,ACQ-023,2022-02-22,,2022,Q1,Leveraged Buyout,Seller Financing,297.1,20.1,2.2,19.2,Withdrawn,Brand Value|Regulatory Arbitrage|Revenue Synergies|Talent Acquisition,2,
+TXN-0397,TGT-0179,ACQ-022,2021-12-05,2022-09-08,2021,Q4,Platform Investment,Leveraged,47.3,15.9,3.27,13.4,Closed,Vertical Integration|Platform Build|Geographic Expansion|Margin Improvement,7,277
+TXN-0398,TGT-0268,ACQ-019,2024-04-12,2024-06-23,2024,Q2,Platform Investment,Stock-for-Stock,65.7,11.6,4.07,6.7,Closed,Vertical Integration|Geographic Expansion|High Growth|Diversification|Regulatory Arbitrage,2,72
+TXN-0399,TGT-0146,ACQ-033,2023-06-14,2023-11-18,2023,Q2,Bolt-on Acquisition,Mixed,127.0,19.9,3.91,18.6,Closed,Margin Improvement|Diversification,5,157
+TXN-0400,TGT-0205,ACQ-007,2019-07-19,2020-01-08,2019,Q3,SPAC Merger,Leveraged,457.7,18.9,3.12,12.8,Closed,High Growth|Talent Acquisition|Technology Capability,4,173
+TXN-0401,TGT-0237,ACQ-035,2017-10-25,2018-08-05,2017,Q4,Minority Investment,All Cash,428.4,19.2,4.43,14.6,Closed,High Growth|Margin Improvement|Brand Value|Supply Chain Integration,6,284
+TXN-0402,TGT-0216,ACQ-006,2017-07-02,,2017,Q3,Leveraged Buyout,Seller Financing,307.9,17.8,7.28,17.9,Terminated,Cost Synergies|High Growth|Regulatory Arbitrage|Geographic Expansion|Margin Improvement,1,
+TXN-0403,TGT-0139,ACQ-007,2020-03-22,,2020,Q1,Platform Investment,Seller Financing,557.1,22.4,1.67,12.9,Pending,Talent Acquisition|Cost Synergies|Brand Value,1,
+TXN-0404,TGT-0080,ACQ-020,2019-03-04,2019-08-22,2019,Q1,Recapitalization,Seller Financing,105.0,6.0,5.15,5.1,Closed,Platform Build|Margin Improvement|Geographic Expansion,2,171
+TXN-0405,TGT-0154,ACQ-026,2022-06-17,2022-10-14,2022,Q2,Leveraged Buyout,Seller Financing,660.0,18.9,6.99,13.5,Closed,Cost Synergies|Brand Value,7,119
+TXN-0406,TGT-0280,ACQ-013,2022-11-01,2023-08-10,2022,Q4,Platform Investment,Leveraged,767.9,15.4,5.61,9.7,Closed,Revenue Synergies|High Growth|Cost Synergies|Geographic Expansion|Vertical Integration,2,282
+TXN-0407,TGT-0298,ACQ-020,2015-10-21,2016-08-17,2015,Q4,Strategic Acquisition,Leveraged,382.3,19.7,2.79,19.7,Closed,Diversification|Market Consolidation|Talent Acquisition,6,301
+TXN-0408,TGT-0078,ACQ-023,2024-08-23,2025-04-17,2024,Q3,Recapitalization,Mixed,233.5,20.5,2.98,9.7,Closed,Cross-Sell Opportunity|Regulatory Arbitrage|Cost Synergies|Brand Value|Talent Acquisition,8,237
+TXN-0409,TGT-0166,ACQ-038,2024-07-24,,2024,Q3,SPAC Merger,Seller Financing,68.0,6.6,6.08,6.9,Withdrawn,Brand Value|Regulatory Arbitrage|Margin Improvement|Diversification|Technology Capability,2,
+TXN-0410,TGT-0197,ACQ-027,2016-01-07,2016-05-20,2016,Q1,SPAC Merger,Leveraged,44.4,20.2,3.98,9.4,Closed,Platform Build|Market Consolidation|Margin Improvement|High Growth,1,134
+TXN-0411,TGT-0101,ACQ-017,2022-10-01,2023-09-09,2022,Q4,Platform Investment,Cash + Stock,597.6,14.2,4.61,16.4,Closed,Regulatory Arbitrage|Brand Value,2,343
+TXN-0412,TGT-0185,ACQ-027,2024-02-28,,2024,Q1,Merger of Equals,Cash + Stock,404.5,21.8,4.91,11.1,Terminated,Cross-Sell Opportunity|Talent Acquisition|Cost Synergies|Platform Build,6,
+TXN-0413,TGT-0037,ACQ-037,2016-05-19,2016-11-28,2016,Q2,Management Buyout,Leveraged,107.6,10.4,5.13,8.6,Closed,High Growth|Market Consolidation|Diversification|Platform Build,4,193
+TXN-0414,TGT-0124,ACQ-034,2024-07-25,2025-08-08,2024,Q3,Minority Investment,Seller Financing,443.6,22.9,5.0,18.9,Closed,Geographic Expansion|Diversification,5,379
+TXN-0415,TGT-0031,ACQ-009,2018-09-05,,2018,Q3,Strategic Acquisition,Cash + Stock,72.2,24.0,7.31,15.0,Pending,Platform Build|High Growth|Cross-Sell Opportunity|Market Consolidation,1,
+TXN-0416,TGT-0139,ACQ-003,2016-01-22,2016-03-17,2016,Q1,Recapitalization,Seller Financing,525.5,14.2,2.98,17.4,Closed,Geographic Expansion|Supply Chain Integration,4,55
+TXN-0417,TGT-0010,ACQ-036,2022-01-01,2022-08-14,2022,Q1,Minority Investment,Stock-for-Stock,352.3,14.1,1.79,10.4,Closed,Diversification|High Growth|Geographic Expansion,6,225
+TXN-0418,TGT-0117,ACQ-027,2023-01-22,2023-08-15,2023,Q1,Strategic Acquisition,Mixed,652.9,7.5,1.71,6.1,Closed,Cross-Sell Opportunity|Regulatory Arbitrage|Technology Capability|Vertical Integration,1,205
+TXN-0419,TGT-0063,ACQ-005,2016-09-11,,2016,Q3,Management Buyout,Cash + Stock,568.6,21.5,7.26,17.6,Pending,Diversification|Supply Chain Integration|Talent Acquisition|Vertical Integration,8,
+TXN-0420,TGT-0278,ACQ-033,2016-02-08,,2016,Q1,Merger of Equals,Stock-for-Stock,396.7,7.5,7.37,17.3,Rumored,Market Consolidation|Talent Acquisition|Technology Capability|Platform Build,4,
+TXN-0421,TGT-0226,ACQ-030,2016-01-06,2016-12-28,2016,Q1,Recapitalization,All Cash,233.2,13.3,6.76,4.4,Closed,Margin Improvement|Geographic Expansion|High Growth|Supply Chain Integration|Brand Value,5,357
+TXN-0422,TGT-0221,ACQ-035,2015-08-26,2016-08-07,2015,Q3,Strategic Acquisition,Seller Financing,750.7,23.3,6.23,8.7,Closed,Supply Chain Integration|Geographic Expansion|Diversification,5,347
+TXN-0423,TGT-0030,ACQ-007,2023-10-25,,2023,Q4,Platform Investment,Seller Financing,347.7,19.7,6.34,7.4,Pending,Market Consolidation|Technology Capability|Cost Synergies|Geographic Expansion|Vertical Integration,7,
+TXN-0424,TGT-0278,ACQ-019,2020-10-15,2021-01-31,2020,Q4,Strategic Acquisition,Seller Financing,298.9,18.5,6.43,16.8,Closed,Cross-Sell Opportunity|Regulatory Arbitrage|Diversification|Vertical Integration,1,108
+TXN-0425,TGT-0005,ACQ-030,2015-08-05,,2015,Q3,Recapitalization,Mixed,186.0,7.1,7.56,7.7,Terminated,Margin Improvement|Cost Synergies,6,
+TXN-0426,TGT-0117,ACQ-012,2017-03-08,2017-05-23,2017,Q1,Leveraged Buyout,All Cash,159.6,15.6,3.97,8.4,Closed,Vertical Integration|Geographic Expansion|Regulatory Arbitrage|Diversification,4,76
+TXN-0427,TGT-0180,ACQ-007,2016-11-21,2017-02-10,2016,Q4,Bolt-on Acquisition,Seller Financing,201.0,12.2,3.47,17.0,Closed,Brand Value|Vertical Integration|Cost Synergies|Geographic Expansion|Diversification,7,81
+TXN-0428,TGT-0192,ACQ-031,2019-03-25,2019-10-16,2019,Q1,Carve-out,Leveraged,243.3,8.9,5.06,4.8,Closed,Technology Capability|High Growth|Cross-Sell Opportunity|Geographic Expansion,4,205
+TXN-0429,TGT-0041,ACQ-005,2018-11-08,2019-06-03,2018,Q4,Management Buyout,Mixed,680.4,16.0,1.17,11.0,Closed,Technology Capability|Revenue Synergies|Cross-Sell Opportunity|Vertical Integration,8,207
+TXN-0430,TGT-0234,ACQ-021,2016-06-08,,2016,Q2,Recapitalization,Mixed,299.1,12.7,4.44,18.5,Withdrawn,Margin Improvement|Supply Chain Integration|High Growth,8,
+TXN-0431,TGT-0209,ACQ-038,2017-07-09,2018-07-12,2017,Q3,Platform Investment,Leveraged,107.6,13.8,4.44,5.5,Closed,Brand Value|Cost Synergies|Margin Improvement,8,368
+TXN-0432,TGT-0284,ACQ-031,2016-06-11,2017-02-27,2016,Q2,Strategic Acquisition,Stock-for-Stock,556.7,24.8,1.75,17.7,Closed,Cost Synergies|High Growth|Market Consolidation|Talent Acquisition,7,261
+TXN-0433,TGT-0173,ACQ-038,2024-03-19,2024-09-28,2024,Q1,Strategic Acquisition,All Cash,760.7,23.3,5.34,15.6,Closed,Market Consolidation|Cost Synergies|Brand Value|Revenue Synergies|Cross-Sell Opportunity,7,193
+TXN-0434,TGT-0190,ACQ-030,2021-08-11,,2021,Q3,Recapitalization,Cash + Stock,582.2,11.3,6.37,6.9,Terminated,Geographic Expansion|Cross-Sell Opportunity|Talent Acquisition|Supply Chain Integration,8,
+TXN-0435,TGT-0197,ACQ-021,2017-05-10,2017-11-16,2017,Q2,Strategic Acquisition,Mixed,353.0,11.3,7.13,8.3,Closed,Platform Build|Vertical Integration|Revenue Synergies,6,190
+TXN-0436,TGT-0133,ACQ-039,2016-04-14,2017-03-01,2016,Q2,Platform Investment,Cash + Stock,177.4,21.9,6.24,3.5,Closed,Geographic Expansion|Margin Improvement|Brand Value,1,321
+TXN-0437,TGT-0228,ACQ-034,2017-12-03,2018-12-25,2017,Q4,Platform Investment,All Cash,363.9,14.2,2.69,17.7,Closed,Diversification|Supply Chain Integration,5,387
+TXN-0438,TGT-0168,ACQ-011,2023-09-02,,2023,Q3,Platform Investment,Stock-for-Stock,542.6,7.4,5.75,18.2,Terminated,Platform Build|Market Consolidation|Supply Chain Integration|Talent Acquisition|Diversification,1,
+TXN-0439,TGT-0005,ACQ-016,2017-10-14,2018-02-03,2017,Q4,Leveraged Buyout,Mixed,223.2,8.9,6.66,15.5,Closed,Regulatory Arbitrage|Platform Build|Talent Acquisition,5,112
+TXN-0440,TGT-0035,ACQ-032,2023-06-26,,2023,Q2,Carve-out,All Cash,555.1,17.7,5.34,7.0,Withdrawn,Talent Acquisition|Regulatory Arbitrage|Cost Synergies|Vertical Integration|Technology Capability,6,
+TXN-0441,TGT-0201,ACQ-039,2020-12-04,2021-07-03,2020,Q4,Platform Investment,All Cash,103.2,22.7,6.24,7.9,Closed,Regulatory Arbitrage|High Growth|Platform Build,8,211
+TXN-0442,TGT-0178,ACQ-026,2017-11-14,,2017,Q4,Recapitalization,Seller Financing,554.5,6.6,2.73,6.7,Withdrawn,Talent Acquisition|Supply Chain Integration,7,
+TXN-0443,TGT-0201,ACQ-029,2021-12-20,2022-08-31,2021,Q4,Platform Investment,All Cash,396.1,10.2,5.38,3.8,Closed,Cross-Sell Opportunity|Cost Synergies|Talent Acquisition,8,254
+TXN-0444,TGT-0169,ACQ-009,2024-02-27,2025-03-13,2024,Q1,Strategic Acquisition,Stock-for-Stock,627.6,12.3,3.34,16.0,Closed,Talent Acquisition|Technology Capability,2,380
+TXN-0445,TGT-0275,ACQ-026,2018-07-10,2019-05-20,2018,Q3,Carve-out,Leveraged,339.5,16.5,2.59,3.2,Closed,Talent Acquisition|High Growth,1,314
+TXN-0446,TGT-0013,ACQ-015,2018-03-01,2018-05-28,2018,Q1,Platform Investment,Mixed,653.2,13.2,3.69,16.9,Closed,Platform Build|Talent Acquisition,5,88
+TXN-0447,TGT-0008,ACQ-035,2024-04-21,,2024,Q2,Bolt-on Acquisition,Mixed,637.2,9.7,5.16,8.3,Rumored,Talent Acquisition|Market Consolidation|Geographic Expansion|Vertical Integration|Revenue Synergies,6,
+TXN-0448,TGT-0296,ACQ-031,2021-09-04,2022-05-02,2021,Q3,Minority Investment,All Cash,774.0,16.7,4.28,18.4,Closed,Margin Improvement|Market Consolidation,4,240
+TXN-0449,TGT-0232,ACQ-015,2024-01-03,,2024,Q1,Minority Investment,Cash + Stock,305.3,16.7,5.43,8.7,Pending,Talent Acquisition|Cost Synergies,2,
+TXN-0450,TGT-0073,ACQ-026,2024-10-09,,2024,Q4,Management Buyout,Mixed,612.1,7.1,4.35,10.0,Rumored,Geographic Expansion|Diversification|Market Consolidation,6,
+TXN-0451,TGT-0108,ACQ-036,2022-10-06,2023-01-12,2022,Q4,Merger of Equals,Mixed,267.6,19.5,4.5,17.6,Closed,Market Consolidation|Platform Build|High Growth|Cost Synergies|Geographic Expansion,2,98
+TXN-0452,TGT-0102,ACQ-029,2016-02-09,2016-10-15,2016,Q1,Minority Investment,Stock-for-Stock,506.5,16.0,1.81,17.9,Closed,Vertical Integration|Platform Build,7,249
+TXN-0453,TGT-0268,ACQ-021,2024-07-17,2025-05-23,2024,Q3,SPAC Merger,Mixed,126.1,15.9,2.27,13.4,Closed,Margin Improvement|Brand Value|Technology Capability|Diversification,6,310
+TXN-0454,TGT-0243,ACQ-001,2020-11-21,,2020,Q4,Carve-out,Cash + Stock,67.6,24.6,3.05,6.2,Pending,Diversification|Platform Build|Geographic Expansion|Cross-Sell Opportunity|Margin Improvement,2,
+TXN-0455,TGT-0287,ACQ-015,2020-01-06,2020-06-29,2020,Q1,Leveraged Buyout,Leveraged,659.3,22.5,5.01,8.2,Closed,Platform Build|Cross-Sell Opportunity|Cost Synergies,7,175
+TXN-0456,TGT-0135,ACQ-037,2016-04-05,,2016,Q2,Management Buyout,Seller Financing,274.2,20.7,5.06,7.7,Withdrawn,Cost Synergies|Geographic Expansion|Supply Chain Integration,8,
+TXN-0457,TGT-0074,ACQ-011,2022-02-16,2022-12-14,2022,Q1,Merger of Equals,All Cash,122.5,21.3,3.86,11.0,Closed,Technology Capability|Talent Acquisition,5,301
+TXN-0458,TGT-0182,ACQ-020,2023-09-21,,2023,Q3,Management Buyout,All Cash,676.1,24.2,7.61,17.2,Rumored,Talent Acquisition|Margin Improvement|Revenue Synergies|Market Consolidation|Vertical Integration,3,
+TXN-0459,TGT-0179,ACQ-012,2015-09-01,2016-04-28,2015,Q3,Recapitalization,Mixed,586.9,10.1,4.83,20.0,Closed,Cost Synergies|Market Consolidation|Geographic Expansion|Technology Capability,4,240
+TXN-0460,TGT-0159,ACQ-022,2016-09-15,2017-03-08,2016,Q3,Platform Investment,Seller Financing,491.3,6.6,2.78,11.1,Closed,Regulatory Arbitrage|Geographic Expansion|Cross-Sell Opportunity|Revenue Synergies,1,174
+TXN-0461,TGT-0252,ACQ-012,2022-03-04,2022-05-30,2022,Q1,Strategic Acquisition,Leveraged,496.1,19.6,5.88,6.0,Closed,Revenue Synergies|Brand Value|Platform Build|Geographic Expansion|Margin Improvement,3,87
+TXN-0462,TGT-0279,ACQ-018,2018-02-03,2018-12-09,2018,Q1,Merger of Equals,Mixed,719.7,9.2,7.9,15.3,Closed,Regulatory Arbitrage|High Growth,6,309
+TXN-0463,TGT-0099,ACQ-033,2017-09-03,,2017,Q3,Bolt-on Acquisition,Cash + Stock,49.9,17.6,5.76,10.0,Pending,Vertical Integration|Talent Acquisition|Diversification|Platform Build,1,
+TXN-0464,TGT-0290,ACQ-030,2016-02-24,2016-07-29,2016,Q1,Bolt-on Acquisition,Cash + Stock,160.7,17.2,7.75,16.0,Closed,Margin Improvement|Platform Build|Market Consolidation|Technology Capability,1,156
+TXN-0465,TGT-0068,ACQ-020,2015-12-12,2016-04-25,2015,Q4,Platform Investment,Cash + Stock,125.2,12.0,2.43,6.2,Closed,Vertical Integration|Market Consolidation|Margin Improvement|Brand Value,4,135
+TXN-0466,TGT-0179,ACQ-034,2022-06-17,,2022,Q2,Strategic Acquisition,Seller Financing,137.2,16.8,7.96,10.4,Withdrawn,Diversification|Market Consolidation|Talent Acquisition,5,
+TXN-0467,TGT-0108,ACQ-017,2018-10-14,2019-06-06,2018,Q4,Platform Investment,All Cash,420.9,18.0,4.22,10.9,Closed,Regulatory Arbitrage|Cross-Sell Opportunity|Geographic Expansion|Diversification|Platform Build,6,235
+TXN-0468,TGT-0244,ACQ-022,2020-03-16,2021-02-27,2020,Q1,Carve-out,Leveraged,142.8,16.4,6.21,10.5,Closed,Market Consolidation|High Growth|Margin Improvement|Technology Capability|Vertical Integration,8,348
+TXN-0469,TGT-0206,ACQ-020,2015-06-25,,2015,Q2,Management Buyout,All Cash,349.3,11.1,4.96,13.1,Withdrawn,Brand Value|Vertical Integration|Cross-Sell Opportunity,3,
+TXN-0470,TGT-0072,ACQ-009,2020-01-03,2020-05-29,2020,Q1,Bolt-on Acquisition,Leveraged,644.2,14.7,1.99,3.0,Closed,Vertical Integration|Brand Value|Platform Build,3,147
+TXN-0471,TGT-0126,ACQ-010,2023-08-13,2024-09-03,2023,Q3,Strategic Acquisition,Stock-for-Stock,285.6,14.9,5.74,14.9,Closed,Revenue Synergies|Margin Improvement|Market Consolidation|Technology Capability|Platform Build,8,387
+TXN-0472,TGT-0168,ACQ-019,2021-10-21,2022-04-04,2021,Q4,Management Buyout,All Cash,398.3,20.1,5.02,6.8,Closed,Diversification|Brand Value|Talent Acquisition|Geographic Expansion,3,165
+TXN-0473,TGT-0118,ACQ-009,2022-04-22,2022-11-12,2022,Q2,Strategic Acquisition,Cash + Stock,356.8,12.5,5.51,10.2,Closed,Regulatory Arbitrage|Revenue Synergies|Margin Improvement|Geographic Expansion|Vertical Integration,5,204
+TXN-0474,TGT-0265,ACQ-007,2022-03-10,2023-02-12,2022,Q1,Merger of Equals,Mixed,529.9,13.7,6.61,5.7,Closed,Regulatory Arbitrage|Margin Improvement|Geographic Expansion|Revenue Synergies|Brand Value,3,339
+TXN-0475,TGT-0218,ACQ-017,2016-12-19,,2016,Q4,Management Buyout,Leveraged,573.9,22.0,7.8,4.9,Pending,Talent Acquisition|Supply Chain Integration|High Growth|Regulatory Arbitrage|Platform Build,3,
+TXN-0476,TGT-0133,ACQ-013,2023-10-10,,2023,Q4,Minority Investment,All Cash,236.1,8.3,4.33,9.2,Pending,High Growth|Diversification|Regulatory Arbitrage|Vertical Integration,6,
+TXN-0477,TGT-0183,ACQ-027,2015-12-16,2016-04-28,2015,Q4,Merger of Equals,Leveraged,482.7,12.8,1.06,15.6,Closed,Talent Acquisition|Platform Build,4,134
+TXN-0478,TGT-0221,ACQ-018,2020-11-01,,2020,Q4,SPAC Merger,Cash + Stock,461.7,6.8,3.15,3.7,Terminated,Talent Acquisition|Market Consolidation|Platform Build|Diversification|Regulatory Arbitrage,2,
+TXN-0479,TGT-0095,ACQ-017,2016-11-24,,2016,Q4,Bolt-on Acquisition,Cash + Stock,219.9,11.8,4.5,17.5,Rumored,Diversification|Cross-Sell Opportunity,4,
+TXN-0480,TGT-0096,ACQ-018,2023-03-08,2024-03-23,2023,Q1,SPAC Merger,Stock-for-Stock,547.4,11.2,3.73,3.3,Closed,Vertical Integration|Brand Value|Margin Improvement,7,381
+TXN-0481,TGT-0116,ACQ-002,2020-05-15,2021-04-02,2020,Q2,Bolt-on Acquisition,Seller Financing,586.6,17.6,4.12,10.2,Closed,Margin Improvement|Talent Acquisition|Geographic Expansion|Diversification|Market Consolidation,6,322
+TXN-0482,TGT-0256,ACQ-014,2023-05-25,,2023,Q2,Minority Investment,Leveraged,40.3,22.2,7.77,13.7,Withdrawn,Technology Capability|Market Consolidation,6,
+TXN-0483,TGT-0162,ACQ-029,2022-02-20,,2022,Q1,Carve-out,Seller Financing,145.9,12.7,3.91,19.9,Rumored,Talent Acquisition|Market Consolidation|Margin Improvement|Technology Capability,1,
+TXN-0484,TGT-0064,ACQ-007,2021-05-04,,2021,Q2,Leveraged Buyout,All Cash,242.1,22.4,6.32,19.7,Rumored,Diversification|Supply Chain Integration|Technology Capability|High Growth|Cross-Sell Opportunity,7,
+TXN-0485,TGT-0163,ACQ-033,2023-10-13,,2023,Q4,Leveraged Buyout,Stock-for-Stock,609.1,11.4,7.46,5.7,Pending,Vertical Integration|Geographic Expansion|Talent Acquisition|Diversification|Margin Improvement,3,
+TXN-0486,TGT-0298,ACQ-027,2021-10-12,2021-12-07,2021,Q4,Leveraged Buyout,Mixed,500.8,8.6,5.26,20.0,Closed,Cross-Sell Opportunity|Technology Capability|Cost Synergies|Brand Value,7,56
+TXN-0487,TGT-0012,ACQ-039,2021-06-08,2022-01-04,2021,Q2,Carve-out,Stock-for-Stock,582.6,10.5,4.2,15.1,Closed,Vertical Integration|Platform Build|Geographic Expansion,4,210
+TXN-0488,TGT-0228,ACQ-016,2017-11-28,2018-09-05,2017,Q4,Management Buyout,Mixed,645.9,21.9,7.08,18.5,Closed,Geographic Expansion|Market Consolidation,4,281
+TXN-0489,TGT-0267,ACQ-031,2021-02-13,,2021,Q1,Minority Investment,Leveraged,110.0,20.8,5.46,12.1,Terminated,Margin Improvement|Revenue Synergies|Market Consolidation|Geographic Expansion|Vertical Integration,1,
+TXN-0490,TGT-0262,ACQ-029,2021-01-21,2021-10-04,2021,Q1,Bolt-on Acquisition,Cash + Stock,610.0,17.0,6.5,15.3,Closed,Cost Synergies|Technology Capability|Supply Chain Integration|Margin Improvement,6,256
+TXN-0491,TGT-0038,ACQ-030,2022-06-08,2023-05-23,2022,Q2,Platform Investment,Leveraged,556.0,12.3,4.04,7.4,Closed,Supply Chain Integration|Cost Synergies,5,349
+TXN-0492,TGT-0190,ACQ-037,2020-09-01,2021-10-06,2020,Q3,Platform Investment,Mixed,460.6,11.8,5.93,14.4,Closed,Cost Synergies|Cross-Sell Opportunity|Vertical Integration,3,400
+TXN-0493,TGT-0109,ACQ-038,2019-06-12,2020-06-07,2019,Q2,SPAC Merger,All Cash,300.9,15.7,7.07,11.8,Closed,Diversification|Regulatory Arbitrage|Cost Synergies,8,361
+TXN-0494,TGT-0194,ACQ-032,2017-10-12,,2017,Q4,Carve-out,Stock-for-Stock,26.2,24.0,3.27,8.3,Withdrawn,Vertical Integration|Cross-Sell Opportunity|Supply Chain Integration,4,
+TXN-0495,TGT-0256,ACQ-030,2024-02-08,2024-08-09,2024,Q1,Management Buyout,Cash + Stock,300.4,6.6,5.31,19.2,Closed,Supply Chain Integration|Geographic Expansion,2,183
+TXN-0496,TGT-0132,ACQ-012,2018-06-04,2018-09-24,2018,Q2,Recapitalization,Cash + Stock,783.8,11.0,2.8,15.6,Closed,Geographic Expansion|Technology Capability|Revenue Synergies|Supply Chain Integration,2,112
+TXN-0497,TGT-0275,ACQ-004,2020-01-07,2020-07-23,2020,Q1,Leveraged Buyout,Stock-for-Stock,361.9,15.0,1.52,13.0,Closed,Cross-Sell Opportunity|High Growth,8,198
+TXN-0498,TGT-0234,ACQ-001,2019-12-10,,2019,Q4,SPAC Merger,Leveraged,510.4,12.2,4.28,7.8,Pending,Revenue Synergies|Talent Acquisition|Technology Capability|Diversification,5,
+TXN-0499,TGT-0226,ACQ-008,2017-12-18,,2017,Q4,Strategic Acquisition,Leveraged,384.3,9.1,1.27,10.3,Terminated,Brand Value|Revenue Synergies,5,
+TXN-0500,TGT-0094,ACQ-013,2016-04-22,,2016,Q2,Leveraged Buyout,Leveraged,254.7,20.6,4.2,14.6,Terminated,Diversification|Cost Synergies|Technology Capability,4,

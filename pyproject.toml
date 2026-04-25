@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "william-blair-de"
+version = "0.1.0"
+description = "Dagster take-home: M&A ingest, stage, model (DuckDB)."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "dagster>=1.8,<2",
+    "dagster-webserver>=1.8,<2",
+    "duckdb>=1.0",
+    "openpyxl>=3.1",
+    "pydantic>=2",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.4"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["william_blair_de*"]
+
+[tool.dagster]
+module_name = "william_blair_de.definitions"
+code_location_name = "william_blair_de"

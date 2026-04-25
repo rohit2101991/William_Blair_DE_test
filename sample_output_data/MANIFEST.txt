@@ -1,0 +1,6 @@
+sample_output_data/: CSV snapshots of analytics.* for reviewers (see README).
+Regenerate: materialize all assets, then: python scripts/export_sample_outputs.py
+
+  fct_transactions.csv  <-  analytics.fct_transactions  (500 rows)
+  dim_acquirer_activity.csv  <-  analytics.dim_acquirer_activity  (40 rows)
+  rpt_sector_trend_summary.csv  <-  analytics.rpt_sector_trend_summary  (98 rows)
