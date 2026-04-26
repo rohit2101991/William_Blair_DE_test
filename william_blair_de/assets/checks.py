@@ -1,3 +1,5 @@
+"""Structural and business validation checks on staging tables."""
+
 from dagster import (
     AssetCheckExecutionContext,
     AssetCheckResult,
@@ -14,6 +16,7 @@ from william_blair_de.resources import DuckDBWarehouseResource
 def stg_transactions_unique_ids(
     context: AssetCheckExecutionContext, warehouse: DuckDBWarehouseResource
 ) -> AssetCheckResult:
+    # Each check opens a short-lived connection to keep checks independent.
     conn = warehouse.connect()
     dupes = conn.execute(
         """

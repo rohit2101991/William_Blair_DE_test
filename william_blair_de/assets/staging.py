@@ -1,3 +1,5 @@
+"""Staging transforms: trim, cast, normalize, and quarantine obvious bad rows."""
+
 from dagster import AssetExecutionContext, MaterializeResult, MetadataValue, asset
 
 from william_blair_de.assets.raw import (
@@ -75,6 +77,7 @@ def stg_targets(context: AssetExecutionContext, warehouse: DuckDBWarehouseResour
 def stg_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS staging")
+        # Hard-quality failures are isolated for auditability and easy review.
     conn.execute(
         """
         CREATE OR REPLACE TABLE staging.transactions_quarantine AS

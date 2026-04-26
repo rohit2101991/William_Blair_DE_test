@@ -1,10 +1,16 @@
+"""Analytics layer: partitioned fact + SCD1 dims + reporting rollups."""
+
 from dagster import AssetExecutionContext, MaterializeResult, MetadataValue, asset
 
+from william_blair_de.assets.dimensions import (
+    analytics_table_exists,
+    dim_acquirer,
+    dim_target,
+    merge_scd1,
+)
 from william_blair_de.assets.staging import (
     stg_acquirer_financials,
-    stg_acquirers,
     stg_sector_multiples,
-    stg_targets,
     stg_transactions,
 )
 from william_blair_de.partitions import DEAL_YEAR_PARTITIONS
@@ -65,8 +71,8 @@ def _fct_select_sql() -> str:
         ELSE 'Mega'
       END AS deal_size_tier
     FROM staging.transactions t
-    LEFT JOIN staging.targets tg ON tg.target_id = t.target_id
-    LEFT JOIN staging.acquirers aq ON aq.acquirer_id = t.acquirer_id
+    LEFT JOIN analytics.dim_target tg ON tg.target_id = t.target_id
+    LEFT JOIN analytics.dim_acquirer aq ON aq.acquirer_id = t.acquirer_id
     LEFT JOIN staging.sector_multiples sm
       ON sm.sector = tg.sector
      AND sm.fiscal_year = t.deal_year
@@ -79,7 +85,13 @@ def _fct_select_sql() -> str:
 
 @asset(
     partitions_def=DEAL_YEAR_PARTITIONS,
-    deps=[stg_transactions, stg_targets, stg_acquirers, stg_sector_multiples, stg_acquirer_financials],
+    deps=[
+        stg_transactions,
+        dim_target,
+        dim_acquirer,
+        stg_sector_multiples,
+        stg_acquirer_financials,
+    ],
     group_name="model",
 )
 def fct_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
@@ -97,6 +109,7 @@ def fct_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseR
     ).fetchone()[0]
 
     filter_clause = "WHERE t.deal_year = ?"
+    # First run creates the table; later runs upsert by partition via delete+insert.
     if exists == 0:
         conn.execute(
             f"CREATE TABLE analytics.fct_transactions AS {base} {filter_clause}",
@@ -116,64 +129,101 @@ def fct_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseR
     )
 
 
+_DIM_ACQUIRER_ACTIVITY_INNER = """
+WITH enriched AS (
+  SELECT
+    t.acquirer_id,
+    t.transaction_id,
+    t.deal_year,
+    t.deal_type,
+    t.deal_size_mm,
+    t.ev_ebitda_multiple,
+    t.ev_revenue_multiple,
+    t.announce_date,
+    tg.sector AS target_sector
+  FROM staging.transactions t
+  LEFT JOIN analytics.dim_target tg ON tg.target_id = t.target_id
+),
+span AS (
+  SELECT acquirer_id,
+         MAX(deal_year) - MIN(deal_year) + 1 AS year_span
+  FROM enriched
+  GROUP BY 1
+)
+SELECT
+  e.acquirer_id,
+  aq.acquirer_name,
+  aq.acquirer_type,
+  COUNT(*) AS deal_count,
+  SUM(e.deal_size_mm) AS total_deal_volume_mm,
+  AVG(e.ev_ebitda_multiple) AS avg_ev_ebitda_multiple,
+  AVG(e.ev_revenue_multiple) AS avg_ev_revenue_multiple,
+  COUNT(DISTINCT e.target_sector) AS distinct_target_sectors,
+  string_agg(e.deal_type, ' | ') AS deal_types_observed,
+  string_agg(coalesce(e.target_sector, 'Unknown'), ' | ') AS sectors_touched,
+  MIN(e.announce_date) AS first_transaction_date,
+  MAX(e.announce_date) AS most_recent_transaction_date,
+  CASE WHEN s.year_span IS NULL OR s.year_span = 0 THEN NULL
+       ELSE CAST(COUNT(*) AS DOUBLE) / s.year_span END AS avg_deals_per_active_year
+FROM enriched e
+LEFT JOIN analytics.dim_acquirer aq ON aq.acquirer_id = e.acquirer_id
+LEFT JOIN span s ON s.acquirer_id = e.acquirer_id
+GROUP BY e.acquirer_id, aq.acquirer_name, aq.acquirer_type, s.year_span
+"""
+
+_DIM_ACQUIRER_ACTIVITY_COLS = (
+    "acquirer_id",
+    "acquirer_name",
+    "acquirer_type",
+    "deal_count",
+    "total_deal_volume_mm",
+    "avg_ev_ebitda_multiple",
+    "avg_ev_revenue_multiple",
+    "distinct_target_sectors",
+    "deal_types_observed",
+    "sectors_touched",
+    "first_transaction_date",
+    "most_recent_transaction_date",
+    "avg_deals_per_active_year",
+    "dw_updated_at",
+)
+
+
 @asset(
-    deps=[stg_transactions, stg_targets, stg_acquirers],
+    deps=[stg_transactions, dim_target, dim_acquirer],
     group_name="model",
 )
 def dim_acquirer_activity(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
+    """Acquirer rollup; SCD1 merge on acquirer_id from current facts × dims."""
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
-    conn.execute(
-        """
-        CREATE OR REPLACE TABLE analytics.dim_acquirer_activity AS
-        WITH enriched AS (
-          SELECT
-            t.acquirer_id,
-            t.transaction_id,
-            t.deal_year,
-            t.deal_type,
-            t.deal_size_mm,
-            t.ev_ebitda_multiple,
-            t.ev_revenue_multiple,
-            t.announce_date,
-            tg.sector AS target_sector
-          FROM staging.transactions t
-          LEFT JOIN staging.targets tg ON tg.target_id = t.target_id
-        ),
-        span AS (
-          SELECT acquirer_id,
-                 MAX(deal_year) - MIN(deal_year) + 1 AS year_span
-          FROM enriched
-          GROUP BY 1
+    activity_src = f"""
+        SELECT *, CURRENT_TIMESTAMP AS dw_updated_at
+        FROM ({_DIM_ACQUIRER_ACTIVITY_INNER}) AS act_inner
+    """
+    # Same pattern as other dims: bootstrap once, then SCD1 merge.
+    if not analytics_table_exists(conn, "dim_acquirer_activity"):
+        conn.execute(
+            f"""
+            CREATE TABLE analytics.dim_acquirer_activity AS
+            {activity_src}
+            """
         )
-        SELECT
-          e.acquirer_id,
-          aq.acquirer_name,
-          aq.acquirer_type,
-          COUNT(*) AS deal_count,
-          SUM(e.deal_size_mm) AS total_deal_volume_mm,
-          AVG(e.ev_ebitda_multiple) AS avg_ev_ebitda_multiple,
-          AVG(e.ev_revenue_multiple) AS avg_ev_revenue_multiple,
-          COUNT(DISTINCT e.target_sector) AS distinct_target_sectors,
-          string_agg(e.deal_type, ' | ') AS deal_types_observed,
-          string_agg(coalesce(e.target_sector, 'Unknown'), ' | ') AS sectors_touched,
-          MIN(e.announce_date) AS first_transaction_date,
-          MAX(e.announce_date) AS most_recent_transaction_date,
-          CASE WHEN s.year_span IS NULL OR s.year_span = 0 THEN NULL
-               ELSE CAST(COUNT(*) AS DOUBLE) / s.year_span END AS avg_deals_per_active_year
-        FROM enriched e
-        LEFT JOIN staging.acquirers aq ON aq.acquirer_id = e.acquirer_id
-        LEFT JOIN span s ON s.acquirer_id = e.acquirer_id
-        GROUP BY e.acquirer_id, aq.acquirer_name, aq.acquirer_type, s.year_span
-        """
-    )
+    else:
+        merge_scd1(
+            conn,
+            target_table="dim_acquirer_activity",
+            source_sql=activity_src,
+            pk_columns=("acquirer_id",),
+            all_columns=_DIM_ACQUIRER_ACTIVITY_COLS,
+        )
     n = conn.execute("SELECT COUNT(*) FROM analytics.dim_acquirer_activity").fetchone()[0]
     conn.close()
     return MaterializeResult(metadata={"row_count": MetadataValue.int(n)})
 
 
 @asset(
-    deps=[stg_transactions, stg_targets],
+    deps=[stg_transactions, dim_target],
     group_name="model",
 )
 def rpt_sector_trend_summary(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
@@ -193,7 +243,7 @@ def rpt_sector_trend_summary(context: AssetExecutionContext, warehouse: DuckDBWa
           SUM(CASE WHEN t.outcome ILIKE 'Closed%' THEN 1 ELSE 0 END) AS closed_deal_count,
           SUM(CASE WHEN t.outcome ILIKE 'Pending%' THEN 1 ELSE 0 END) AS pending_deal_count
         FROM staging.transactions t
-        INNER JOIN staging.targets tg ON tg.target_id = t.target_id
+        INNER JOIN analytics.dim_target tg ON tg.target_id = t.target_id
         GROUP BY tg.sector, t.deal_year
         ORDER BY tg.sector, t.deal_year
         """

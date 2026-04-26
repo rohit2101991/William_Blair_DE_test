@@ -1,3 +1,5 @@
+"""Raw ingest assets: load CSV files as-is (all columns as text)."""
+
 from dagster import AssetExecutionContext, MaterializeResult, MetadataValue, asset
 
 from william_blair_de.resources import DataDirResource, DuckDBWarehouseResource

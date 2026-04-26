@@ -1,3 +1,5 @@
+"""File-change sensor: detect CSV mtime updates and trigger refresh runs."""
+
 import json
 import os
 from pathlib import Path
@@ -10,6 +12,7 @@ from dagster import (
 )
 
 from william_blair_de.assets.analytics import dim_acquirer_activity, fct_transactions, rpt_sector_trend_summary
+from william_blair_de.assets.dimensions import dim_acquirer, dim_target
 from william_blair_de.assets.raw import (
     raw_acquirer_financials,
     raw_acquirers,
@@ -61,12 +64,14 @@ def data_files_changed_sensor(context: SensorEvaluationContext):
     if not snap:
         return
 
+    # Cursor stores prior mtime snapshot so we only trigger on change.
     state = json.loads(context.cursor) if context.cursor else {}
     if state.get("mtimes") == snap:
         return
 
     context.update_cursor(json.dumps({"mtimes": snap}))
 
+    # Stable hash becomes part of run_key for idempotent scheduling.
     h = abs(hash(tuple(sorted(snap.items()))))
     yield RunRequest(
         run_key=f"data_refresh_core_{h}",
@@ -81,6 +86,8 @@ def data_files_changed_sensor(context: SensorEvaluationContext):
             stg_transactions,
             stg_acquirer_financials,
             stg_sector_multiples,
+            dim_acquirer,
+            dim_target,
             dim_acquirer_activity,
             rpt_sector_trend_summary,
         ],

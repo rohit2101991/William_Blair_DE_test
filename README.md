@@ -11,10 +11,12 @@ pip install -e .
 dagster dev
 ```
 
-From the UI, materialize **raw → staging →** `dim_acquirer_activity` and `rpt_sector_trend_summary`, then materialize **`fct_transactions` for each `deal_year` partition** (2015–2024), or use the CLI:
+**Runs in the UI:** Recent Dagster versions use a **throwaway storage folder** when `DAGSTER_HOME` is unset, so terminal `dagster asset materialize` runs may not show up next to `dagster dev`. Use the same metadata for both, e.g. `export DAGSTER_HOME="$HOME/.dagster"` in the shell before `dagster dev` and before any CLI materialize (a `dagster.yaml` there is optional; telemetry can be disabled there).
+
+From the UI, materialize **raw → staging →** `dim_acquirer` / `dim_target` (SCD1 merge) **→** `dim_acquirer_activity` and `rpt_sector_trend_summary`, then materialize **`fct_transactions` for each `deal_year` partition** (2015–2024), or use the CLI:
 
 ```bash
-dagster asset materialize -m william_blair_de.definitions --select "raw_acquirers,raw_targets,raw_transactions,raw_acquirer_financials,raw_sector_multiples,stg_acquirers,stg_targets,stg_transactions,stg_acquirer_financials,stg_sector_multiples,dim_acquirer_activity,rpt_sector_trend_summary"
+dagster asset materialize -m william_blair_de.definitions --select "raw_acquirers,raw_targets,raw_transactions,raw_acquirer_financials,raw_sector_multiples,stg_acquirers,stg_targets,stg_transactions,stg_acquirer_financials,stg_sector_multiples,dim_acquirer,dim_target,dim_acquirer_activity,rpt_sector_trend_summary"
 for y in 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024; do
   dagster asset materialize -m william_blair_de.definitions --select fct_transactions --partition "$y"
 done
@@ -23,6 +25,8 @@ done
 **Data:** place the five CSVs under `./data` (already copied for local dev). Override directory with env `WB_DATA_DIR`.
 
 **Warehouse:** default file `./warehouse.duckdb`. Override with `WB_DUCKDB_PATH` for a “production” path without changing code.
+
+**Reset warehouse (drop all loaded schemas):** `python scripts/reset_warehouse.py` — then materialize again from raw. Uses the same path rules as `WB_DUCKDB_PATH` / `warehouse.duckdb`.
 
 ## Sample output data (for reviewers)
 
@@ -68,13 +72,15 @@ That reads `./warehouse.duckdb` and overwrites the CSVs in `sample_output_data/`
 |----------|----------------------|-----------------|--------|
 | Ingest   | `ingest`             | `raw`           | `read_csv_auto(..., all_varchar=true)` — preserve source strings. |
 | Stage    | `stage`              | `staging`       | Casts, trims, quarantine table for bad transaction rows. |
-| Model    | `model`              | `analytics`     | `fct_transactions` (partitioned by `deal_year`), `dim_acquirer_activity`, `rpt_sector_trend_summary`. |
+| Model    | `model`              | `analytics`     | **SCD1:** `dim_acquirer`, `dim_target`, `dim_acquirer_activity` (merge/upsert on business keys). **Facts / reports:** `fct_transactions` (partitioned by `deal_year`), `rpt_sector_trend_summary` (full refresh). |
 
 **Executor:** `Definitions(executor=in_process_executor)` so **one process** holds the DuckDB file lock (default multiprocess executor conflicts with a single-writer DuckDB file).
 
 **Partitions:** `fct_transactions` uses `StaticPartitionsDefinition` on calendar years 2015–2024. Each run **deletes then inserts** rows for that year into `analytics.fct_transactions` so you can refresh one year without rebuilding others.
 
-**Sensor:** `data_files_changed_sensor` compares mtimes of CSVs under `./data`; on change it requests a refresh run (core assets + one run per partition for `fct_transactions`). It ships **`STOPPED` by default** — turn it on in the Dagster UI when demoing.
+**Sensor:** `data_files_changed_sensor` compares each CSV’s **mtime** (last modified time on disk) under `./data`. When any of those mtimes **change** (file replaced, saved, or copied in), the sensor infers “new data” and can request refresh runs (core assets + one run per `deal_year` for `fct_transactions`). It ships **`STOPPED` by default** — enable under **Overview → Sensors** when demoing.
+
+**Schedule:** `daily_core_ct` runs job **`daily_core_refresh`** at **03:00 America/Chicago** (`0 3 * * *`). It materializes **ingest → stage →** `dim_acquirer`, `dim_target`, `dim_acquirer_activity`, and `rpt_sector_trend_summary` (not **`fct_transactions`**, which needs partition keys—materialize that from the UI or CLI backfill). The schedule is **`STOPPED` by default**; turn it on under **Overview → Schedules** for walkthroughs so interviewers see a cron definition without surprise overnight runs on a fresh clone.
 
 ## Data quality (high level)
 

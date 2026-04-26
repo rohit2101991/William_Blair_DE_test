@@ -1,3 +1,5 @@
+"""Runtime resources for source data pathing and DuckDB connections."""
+
 import os
 from pathlib import Path
 
@@ -15,6 +17,7 @@ class DataDirResource(ConfigurableResource):
     relative_path: str = Field(default="data", description="Path relative to cwd (repo root when using dagster dev).")
 
     def path(self) -> Path:
+        # Allow local overrides without code edits (useful in interviewer setup).
         base = Path(os.environ.get("WB_DATA_DIR", self.relative_path))
         if base.is_absolute():
             return base
@@ -31,6 +34,7 @@ class DuckDBWarehouseResource(ConfigurableResource):
     environment: str = Field(default="local", description="local | prod — informational metadata.")
 
     def resolve_path(self) -> Path:
+        # Keep warehouse path environment-driven for local vs demo/prod parity.
         env_path = os.environ.get("WB_DUCKDB_PATH")
         if env_path:
             return Path(env_path)

@@ -1,3 +1,5 @@
+"""Static partition definition used by fct_transactions."""
+
 from dagster import StaticPartitionsDefinition
 
 # Distinct deal years present in the provided transactions extract.
