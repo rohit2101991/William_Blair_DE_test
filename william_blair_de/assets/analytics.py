@@ -251,3 +251,112 @@ def rpt_sector_trend_summary(context: AssetExecutionContext, warehouse: DuckDBWa
     n = conn.execute("SELECT COUNT(*) FROM analytics.rpt_sector_trend_summary").fetchone()[0]
     conn.close()
     return MaterializeResult(metadata={"row_count": MetadataValue.int(n)})
+
+
+@asset(
+    deps=[stg_transactions, dim_target],
+    group_name="model",
+)
+def fct_target_deal_sequence(
+    context: AssetExecutionContext, warehouse: DuckDBWarehouseResource
+) -> MaterializeResult:
+    """Per-target deal timeline: order transactions by announce_date and compare to prior deal on same target.
+
+    Grain: (target_id, deal_sequence_number) — one row per transaction with sequence and lag deltas.
+    """
+    conn = warehouse.connect()
+    conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
+    conn.execute(
+        """
+        CREATE OR REPLACE TABLE analytics.fct_target_deal_sequence AS
+        WITH ordered AS (
+          SELECT
+            t.transaction_id,
+            t.target_id,
+            t.acquirer_id,
+            t.announce_date,
+            t.close_date,
+            t.deal_year,
+            t.deal_quarter,
+            t.deal_type,
+            t.financing_type,
+            t.deal_size_mm,
+            t.ev_ebitda_multiple,
+            t.ev_revenue_multiple,
+            t.outcome,
+            t.num_bidders,
+            t.days_to_close,
+            tg.target_name,
+            tg.sector AS target_sector,
+            ROW_NUMBER() OVER (
+              PARTITION BY t.target_id
+              ORDER BY t.announce_date ASC NULLS LAST, t.transaction_id
+            ) AS deal_sequence_number
+          FROM staging.transactions t
+          LEFT JOIN analytics.dim_target tg ON tg.target_id = t.target_id
+          WHERE t.target_id IS NOT NULL
+        ),
+        lagged AS (
+          SELECT
+            *,
+            LAG(transaction_id) OVER (PARTITION BY target_id ORDER BY deal_sequence_number)
+              AS prior_transaction_id,
+            LAG(announce_date) OVER (PARTITION BY target_id ORDER BY deal_sequence_number)
+              AS prior_announce_date,
+            LAG(close_date) OVER (PARTITION BY target_id ORDER BY deal_sequence_number)
+              AS prior_close_date,
+            LAG(outcome) OVER (PARTITION BY target_id ORDER BY deal_sequence_number)
+              AS prior_outcome,
+            LAG(deal_size_mm) OVER (PARTITION BY target_id ORDER BY deal_sequence_number)
+              AS prior_deal_size_mm,
+            LAG(ev_ebitda_multiple) OVER (PARTITION BY target_id ORDER BY deal_sequence_number)
+              AS prior_ev_ebitda_multiple,
+            LAG(acquirer_id) OVER (PARTITION BY target_id ORDER BY deal_sequence_number)
+              AS prior_acquirer_id
+          FROM ordered
+        )
+        SELECT
+          target_id,
+          deal_sequence_number,
+          transaction_id,
+          acquirer_id,
+          announce_date,
+          close_date,
+          deal_year,
+          deal_quarter,
+          deal_type,
+          financing_type,
+          outcome,
+          deal_size_mm,
+          ev_ebitda_multiple,
+          ev_revenue_multiple,
+          num_bidders,
+          days_to_close,
+          target_name,
+          target_sector,
+          prior_transaction_id,
+          prior_announce_date,
+          prior_close_date,
+          prior_outcome,
+          prior_deal_size_mm,
+          prior_ev_ebitda_multiple,
+          prior_acquirer_id,
+          CASE
+            WHEN prior_announce_date IS NOT NULL AND announce_date IS NOT NULL
+              THEN DATE_DIFF('day', prior_announce_date, announce_date)
+          END AS days_since_prior_announce,
+          CASE
+            WHEN prior_deal_size_mm IS NOT NULL AND deal_size_mm IS NOT NULL
+              THEN deal_size_mm - prior_deal_size_mm
+          END AS deal_size_mm_delta_vs_prior,
+          CASE
+            WHEN prior_ev_ebitda_multiple IS NOT NULL AND ev_ebitda_multiple IS NOT NULL
+              THEN ev_ebitda_multiple - prior_ev_ebitda_multiple
+          END AS ev_ebitda_multiple_delta_vs_prior,
+          (prior_acquirer_id IS NOT NULL AND acquirer_id = prior_acquirer_id) AS same_acquirer_as_prior
+        FROM lagged
+        """
+    )
+    n = conn.execute("SELECT COUNT(*) FROM analytics.fct_target_deal_sequence").fetchone()[0]
+    conn.close()
+    return MaterializeResult(metadata={"row_count": MetadataValue.int(n)})

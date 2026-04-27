@@ -9,4 +9,5 @@ __pycache__/
 *.duckdb.wal
 .DS_Store
 dagster_home/
+.dagster_cli_home/
 *.egg-info/

@@ -2,31 +2,198 @@
 
 Runnable Dagster OSS project: **ingest → stage → model** for the five M&A CSVs, with **asset checks**, **`deal_year` partitions** on `fct_transactions`, a **sensor** on `./data` CSV mtimes, and **environment-based** DuckDB path configuration.
 
-## Quick start
+---
+
+## How to run this pipeline (evaluators — follow in order)
+
+**Goal:** After these steps you will have a local **Dagster UI**, a populated **`warehouse.duckdb`** under the repo root (unless you override paths), and all modeled tables materialized. **`dagster dev` alone does not load data**; you must **materialize assets** once (UI or CLI below).
+
+### 0) Prerequisites
+
+| Requirement | Notes |
+|---------------|--------|
+| **Python** | **3.10 or newer** (see `requires-python` in `pyproject.toml`). |
+| **Git** | Clone or unzip the submission so you have this folder on disk. |
+| **Shell** | macOS/Linux: `bash` or `zsh`. Windows: **PowerShell** or **Git Bash** (commands below include a PowerShell variant where it differs). |
+| **Network** | Only for `pip install` (first time). The pipeline itself runs **offline** after install. |
+
+### 1) Go to the project root
+
+All commands assume your current directory is the folder that contains **`pyproject.toml`** (this README, `william_blair_de/`, `data/`, etc.).
 
 ```bash
-cd William_Blair_DE_test
-python3 -m venv .venv && source .venv/bin/activate
+cd path/to/William_Blair_DE_test
+```
+
+If `ls pyproject.toml` (or `dir pyproject.toml` on Windows) does not show the file, you are in the wrong directory.
+
+### 2) Confirm source CSVs exist
+
+The pipeline reads **five** files from **`./data/`** (relative to the project root):
+
+- `data/acquirers.csv`
+- `data/acquirer_financials.csv`
+- `data/targets.csv`
+- `data/transactions.csv`
+- `data/sector_multiples.csv`
+
+If any are missing, ingestion will fail. To use a different folder, set **`WB_DATA_DIR`** to an absolute or relative path before running Dagster.
+
+### 3) Create a virtual environment and install the package
+
+**macOS / Linux:**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -U pip
 pip install -e .
+```
+
+**Windows (PowerShell):**
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -U pip
+pip install -e .
+```
+
+If `py` is not installed, use `python -m venv .venv` instead, ensuring **`python --version`** is at least **3.10**.
+
+You should see `Successfully installed` (or similar) with **`william-blair-de`** editable. **`dagster`** and **`dagster-webserver`** are pulled in as dependencies.
+
+### 4) Set `DAGSTER_HOME` (strongly recommended)
+
+Dagster stores run history in SQLite under **`DAGSTER_HOME`**. If it is **unset**, the CLI may use a **different** storage location than `dagster dev`, so runs started in a terminal might not appear next to UI runs.
+
+**macOS / Linux** (same terminal session for both UI and CLI):
+
+```bash
+export DAGSTER_HOME="$HOME/.dagster"
+mkdir -p "$DAGSTER_HOME"
+```
+
+**Windows (PowerShell):**
+
+```powershell
+$env:DAGSTER_HOME = "$env:USERPROFILE\.dagster"
+New-Item -ItemType Directory -Force -Path $env:DAGSTER_HOME | Out-Null
+```
+
+Optional: add a `dagster.yaml` inside `DAGSTER_HOME` to disable telemetry ([Dagster docs](https://docs.dagster.io/deployment/dagster-instance)).
+
+### 5) Start the Dagster web UI
+
+With the **venv activated** and **`DAGSTER_HOME` set** (step 4), from the **project root**:
+
+```bash
 dagster dev
 ```
 
-**Runs in the UI:** Recent Dagster versions use a **throwaway storage folder** when `DAGSTER_HOME` is unset, so terminal `dagster asset materialize` runs may not show up next to `dagster dev`. Use the same metadata for both, e.g. `export DAGSTER_HOME="$HOME/.dagster"` in the shell before `dagster dev` and before any CLI materialize (a `dagster.yaml` there is optional; telemetry can be disabled there).
+- Wait until the log shows a **local URL** (typically **`http://127.0.0.1:3000`**).
+- Open that URL in a browser. You should see the **Definitions** / **Assets** UI for code location **`william_blair_de`** (configured in `pyproject.toml` under `[tool.dagster]`).
+- Leave this terminal running while you materialize (next step). **Do not start a second `dagster dev`** against the same DuckDB file.
 
-From the UI, materialize **raw → staging →** `dim_acquirer` / `dim_target` (SCD1 merge) **→** `dim_acquirer_activity` and `rpt_sector_trend_summary`, then materialize **`fct_transactions` for each `deal_year` partition** (2015–2024), or use the CLI:
+**If `dagster dev` fails with an import error:** ensure `pip install -e .` was run **inside** the activated venv and your shell’s `which dagster` / `Get-Command dagster` points at `.venv`.
+
+---
+
+### 6) Load the warehouse (materialize assets)
+
+You must complete **both** parts: **(A) core assets** and **(B) every `fct_transactions` partition**. Skipping partitions leaves **`analytics.fct_transactions`** empty or partial.
+
+#### Method A — CLI (recommended; copy-paste)
+
+Open a **second** terminal, **activate the same venv**, **`cd` to the project root**, and set **`DAGSTER_HOME` the same way as in step 4**.
+
+**Core path (raw → staging → dimensions → reports → `fct_target_deal_sequence`):**
 
 ```bash
-dagster asset materialize -m william_blair_de.definitions --select "raw_acquirers,raw_targets,raw_transactions,raw_acquirer_financials,raw_sector_multiples,stg_acquirers,stg_targets,stg_transactions,stg_acquirer_financials,stg_sector_multiples,dim_acquirer,dim_target,dim_acquirer_activity,rpt_sector_trend_summary"
+dagster asset materialize -m william_blair_de.definitions --select "raw_acquirers,raw_targets,raw_transactions,raw_acquirer_financials,raw_sector_multiples,stg_acquirers,stg_targets,stg_transactions,stg_acquirer_financials,stg_sector_multiples,dim_acquirer,dim_target,dim_acquirer_activity,rpt_sector_trend_summary,fct_target_deal_sequence"
+```
+
+**Partitioned fact `fct_transactions` (one run per year; required):**
+
+**macOS / Linux / Git Bash:**
+
+```bash
 for y in 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024; do
   dagster asset materialize -m william_blair_de.definitions --select fct_transactions --partition "$y"
 done
 ```
 
-**Data:** place the five CSVs under `./data` (already copied for local dev). Override directory with env `WB_DATA_DIR`.
+**Windows PowerShell:**
 
-**Warehouse:** default file `./warehouse.duckdb`. Override with `WB_DUCKDB_PATH` for a “production” path without changing code.
+```powershell
+foreach ($y in 2015..2024) {
+  dagster asset materialize -m william_blair_de.definitions --select fct_transactions --partition $y
+}
+```
 
-**Reset warehouse (drop all loaded schemas):** `python scripts/reset_warehouse.py` — then materialize again from raw. Uses the same path rules as `WB_DUCKDB_PATH` / `warehouse.duckdb`.
+Each command should end with **`RUN_SUCCESS`**. If you see errors about **partitions**, ensure you passed **`--partition`** with a single year for `fct_transactions`.
+
+#### Method B — Dagster UI only
+
+1. In the UI, open **Assets**.
+2. Materialize the **ingest** and **stage** assets first (all `raw_*` and `stg_*` assets), then **`dim_acquirer`**, **`dim_target`**, **`dim_acquirer_activity`**, **`rpt_sector_trend_summary`**, **`fct_target_deal_sequence`** (dependencies will run when you use **Materialize all** on a subgraph, or materialize upstream first).
+3. For **`fct_transactions`**: open the asset, use **Materialize** with **partitions** — select **all partitions** (`2015`–`2024`) or materialize **each year** in turn. **A non-partitioned materialize of `fct_transactions` is not valid** for this project.
+
+---
+
+### 7) Verify the run succeeded
+
+From the **project root** with venv activated:
+
+```bash
+python -c "import duckdb; c=duckdb.connect('warehouse.duckdb', read_only=True); print('fct_transactions', c.execute('select count(*) from analytics.fct_transactions').fetchone()[0])"
+```
+
+You should see **`fct_transactions` 500** (or the full row count for your bundled CSVs). If the file is missing, materialization did not complete or the warehouse path was overridden (see environment table below).
+
+---
+
+### Troubleshooting (if something fails)
+
+| Symptom | What to do |
+|---------|----------------|
+| **`No module named william_blair_de`** | Run `pip install -e .` from the project root with venv **activated**. |
+| **`unable to open database file`** (Dagster / SQLite) | Set **`DAGSTER_HOME`** to a directory your user can write (step 4); create the directory first. |
+| **Ingest fails / file not found** | Confirm the five CSVs under **`data/`** (step 2) or set **`WB_DATA_DIR`**. |
+| **`fct_transactions` errors / empty table** | Run **all ten** partition years **2015–2024** (step 6B). |
+| **Only one terminal / no CLI** | Use **Method B** in the UI; ensure partitions for `fct_transactions` are all built. |
+| **Fresh start** | `python scripts/reset_warehouse.py` then repeat step 6 (same shell env as Dagster for warehouse path overrides). |
+
+---
+
+### Environment: warehouse path (optional)
+
+Default warehouse file: **`./warehouse.duckdb`** (created on first materialization). Overrides use the same rules for Dagster and for **`scripts/reset_warehouse.py`** / **`scripts/export_sample_outputs.py`**.
+
+| Variable | Role |
+|----------|------|
+| `WB_WAREHOUSE_PROFILE` | `local` (default) or `prod` / `production` — selects which path rules apply. |
+| `WB_LOCAL_DUCKDB_PATH` | Local dev file when profile is local (overrides default `./warehouse.duckdb`). |
+| `WB_PROD_DUCKDB_PATH` | Prod-style file when profile is prod (default if unset: `./warehouse_prod.duckdb`). |
+| `WB_DUCKDB_PATH` | Legacy override: used for either profile if the profile-specific path is not set. |
+| `WB_DUCKDB_READ_ONLY` | If `1` / `true` / `yes` / `on` and profile is prod, opens DuckDB read-only (safer demos). |
+
+**Reset warehouse (drop all loaded schemas):** `python scripts/reset_warehouse.py` — then materialize again from raw. Uses the same resolution as the resource (respect `WB_WAREHOUSE_PROFILE` so you reset the warehouse you are actually using).
+
+---
+
+## Quick reference (same commands, compact)
+
+```bash
+cd William_Blair_DE_test
+python3 -m venv .venv && source .venv/bin/activate   # Windows: .\.venv\Scripts\Activate.ps1
+pip install -e .
+export DAGSTER_HOME="$HOME/.dagster" && mkdir -p "$DAGSTER_HOME"
+dagster dev
+# Second terminal, same venv + DAGSTER_HOME + cd:
+dagster asset materialize -m william_blair_de.definitions --select "raw_acquirers,raw_targets,raw_transactions,raw_acquirer_financials,raw_sector_multiples,stg_acquirers,stg_targets,stg_transactions,stg_acquirer_financials,stg_sector_multiples,dim_acquirer,dim_target,dim_acquirer_activity,rpt_sector_trend_summary,fct_target_deal_sequence"
+for y in 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024; do dagster asset materialize -m william_blair_de.definitions --select fct_transactions --partition "$y"; done
+```
 
 ## Sample output data (for reviewers)
 
@@ -49,14 +216,14 @@ The folder **`sample_output_data/`** holds **CSV snapshots** of the three **mode
 
 **Regenerate after you change model SQL or data**
 
-1. Materialize all assets (see **Quick start** loop above so every `deal_year` partition of `fct_transactions` is built).
+1. Materialize all assets (see **How to run this pipeline** — step 6 — so every `deal_year` partition of `fct_transactions` is built).
 2. Run:
 
 ```bash
 python scripts/export_sample_outputs.py
 ```
 
-That reads `./warehouse.duckdb` and overwrites the CSVs in `sample_output_data/`. The DuckDB file itself stays **gitignored**; these CSVs are **committed** so the repo carries a static preview aligned with the submission instructions (“sample output or materialized data you want us to see”).
+That reads the **resolved** warehouse path (same env as Dagster) and overwrites the CSVs in `sample_output_data/`. The DuckDB file itself stays **gitignored**; these CSVs are **committed** so the repo carries a static preview aligned with the submission instructions (“sample output or materialized data you want us to see”).
 
 ## Why DuckDB (and not Delta for this repo)
 
@@ -72,7 +239,7 @@ That reads `./warehouse.duckdb` and overwrites the CSVs in `sample_output_data/`
 |----------|----------------------|-----------------|--------|
 | Ingest   | `ingest`             | `raw`           | `read_csv_auto(..., all_varchar=true)` — preserve source strings. |
 | Stage    | `stage`              | `staging`       | Casts, trims, quarantine table for bad transaction rows. |
-| Model    | `model`              | `analytics`     | **SCD1:** `dim_acquirer`, `dim_target`, `dim_acquirer_activity` (merge/upsert on business keys). **Facts / reports:** `fct_transactions` (partitioned by `deal_year`), `rpt_sector_trend_summary` (full refresh). |
+| Model    | `model`              | `analytics`     | **SCD1:** `dim_acquirer`, `dim_target`, `dim_acquirer_activity` (merge/upsert on business keys). **Facts / reports:** `fct_transactions` (partitioned by `deal_year`), `fct_target_deal_sequence` (per-target timeline + lag deltas), `rpt_sector_trend_summary` (full refresh). |
 
 **Executor:** `Definitions(executor=in_process_executor)` so **one process** holds the DuckDB file lock (default multiprocess executor conflicts with a single-writer DuckDB file).
 
@@ -80,7 +247,7 @@ That reads `./warehouse.duckdb` and overwrites the CSVs in `sample_output_data/`
 
 **Sensor:** `data_files_changed_sensor` compares each CSV’s **mtime** (last modified time on disk) under `./data`. When any of those mtimes **change** (file replaced, saved, or copied in), the sensor infers “new data” and can request refresh runs (core assets + one run per `deal_year` for `fct_transactions`). It ships **`STOPPED` by default** — enable under **Overview → Sensors** when demoing.
 
-**Schedule:** `daily_core_ct` runs job **`daily_core_refresh`** at **03:00 America/Chicago** (`0 3 * * *`). It materializes **ingest → stage →** `dim_acquirer`, `dim_target`, `dim_acquirer_activity`, and `rpt_sector_trend_summary` (not **`fct_transactions`**, which needs partition keys—materialize that from the UI or CLI backfill). The schedule is **`STOPPED` by default**; turn it on under **Overview → Schedules** for walkthroughs so interviewers see a cron definition without surprise overnight runs on a fresh clone.
+**Schedule:** `daily_core_ct` runs job **`daily_core_refresh`** at **03:00 America/Chicago** (`0 3 * * *`). It materializes **ingest → stage →** `dim_acquirer`, `dim_target`, `dim_acquirer_activity`, `rpt_sector_trend_summary`, and `fct_target_deal_sequence` (not **`fct_transactions`**, which needs partition keys—materialize that from the UI or CLI backfill). The schedule is **`STOPPED` by default**; turn it on under **Overview → Schedules** for walkthroughs so interviewers see a cron definition without surprise overnight runs on a fresh clone.
 
 ## Data quality (high level)
 

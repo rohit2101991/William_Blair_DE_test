@@ -1,23 +1,27 @@
 """Drop raw, staging, and analytics schemas in the DuckDB warehouse (fresh materialize).
 
-Uses the same path resolution as DuckDBWarehouseResource: WB_DUCKDB_PATH env, else
-warehouse.duckdb under the current working directory.
+Uses the same path resolution as ``DuckDBWarehouseResource`` / ``resolve_warehouse_duckdb_path``
+(``WB_WAREHOUSE_PROFILE``, ``WB_LOCAL_DUCKDB_PATH``, ``WB_PROD_DUCKDB_PATH``, ``WB_DUCKDB_PATH``).
+
+Run from repo root:
 
   python scripts/reset_warehouse.py
 """
 
-import os
+import sys
 from pathlib import Path
 
 import duckdb
 
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from william_blair_de.resources import resolve_warehouse_duckdb_path
+
 
 def _db_path() -> Path:
-    env = os.environ.get("WB_DUCKDB_PATH")
-    if env:
-        return Path(env)
-    p = Path("warehouse.duckdb")
-    return p if p.is_absolute() else Path.cwd() / p
+    return resolve_warehouse_duckdb_path()
 
 
 def main() -> None:

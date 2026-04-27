@@ -7,7 +7,11 @@ from dagster import (
     define_asset_job,
 )
 
-from william_blair_de.assets.analytics import dim_acquirer_activity, rpt_sector_trend_summary
+from william_blair_de.assets.analytics import (
+    dim_acquirer_activity,
+    fct_target_deal_sequence,
+    rpt_sector_trend_summary,
+)
 from william_blair_de.assets.dimensions import dim_acquirer, dim_target
 from william_blair_de.assets.raw import (
     raw_acquirer_financials,
@@ -43,6 +47,7 @@ daily_core_refresh_job = define_asset_job(
         dim_target,
         dim_acquirer_activity,
         rpt_sector_trend_summary,
+        fct_target_deal_sequence,
     ),
 )
 

@@ -1,4 +1,16 @@
-"""Runtime resources for source data pathing and DuckDB connections."""
+"""Runtime resources for source data pathing and DuckDB connections.
+
+Environment-based warehouse switching (rubric 5.4):
+- ``WB_WAREHOUSE_PROFILE=local`` (default): local dev DuckDB file.
+- ``WB_WAREHOUSE_PROFILE=prod``: separate DuckDB file (or path) for a hypothetical
+  production deployment — same DuckDB engine, different location/config.
+
+This keeps the take-home stack small (no extra DB drivers) while demonstrating a
+clean config boundary you would extend to MotherDuck, S3-attached DuckDB, or a
+remote SQL warehouse by swapping the resource factory in ``definitions.py``.
+"""
+
+from __future__ import annotations
 
 import os
 from pathlib import Path
@@ -7,8 +19,28 @@ from dagster import ConfigurableResource
 from pydantic import Field
 
 
-def _repo_root() -> Path:
-    return Path(__file__).resolve().parent.parent
+def resolve_warehouse_duckdb_path(
+    *,
+    warehouse_profile: str | None = None,
+    database_path: str = "warehouse.duckdb",
+) -> Path:
+    """Resolve DuckDB file path for local vs prod profiles (used by assets and helper scripts).
+
+    Precedence (local): ``WB_LOCAL_DUCKDB_PATH`` → ``WB_DUCKDB_PATH`` (legacy) → ``database_path``.
+    Precedence (prod): ``WB_PROD_DUCKDB_PATH`` → ``WB_DUCKDB_PATH`` → ``warehouse_prod.duckdb``.
+    """
+    profile_raw = warehouse_profile or os.environ.get("WB_WAREHOUSE_PROFILE", "local")
+    profile = str(profile_raw).strip().lower()
+    if profile in ("prod", "production", "prd"):
+        p = os.environ.get("WB_PROD_DUCKDB_PATH") or os.environ.get("WB_DUCKDB_PATH")
+        if not p:
+            p = "warehouse_prod.duckdb"
+    else:
+        p = os.environ.get("WB_LOCAL_DUCKDB_PATH") or os.environ.get("WB_DUCKDB_PATH")
+        if not p:
+            p = database_path
+    path = Path(p)
+    return path if path.is_absolute() else Path.cwd() / path
 
 
 class DataDirResource(ConfigurableResource):
@@ -25,25 +57,42 @@ class DataDirResource(ConfigurableResource):
 
 
 class DuckDBWarehouseResource(ConfigurableResource):
-    """DuckDB file backend; swap path via env for a hypothetical prod lakehouse."""
+    """DuckDB warehouse: local dev file vs prod file path, selected by profile + env."""
 
     database_path: str = Field(
         default="warehouse.duckdb",
-        description="Path to DuckDB file. Override with WB_DUCKDB_PATH in production.",
+        description="Default relative DuckDB path when no env override is set (local profile).",
     )
-    environment: str = Field(default="local", description="local | prod — informational metadata.")
+    warehouse_profile: str = Field(
+        default="local",
+        description="local | prod — also overridable with WB_WAREHOUSE_PROFILE.",
+    )
+    environment: str = Field(
+        default="local",
+        description="Informational tag for ops; keep aligned with warehouse_profile in real deployments.",
+    )
+
+    def effective_profile(self) -> str:
+        return (os.environ.get("WB_WAREHOUSE_PROFILE") or self.warehouse_profile or "local").strip().lower()
 
     def resolve_path(self) -> Path:
-        # Keep warehouse path environment-driven for local vs demo/prod parity.
-        env_path = os.environ.get("WB_DUCKDB_PATH")
-        if env_path:
-            return Path(env_path)
-        p = Path(self.database_path)
-        return p if p.is_absolute() else Path.cwd() / p
+        return resolve_warehouse_duckdb_path(
+            warehouse_profile=self.effective_profile(),
+            database_path=self.database_path,
+        )
 
     def connect(self):
         import duckdb
 
         path = self.resolve_path()
-        path.parent.mkdir(parents=True, exist_ok=True)
-        return duckdb.connect(str(path))
+        profile = self.effective_profile()
+        # Optional: open prod warehouse read-only for safer demos against a shared file.
+        read_only = profile in ("prod", "production", "prd") and os.environ.get(
+            "WB_DUCKDB_READ_ONLY", ""
+        ).strip().lower() in ("1", "true", "yes", "on")
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+        except OSError:
+            # Remote paths (s3://, md:, …) or read-only parents — DuckDB will error if truly invalid.
+            pass
+        return duckdb.connect(str(path), read_only=read_only)

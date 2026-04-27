@@ -11,7 +11,12 @@ from dagster import (
     sensor,
 )
 
-from william_blair_de.assets.analytics import dim_acquirer_activity, fct_transactions, rpt_sector_trend_summary
+from william_blair_de.assets.analytics import (
+    dim_acquirer_activity,
+    fct_transactions,
+    fct_target_deal_sequence,
+    rpt_sector_trend_summary,
+)
 from william_blair_de.assets.dimensions import dim_acquirer, dim_target
 from william_blair_de.assets.raw import (
     raw_acquirer_financials,
@@ -90,6 +95,7 @@ def data_files_changed_sensor(context: SensorEvaluationContext):
             dim_target,
             dim_acquirer_activity,
             rpt_sector_trend_summary,
+            fct_target_deal_sequence,
         ],
     )
     for pk in DEAL_YEAR_PARTITIONS.get_partition_keys():

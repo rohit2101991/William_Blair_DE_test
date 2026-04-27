@@ -1,18 +1,25 @@
-"""Export analytics-layer tables from warehouse.duckdb into sample_output_data/ as CSV.
+"""Export analytics-layer tables from the configured DuckDB warehouse into sample_output_data/ as CSV.
 
 Run from repo root after materializing assets:
   python scripts/export_sample_outputs.py
 
-Requires: ./warehouse.duckdb with schemas analytics.fct_transactions,
+Uses the same path resolution as ``DuckDBWarehouseResource`` (see README: warehouse profiles).
+
+Requires: resolved warehouse file with analytics.fct_transactions,
           analytics.dim_acquirer_activity, analytics.rpt_sector_trend_summary
 """
 
+import sys
 from pathlib import Path
 
 import duckdb
 
 ROOT = Path(__file__).resolve().parent.parent
-DB = ROOT / "warehouse.duckdb"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from william_blair_de.resources import resolve_warehouse_duckdb_path
+
 OUT_DIR = ROOT / "sample_output_data"
 
 EXPORTS = [
@@ -23,9 +30,10 @@ EXPORTS = [
 
 
 def main() -> None:
-    if not DB.exists():
+    db_path = resolve_warehouse_duckdb_path()
+    if not db_path.exists():
         raise SystemExit(
-            f"Missing {DB}. Materialize assets first (dagster dev or CLI), then re-run this script."
+            f"Missing {db_path}. Materialize assets first (dagster dev or CLI), then re-run this script."
         )
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     lines = [
@@ -33,7 +41,7 @@ def main() -> None:
         "Regenerate: materialize all assets, then: python scripts/export_sample_outputs.py",
         "",
     ]
-    con = duckdb.connect(str(DB), read_only=True)
+    con = duckdb.connect(str(db_path), read_only=True)
     for relation, filename in EXPORTS:
         dest = OUT_DIR / filename
         con.execute(
