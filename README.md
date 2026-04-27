@@ -2,6 +2,12 @@
 
 Runnable Dagster OSS project: **ingest → stage → model** for the five M&A CSVs, with **asset checks**, **`deal_year` partitions** on `fct_transactions`, a **sensor** on `./data` CSV mtimes, and **environment-based** DuckDB path configuration.
 
+## Dagster UI (Global Asset Lineage)
+
+After `dagster dev` and materializing assets, open **Lineage** in the left nav to see the **ingest → stage → model** graph. The screenshot below shows **`fct_transactions`** selected (partitioned by `deal_year`); the metadata plot is **`rows_for_year`** by partition year.
+
+![Dagster Global Asset Lineage with fct_transactions and rows_for_year metadata](docs/images/dagster_global_lineage_fct_transactions.png)
+
 ---
 
 ## How to run this pipeline (evaluators — follow in order)
