@@ -3,6 +3,11 @@
 from dagster import AssetExecutionContext, MaterializeResult, MetadataValue, asset
 
 from william_blair_de.assets.staging import stg_acquirers, stg_targets
+from william_blair_de.materialization_context import (
+    materialization_data_date,
+    sql_data_date_literal,
+    ensure_analytics_data_date_column,
+)
 from william_blair_de.resources import DuckDBWarehouseResource
 
 
@@ -55,6 +60,7 @@ _DIM_ACQUIRER_COLS = (
     "founded_date",
     "geographic_reach",
     "dw_updated_at",
+    "data_date",
 )
 
 _DIM_TARGET_COLS = (
@@ -70,15 +76,18 @@ _DIM_TARGET_COLS = (
     "ebitda_margin_pct",
     "revenue_growth_pct",
     "dw_updated_at",
+    "data_date",
 )
 
 
 @asset(deps=[stg_acquirers], group_name="model")
 def dim_acquirer(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
     """SCD1 current-state acquirer row per acquirer_id (merge from staging.acquirers)."""
+    d = materialization_data_date(context)
+    lit = sql_data_date_literal(d)
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
-    src = """
+    src = f"""
         SELECT
           acquirer_id,
           acquirer_name,
@@ -90,7 +99,8 @@ def dim_acquirer(context: AssetExecutionContext, warehouse: DuckDBWarehouseResou
           annual_revenue_mm,
           founded_date,
           geographic_reach,
-          CURRENT_TIMESTAMP AS dw_updated_at
+          CURRENT_TIMESTAMP AS dw_updated_at,
+          {lit} AS data_date
         FROM staging.acquirers
     """
     if not analytics_table_exists(conn, "dim_acquirer"):
@@ -101,6 +111,7 @@ def dim_acquirer(context: AssetExecutionContext, warehouse: DuckDBWarehouseResou
             """
         )
     else:
+        ensure_analytics_data_date_column(conn, "dim_acquirer")
         merge_scd1(
             conn,
             target_table="dim_acquirer",
@@ -116,9 +127,11 @@ def dim_acquirer(context: AssetExecutionContext, warehouse: DuckDBWarehouseResou
 @asset(deps=[stg_targets], group_name="model")
 def dim_target(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
     """SCD1 current-state target row per target_id (merge from staging.targets)."""
+    d = materialization_data_date(context)
+    lit = sql_data_date_literal(d)
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
-    src = """
+    src = f"""
         SELECT
           target_id,
           target_name,
@@ -131,7 +144,8 @@ def dim_target(context: AssetExecutionContext, warehouse: DuckDBWarehouseResourc
           ltm_revenue_mm,
           ebitda_margin_pct,
           revenue_growth_pct,
-          CURRENT_TIMESTAMP AS dw_updated_at
+          CURRENT_TIMESTAMP AS dw_updated_at,
+          {lit} AS data_date
         FROM staging.targets
     """
     if not analytics_table_exists(conn, "dim_target"):
@@ -142,6 +156,7 @@ def dim_target(context: AssetExecutionContext, warehouse: DuckDBWarehouseResourc
             """
         )
     else:
+        ensure_analytics_data_date_column(conn, "dim_target")
         merge_scd1(
             conn,
             target_table="dim_target",

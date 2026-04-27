@@ -247,6 +247,8 @@ That reads the **resolved** warehouse path (same env as Dagster) and overwrites 
 | Stage    | `stage`              | `staging`       | Casts, trims, quarantine table for bad transaction rows. |
 | Model    | `model`              | `analytics`     | **SCD1:** `dim_acquirer`, `dim_target`, `dim_acquirer_activity` (merge/upsert on business keys). **Facts / reports:** `fct_transactions` (partitioned by `deal_year`), `fct_target_deal_sequence` (per-target timeline + lag deltas), `rpt_sector_trend_summary` (full refresh). |
 
+**`data_date` (load date) on model tables:** Every table in `analytics` includes a **`data_date`** column (`DATE`). It is set at materialization time from the Dagster run: **run start time in UTC** (from `RunRecord.start_time` when present), else **run creation time**, else **today’s local date** for ad-hoc runs. This gives you a **per-run stamp** for scheduled daily jobs (e.g. `daily_core_ct`) without hard-coding a schedule. See `william_blair_de/materialization_context.py`.
+
 **Executor:** `Definitions(executor=in_process_executor)` so **one process** holds the DuckDB file lock (default multiprocess executor conflicts with a single-writer DuckDB file).
 
 **Partitions:** `fct_transactions` uses `StaticPartitionsDefinition` on calendar years 2015–2024. Each run **deletes then inserts** rows for that year into `analytics.fct_transactions` so you can refresh one year without rebuilding others.
@@ -267,6 +269,20 @@ That reads the **resolved** warehouse path (same env as Dagster) and overwrites 
 - **DuckDB + multiprocess:** do not remove `in_process_executor` unless you switch storage (e.g. per-run temp DBs merged externally, or Delta with proper concurrent-write semantics).
 - **`fct_transactions` CLI:** `dagster asset materialize --select "*"` fails because partitions must be supplied; use the loop above or the UI backfill.
 - **Acquirer financials join:** matched on `fiscal_year = EXTRACT(YEAR FROM announce_date)`; misaligned fiscal vs calendar years are a known simplification.
+
+## Future enhancements
+
+Ideas for taking this pipeline from a take-home to a **production-style** data platform (not in scope for the current repo):
+
+1. **Operational notifications** — Wire run success/failure, asset check failures, and SLAs to **Slack** or **Microsoft Teams** (Dagster hooks, sensors, or an external event bus) so on-call and stakeholders see issues without opening the UI.
+2. **Multi-cloud runtime and storage** — Add first-class paths for **Azure** and **GCP** (e.g. secrets, blob/GCS-staged files, and deployment targets) alongside the current local/embedded pattern, with environment-based config only.
+3. **Operator experience** — Improve how non-engineers discover assets: curated **runbooks in the UI**, default graph views, and saved materialization selections for backfills and partition coverage.
+4. **Security and access control** — **SSO** (SAML/OIDC) and **MFA** for the orchestration metadata store and any future API, plus role-based access to sensitive assets or resources.
+5. **Performance and scale** — Profile heavy SQL, add **incremental** or **merge** strategies where full refreshes are not needed, and validate the **DuckDB → warehouse** path (e.g. MotherDuck, remote files) for larger volumes.
+6. **Documentation and enablement** — **Tutorials** and short videos for new analysts (how to rematerialize, read lineage, interpret checks) in addition to the README.
+7. **APIs and integrations** — Expose a stable **API** (Dagster’s GraphQL or a thin REST layer) for **third-party** tools: trigger backfills, query last success times, or export run metadata for internal portals.
+8. **Mobile and lightweight clients** — A small **read-only** mobile or web client for run status and alert triage (not a full replacement for the Dagster UI on day one).
+9. **Backup and recovery** — **Automated** backups of the analytics warehouse and Dagster instance state, with tested **restore** runbooks and optional point-in-time recovery for production data.
 
 ## References
 

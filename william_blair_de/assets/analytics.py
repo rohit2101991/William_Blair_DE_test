@@ -13,12 +13,17 @@ from william_blair_de.assets.staging import (
     stg_sector_multiples,
     stg_transactions,
 )
+from william_blair_de.materialization_context import (
+    ensure_analytics_data_date_column,
+    materialization_data_date,
+    sql_data_date_literal,
+)
 from william_blair_de.partitions import DEAL_YEAR_PARTITIONS
 from william_blair_de.resources import DuckDBWarehouseResource
 
 
-def _fct_select_sql() -> str:
-    return """
+def _fct_select_sql(data_date_lit: str) -> str:
+    return f"""
     SELECT
       t.transaction_id,
       t.target_id,
@@ -69,7 +74,8 @@ def _fct_select_sql() -> str:
         WHEN t.deal_size_mm < 500 THEN 'Mid-Market'
         WHEN t.deal_size_mm < 2000 THEN 'Large'
         ELSE 'Mega'
-      END AS deal_size_tier
+      END AS deal_size_tier,
+      {data_date_lit} AS data_date
     FROM staging.transactions t
     LEFT JOIN analytics.dim_target tg ON tg.target_id = t.target_id
     LEFT JOIN analytics.dim_acquirer aq ON aq.acquirer_id = t.acquirer_id
@@ -97,10 +103,12 @@ def _fct_select_sql() -> str:
 def fct_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
     """Denormalized transaction fact; materialize one `deal_year` partition at a time (merge into analytics.fct_transactions)."""
     year = int(context.partition_key)
+    dd = materialization_data_date(context)
+    lit = sql_data_date_literal(dd)
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
 
-    base = _fct_select_sql()
+    base = _fct_select_sql(lit)
     exists = conn.execute(
         """
         SELECT COUNT(*) FROM duckdb_tables()
@@ -116,6 +124,7 @@ def fct_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseR
             [year],
         )
     else:
+        ensure_analytics_data_date_column(conn, "fct_transactions")
         conn.execute("DELETE FROM analytics.fct_transactions WHERE deal_year = ?", [year])
         conn.execute(
             f"INSERT INTO analytics.fct_transactions {base} {filter_clause}",
@@ -186,6 +195,7 @@ _DIM_ACQUIRER_ACTIVITY_COLS = (
     "most_recent_transaction_date",
     "avg_deals_per_active_year",
     "dw_updated_at",
+    "data_date",
 )
 
 
@@ -195,10 +205,12 @@ _DIM_ACQUIRER_ACTIVITY_COLS = (
 )
 def dim_acquirer_activity(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
     """Acquirer rollup; SCD1 merge on acquirer_id from current facts × dims."""
+    d = materialization_data_date(context)
+    lit = sql_data_date_literal(d)
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
     activity_src = f"""
-        SELECT *, CURRENT_TIMESTAMP AS dw_updated_at
+        SELECT *, CURRENT_TIMESTAMP AS dw_updated_at, {lit} AS data_date
         FROM ({_DIM_ACQUIRER_ACTIVITY_INNER}) AS act_inner
     """
     # Same pattern as other dims: bootstrap once, then SCD1 merge.
@@ -210,6 +222,7 @@ def dim_acquirer_activity(context: AssetExecutionContext, warehouse: DuckDBWareh
             """
         )
     else:
+        ensure_analytics_data_date_column(conn, "dim_acquirer_activity")
         merge_scd1(
             conn,
             target_table="dim_acquirer_activity",
@@ -228,10 +241,11 @@ def dim_acquirer_activity(context: AssetExecutionContext, warehouse: DuckDBWareh
 )
 def rpt_sector_trend_summary(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
     """Extra modeled table: sector × year rollups for market activity vs targets in this dataset."""
+    lit = sql_data_date_literal(materialization_data_date(context))
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
     conn.execute(
-        """
+        f"""
         CREATE OR REPLACE TABLE analytics.rpt_sector_trend_summary AS
         SELECT
           tg.sector,
@@ -241,7 +255,8 @@ def rpt_sector_trend_summary(context: AssetExecutionContext, warehouse: DuckDBWa
           AVG(t.ev_ebitda_multiple) AS avg_ev_ebitda_multiple,
           AVG(t.ev_revenue_multiple) AS avg_ev_revenue_multiple,
           SUM(CASE WHEN t.outcome ILIKE 'Closed%' THEN 1 ELSE 0 END) AS closed_deal_count,
-          SUM(CASE WHEN t.outcome ILIKE 'Pending%' THEN 1 ELSE 0 END) AS pending_deal_count
+          SUM(CASE WHEN t.outcome ILIKE 'Pending%' THEN 1 ELSE 0 END) AS pending_deal_count,
+          {lit} AS data_date
         FROM staging.transactions t
         INNER JOIN analytics.dim_target tg ON tg.target_id = t.target_id
         GROUP BY tg.sector, t.deal_year
@@ -264,10 +279,11 @@ def fct_target_deal_sequence(
 
     Grain: (target_id, deal_sequence_number) — one row per transaction with sequence and lag deltas.
     """
+    lit = sql_data_date_literal(materialization_data_date(context))
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
     conn.execute(
-        """
+        f"""
         CREATE OR REPLACE TABLE analytics.fct_target_deal_sequence AS
         WITH ordered AS (
           SELECT
@@ -353,7 +369,8 @@ def fct_target_deal_sequence(
             WHEN prior_ev_ebitda_multiple IS NOT NULL AND ev_ebitda_multiple IS NOT NULL
               THEN ev_ebitda_multiple - prior_ev_ebitda_multiple
           END AS ev_ebitda_multiple_delta_vs_prior,
-          (prior_acquirer_id IS NOT NULL AND acquirer_id = prior_acquirer_id) AS same_acquirer_as_prior
+          (prior_acquirer_id IS NOT NULL AND acquirer_id = prior_acquirer_id) AS same_acquirer_as_prior,
+          {lit} AS data_date
         FROM lagged
         """
     )
