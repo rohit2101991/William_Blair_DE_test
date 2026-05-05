@@ -1,5 +1,8 @@
 """Drop raw, staging, and analytics schemas in the DuckDB warehouse (fresh materialize).
 
+``main()`` connects to the resolved DuckDB file and executes ``DROP SCHEMA IF EXISTS … CASCADE``
+for analytics → staging → raw so dependencies drop cleanly. If the file is missing, it no-ops.
+
 Uses the same path resolution as ``DuckDBWarehouseResource`` / ``resolve_warehouse_duckdb_path``
 (``WB_WAREHOUSE_PROFILE``, ``WB_LOCAL_DUCKDB_PATH``, ``WB_PROD_DUCKDB_PATH``, ``WB_DUCKDB_PATH``).
 
@@ -29,6 +32,7 @@ def main() -> None:
     if not path.exists():
         print(f"No database at {path}; nothing to reset.")
         return
+    # Writable connection — CASCADE removes tables inside each schema.
     con = duckdb.connect(str(path))
     for schema in ("analytics", "staging", "raw"):
         con.execute(f"DROP SCHEMA IF EXISTS {schema} CASCADE")

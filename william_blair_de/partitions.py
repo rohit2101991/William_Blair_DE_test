@@ -1,4 +1,11 @@
-"""Partition keys for ``fct_transactions`` (one Dagster run per calendar year)."""
+"""Partition keys for ``fct_transactions`` (one Dagster run per calendar year).
+
+``StaticPartitionsDefinition`` fixes the set of keys at code load time. Each key is a string year.
+Downstream: ``context.partition_key`` in ``fct_transactions`` becomes ``deal_year`` filter input.
+
+The sensor and any backfill iterate ``DEAL_YEAR_PARTITIONS.get_partition_keys()`` to enqueue one
+materialization per year (2015 through 2024 inclusive).
+"""
 
 from dagster import StaticPartitionsDefinition
 

@@ -1,9 +1,14 @@
 """Export analytics-layer tables from the configured DuckDB warehouse into sample_output_data/ as CSV.
 
+Steps performed by ``main()``:
+1. Resolve warehouse path via ``resolve_warehouse_duckdb_path`` (env-driven, same as Dagster resource).
+2. Fail fast if the file does not exist (nothing materialized yet).
+3. Ensure ``sample_output_data/`` exists.
+4. For each (relation, filename) in ``EXPORTS``, run ``COPY (SELECT * ...) TO`` as CSV with header.
+5. Append row counts to a small ``MANIFEST.txt`` for reviewers.
+
 Run from repo root after materializing assets:
   python scripts/export_sample_outputs.py
-
-Uses the same path resolution as ``DuckDBWarehouseResource`` (see README: warehouse profiles).
 
 Requires: resolved warehouse file with analytics.fct_transactions,
           analytics.dim_acquirer_activity, analytics.rpt_sector_trend_summary
@@ -30,17 +35,20 @@ EXPORTS = [
 
 
 def main() -> None:
+    # ``resolve_warehouse_duckdb_path`` reads WB_WAREHOUSE_PROFILE and path overrides (see resources.py).
     db_path = resolve_warehouse_duckdb_path()
     if not db_path.exists():
         raise SystemExit(
             f"Missing {db_path}. Materialize assets first (dagster dev or CLI), then re-run this script."
         )
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    # Human-readable manifest lines collected while exporting.
     lines = [
         "sample_output_data/: CSV snapshots of analytics.* for reviewers (see README).",
         "Regenerate: materialize all assets, then: python scripts/export_sample_outputs.py",
         "",
     ]
+    # read_only avoids accidental locks during review exports.
     con = duckdb.connect(str(db_path), read_only=True)
     for relation, filename in EXPORTS:
         dest = OUT_DIR / filename

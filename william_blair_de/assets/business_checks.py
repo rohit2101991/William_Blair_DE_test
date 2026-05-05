@@ -1,6 +1,8 @@
 """Lower-bound / sign plausibility checks on numeric staging columns (separate from structural checks).
 
 Keeps semantic DQ in one module so interviewers can distinguish schema vs business rules.
+
+Pattern mirrors ``checks.py``: connect → COUNT violating rows → AssetCheckResult with metadata.
 """
 
 from dagster import (

@@ -1,7 +1,13 @@
-"""Analytics layer: partitioned fact table, SCD1 rollups (hash-gated merge), and reporting tables."""
+"""Analytics layer: partitioned fact table, SCD1 rollups (hash-gated merge), and reporting tables.
+
+- ``fct_transactions``: one Dagster partition per ``deal_year``; replaces that year's rows each run.
+- ``dim_acquirer_activity``: rolled-up measures per acquirer; merged like entity dims with ``row_content_hash``.
+- ``rpt_sector_trend_summary`` / ``fct_target_deal_sequence``: full-table rebuild (CREATE OR REPLACE).
+"""
 
 from dagster import AssetExecutionContext, MaterializeResult, MetadataValue, asset
 
+# Reuse dimension helpers: existence check, SCD1 merge, upstream dim assets.
 from william_blair_de.assets.dimensions import (
     analytics_table_exists,
     dim_acquirer,
@@ -24,6 +30,17 @@ from william_blair_de.resources import DuckDBWarehouseResource
 
 
 def _fct_select_sql(data_date_lit: str) -> str:
+    """SELECT body for fct_transactions: denormalized deal grain + sector benchmarks + acquirer financials.
+
+    Joins:
+    - ``dim_target`` / ``dim_acquirer`` for names and attributes at load time.
+    - ``sector_multiples`` matched on target sector + deal year/quarter.
+    - ``acquirer_financials`` on acquirer + fiscal year of announce_date.
+    Derived:
+    - Percent difference vs sector median multiples (guards divide-by-zero).
+    - ``deal_size_tier`` bucket labels.
+    - ``data_date`` literal injected for partition load stamp.
+    """
     return f"""
     SELECT
       t.transaction_id,
@@ -110,6 +127,7 @@ def fct_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseR
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
 
     base = _fct_select_sql(lit)
+    # Detect cold start: create table once with full SELECT shape, then use delete+insert per year.
     exists = conn.execute(
         """
         SELECT COUNT(*) FROM duckdb_tables()
@@ -118,7 +136,6 @@ def fct_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseR
     ).fetchone()[0]
 
     filter_clause = "WHERE t.deal_year = ?"
-    # First run creates the table; later runs upsert by partition via delete+insert.
     if exists == 0:
         conn.execute(
             f"CREATE TABLE analytics.fct_transactions AS {base} {filter_clause}",
@@ -126,6 +143,7 @@ def fct_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseR
         )
     else:
         ensure_analytics_data_date_column(conn, "fct_transactions")
+        # Idempotent partition reload: remove prior rows for this deal_year, then append fresh SELECT.
         conn.execute("DELETE FROM analytics.fct_transactions WHERE deal_year = ?", [year])
         conn.execute(
             f"INSERT INTO analytics.fct_transactions {base} {filter_clause}",
@@ -139,6 +157,7 @@ def fct_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseR
     )
 
 
+# SQL fragment: CTE pipeline from staging.transactions → per-acquirer aggregates (no load stamps yet).
 _DIM_ACQUIRER_ACTIVITY_INNER = """
 WITH enriched AS (
   SELECT
@@ -181,6 +200,7 @@ LEFT JOIN span s ON s.acquirer_id = e.acquirer_id
 GROUP BY e.acquirer_id, aq.acquirer_name, aq.acquirer_type, s.year_span
 """
 
+# Physical column order for MERGE INSERT (must align with activity_src SELECT list).
 _DIM_ACQUIRER_ACTIVITY_COLS = (
     "acquirer_id",
     "acquirer_name",
@@ -211,6 +231,7 @@ def dim_acquirer_activity(context: AssetExecutionContext, warehouse: DuckDBWareh
     lit = sql_data_date_literal(d)
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
+    # Wrap inner aggregates, then hash all non-PK measure columns for merge_scd1 gating.
     activity_src = f"""
         SELECT
           act_inner.acquirer_id,
@@ -243,7 +264,6 @@ def dim_acquirer_activity(context: AssetExecutionContext, warehouse: DuckDBWareh
           {lit} AS data_date
         FROM ({_DIM_ACQUIRER_ACTIVITY_INNER}) AS act_inner
     """
-    # Bootstrap table once, then hash-gated SCD1 merge (same helper as entity dims).
     if not analytics_table_exists(conn, "dim_acquirer_activity"):
         conn.execute(
             f"""
@@ -275,6 +295,7 @@ def rpt_sector_trend_summary(context: AssetExecutionContext, warehouse: DuckDBWa
     lit = sql_data_date_literal(materialization_data_date(context))
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
+    # Full refresh report: simple aggregate, no merge key — replace table each run.
     conn.execute(
         f"""
         CREATE OR REPLACE TABLE analytics.rpt_sector_trend_summary AS
@@ -313,6 +334,7 @@ def fct_target_deal_sequence(
     lit = sql_data_date_literal(materialization_data_date(context))
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
+    # Window functions: ROW_NUMBER for sequence, LAG for prior deal attributes, CASE for deltas.
     conn.execute(
         f"""
         CREATE OR REPLACE TABLE analytics.fct_target_deal_sequence AS

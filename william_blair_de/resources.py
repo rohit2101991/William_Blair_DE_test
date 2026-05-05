@@ -8,6 +8,9 @@ Environment-based warehouse switching (rubric 5.4):
 This keeps the take-home stack small (no extra DB drivers) while demonstrating a
 clean config boundary you would extend to MotherDuck, S3-attached DuckDB, or a
 remote SQL warehouse by swapping the resource factory in ``definitions.py``.
+
+``DataDirResource`` resolves where CSVs live; ``DuckDBWarehouseResource`` resolves DB path
+and returns ``duckdb.connect(...)`` with optional read-only prod opens.
 """
 
 from __future__ import annotations
@@ -40,6 +43,7 @@ def resolve_warehouse_duckdb_path(
         if not p:
             p = database_path
     path = Path(p)
+    # Relative paths anchor to current working directory (repo root under ``dagster dev``).
     return path if path.is_absolute() else Path.cwd() / path
 
 
@@ -49,7 +53,7 @@ class DataDirResource(ConfigurableResource):
     relative_path: str = Field(default="data", description="Path relative to cwd (repo root when using dagster dev).")
 
     def path(self) -> Path:
-        # Allow local overrides without code edits (useful in interviewer setup).
+        # WB_DATA_DIR overrides the configured relative_path without code edits.
         base = Path(os.environ.get("WB_DATA_DIR", self.relative_path))
         if base.is_absolute():
             return base
@@ -73,15 +77,18 @@ class DuckDBWarehouseResource(ConfigurableResource):
     )
 
     def effective_profile(self) -> str:
+        """Profile after env override — normalized to lowercase for comparisons."""
         return (os.environ.get("WB_WAREHOUSE_PROFILE") or self.warehouse_profile or "local").strip().lower()
 
     def resolve_path(self) -> Path:
+        """Absolute or cwd-relative path to the DuckDB file for this resource instance."""
         return resolve_warehouse_duckdb_path(
             warehouse_profile=self.effective_profile(),
             database_path=self.database_path,
         )
 
     def connect(self):
+        """Open a DuckDB connection; prod may be read-only when WB_DUCKDB_READ_ONLY is set."""
         import duckdb
 
         path = self.resolve_path()

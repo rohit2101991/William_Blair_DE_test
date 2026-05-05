@@ -2,6 +2,11 @@
 
 Covers uniqueness, foreign keys, date ordering, and outcome vs close_date rules.
 Failures surface in the UI on the checked asset, not on downstream models.
+
+Each check function:
+1. Opens a fresh DuckDB connection (isolation from other steps).
+2. Runs a single COUNT or EXISTS-style query encoding the rule.
+3. Returns ``AssetCheckResult`` with passed=False when violations > 0.
 """
 
 from dagster import (
@@ -20,8 +25,8 @@ from william_blair_de.resources import DuckDBWarehouseResource
 def stg_transactions_unique_ids(
     context: AssetCheckExecutionContext, warehouse: DuckDBWarehouseResource
 ) -> AssetCheckResult:
-    # Each check opens a short-lived connection to keep checks independent.
     conn = warehouse.connect()
+    # HAVING COUNT(*) > 1 detects duplicate natural keys at deal grain.
     dupes = conn.execute(
         """
         SELECT COUNT(*) FROM (

@@ -1,5 +1,11 @@
 """File-change sensor: CSV mtime changes request downstream runs.
 
+Evaluation loop (every ~minimum_interval_seconds):
+1. Snapshot mtimes of known CSVs under the data directory.
+2. Compare to JSON cursor; if unchanged, exit (no work).
+3. If a prior sensor-tagged run is still queued/running, exit (avoid overlapping waves).
+4. Update cursor to current snapshot, then yield RunRequests.
+
 Runs are tagged ``wb_data_refresh=1``. While any prior sensor-launched run is still
 queued or executing, we skip yielding new requests so refreshes do not pile up.
 """
@@ -64,12 +70,14 @@ def _sensor_refresh_in_flight(context: SensorEvaluationContext) -> bool:
 
 
 def _data_dir_path() -> Path:
+    """Resolve CSV directory: env WB_DATA_DIR or default ``data`` relative to process cwd."""
     rel = os.environ.get("WB_DATA_DIR", "data")
     p = Path(rel)
     return p if p.is_absolute() else Path.cwd() / p
 
 
 def _snapshot_mtimes() -> dict[str, float]:
+    """Map filename → st_mtime for each expected CSV that exists (partial data dir is OK)."""
     out: dict[str, float] = {}
     d = _data_dir_path()
     if not d.is_dir():
@@ -93,6 +101,7 @@ def _snapshot_mtimes() -> dict[str, float]:
     description="When CSV mtimes under ./data change, request a full raw→stage→model run.",
 )
 def data_files_changed_sensor(context: SensorEvaluationContext):
+    """Poll mtimes; on change enqueue core assets + one partitioned run per deal_year for facts."""
     snap = _snapshot_mtimes()
     if not snap:
         return
@@ -107,9 +116,10 @@ def data_files_changed_sensor(context: SensorEvaluationContext):
 
     context.update_cursor(json.dumps({"mtimes": snap}))
 
-    # Stable hash becomes part of run_key for idempotent scheduling.
+    # Stable hash becomes part of run_key for idempotent scheduling (same files → same key).
     h = abs(hash(tuple(sorted(snap.items()))))
     run_tags = {WB_DATA_REFRESH_TAG_KEY: WB_DATA_REFRESH_TAG_VAL}
+    # One run for the non-partitioned graph (raw through reports / sequences).
     yield RunRequest(
         run_key=f"data_refresh_core_{h}",
         tags=run_tags,
@@ -131,6 +141,7 @@ def data_files_changed_sensor(context: SensorEvaluationContext):
             fct_target_deal_sequence,
         ],
     )
+    # Fan-out: fct_transactions requires a partition_key per Dagster static partition.
     for pk in DEAL_YEAR_PARTITIONS.get_partition_keys():
         yield RunRequest(
             run_key=f"data_refresh_fct_{pk}_{h}",

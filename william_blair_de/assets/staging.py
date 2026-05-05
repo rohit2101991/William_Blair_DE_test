@@ -2,10 +2,18 @@
 
 ``row_content_hash`` is an MD5 of all non-primary-key columns (stable string concat) so downstream
 SCD1 merges can skip no-op updates when staging matches the current dimension row.
+
+Pattern per dimension-backed staging table:
+- Inner subquery ``b``: cleaned row with PK + business attributes (filtered invalid keys).
+- Outer SELECT: ``b.*`` plus ``md5(concat_ws('||', …))`` over every non-PK column (coalesced to string).
+
+``stg_transactions`` additionally writes ``staging.transactions_quarantine`` for rule-breaking rows
+before building the clean ``staging.transactions`` set.
 """
 
 from dagster import AssetExecutionContext, MaterializeResult, MetadataValue, asset
 
+# Raw assets are explicit upstream deps so the graph shows ingest → stage ordering.
 from william_blair_de.assets.raw import (
     raw_acquirer_financials,
     raw_acquirers,
@@ -18,8 +26,12 @@ from william_blair_de.resources import DuckDBWarehouseResource
 
 @asset(deps=[raw_acquirers], group_name="stage")
 def stg_acquirers(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
+    """Promote raw.acquirers → staging.acquirers: normalize types, title-case acquirer_type, hash row body."""
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS staging")
+    # Replace staging table each run (full refresh of this slice).
+    # Inner ``b``: trim/upper PK, TRY_CAST numerics/dates, canonical acquirer_type labels, drop blank IDs.
+    # Outer: append row_content_hash = MD5 of all attributes except acquirer_id (the PK).
     conn.execute(
         """
         CREATE OR REPLACE TABLE staging.acquirers AS
@@ -67,6 +79,7 @@ def stg_acquirers(context: AssetExecutionContext, warehouse: DuckDBWarehouseReso
 
 @asset(deps=[raw_targets], group_name="stage")
 def stg_targets(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
+    """Promote raw.targets → staging.targets: casts, trim, PK filter, non-PK content hash."""
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS staging")
     conn.execute(
@@ -112,9 +125,10 @@ def stg_targets(context: AssetExecutionContext, warehouse: DuckDBWarehouseResour
 
 @asset(deps=[raw_transactions], group_name="stage")
 def stg_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
+    """Split raw.transactions into quarantine (bad IDs / negative size) vs clean staging.transactions."""
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS staging")
-    # Hard-quality failures are isolated for auditability and easy review.
+    # Rows that violate hard rules are copied here with a reason column for analysts (not loaded to facts).
     conn.execute(
         """
         CREATE OR REPLACE TABLE staging.transactions_quarantine AS
@@ -130,6 +144,7 @@ def stg_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseR
            OR (TRY_CAST(deal_size_mm AS DOUBLE) IS NOT NULL AND TRY_CAST(deal_size_mm AS DOUBLE) < 0)
         """
     )
+    # Clean path: normalized keys, parsed dates, numeric casts; excludes quarantine-equivalent predicates.
     conn.execute(
         """
         CREATE OR REPLACE TABLE staging.transactions AS
@@ -174,6 +189,7 @@ def stg_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseR
 def stg_acquirer_financials(
     context: AssetExecutionContext, warehouse: DuckDBWarehouseResource
 ) -> MaterializeResult:
+    """Financial statement rows per acquirer × fiscal year (no hash column — not SCD1-merged as a dimension here)."""
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS staging")
     conn.execute(
@@ -201,6 +217,7 @@ def stg_acquirer_financials(
 
 @asset(deps=[raw_sector_multiples], group_name="stage")
 def stg_sector_multiples(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
+    """Sector-level benchmark multiples by fiscal period (for enriching facts)."""
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS staging")
     conn.execute(

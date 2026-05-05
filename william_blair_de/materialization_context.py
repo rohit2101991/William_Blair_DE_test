@@ -1,4 +1,10 @@
-"""Run-level values for materialized tables (e.g. load / data date from Dagster)."""
+"""Run-level values for materialized tables (e.g. load / data date from Dagster).
+
+``materialization_data_date`` answers: "what calendar date should we stamp on rows for this run?"
+It prefers the Dagster run record's timestamps so scheduled jobs get consistent dates.
+
+``ensure_analytics_*`` helpers support in-place warehouse upgrades when new columns are added.
+"""
 
 from __future__ import annotations
 
@@ -14,19 +20,23 @@ def materialization_data_date(context: AssetExecutionContext) -> date:
     run starts. Ad-hoc or test materializations may fall back to ``create_timestamp`` or the local date.
     """
     try:
+        # DagsterInstance may be None in some test harnesses — guard access.
         inst = context.instance
         rid = context.run_id
         if inst is not None and rid:
             rec = inst.get_run_record_by_id(rid)
             if rec is not None:
+                # Primary: wall-clock start of the run (UTC date).
                 if rec.start_time is not None:
                     return datetime.fromtimestamp(rec.start_time, tz=timezone.utc).date()
                 ct = rec.create_timestamp
                 if ct is not None:
+                    # Fallback: enqueue time — normalize to UTC if timezone-aware.
                     if ct.tzinfo is not None:
                         return ct.astimezone(timezone.utc).date()
                     return ct.date()
     except Exception:
+        # Any catalog/API failure should not break asset materialization — use today.
         pass
     return date.today()
 

@@ -1,3 +1,12 @@
+"""Time-based automation: daily job for core raw→stage→model (excludes partitioned fct_transactions).
+
+``daily_core_ct`` runs at 03:00 America/Chicago. Default status is STOPPED — enable in Dagster UI.
+
+The job intentionally omits ``fct_transactions`` because that asset requires partition keys; use a
+partitioned schedule or manual backfill for facts. See ``sensors.py`` for file-driven runs that
+include all ``deal_year`` partitions.
+"""
+
 from dagster import (
     AssetSelection,
     DefaultScheduleStatus,
@@ -26,8 +35,7 @@ from william_blair_de.assets.staging import (
     stg_transactions,
 )
 
-# Partitioned fct_transactions is omitted: a cron run would need partition keys or a
-# separate backfill. This job refreshes ingest → stage → non-partitioned models daily.
+# Single job wrapping the non-partitioned spine of the DAG.
 daily_core_refresh_job = define_asset_job(
     name="daily_core_refresh",
     selection=AssetSelection.assets(
@@ -49,7 +57,7 @@ daily_core_refresh_job = define_asset_job(
     ),
 )
 
-# 03:00 America/Chicago daily. STOPPED by default: turn on in Dagster UI → Schedules for demos.
+# Cron expression: minute hour day-of-month month day-of-week (standard 5-field cron).
 daily_core_ct_schedule = ScheduleDefinition(
     name="daily_core_ct",
     job=daily_core_refresh_job,

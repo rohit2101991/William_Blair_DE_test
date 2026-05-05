@@ -1,4 +1,12 @@
-"""Build DATA_QUALITY.xlsx in the repo root (run from repo root: python scripts/build_data_quality_xlsx.py)."""
+"""Build DATA_QUALITY.xlsx in the repo root (run from repo root: python scripts/build_data_quality_xlsx.py).
+
+``main()`` builds three sheets:
+- **DQ inventory**: narrative intro + table of known data-quality themes vs how the pipeline handles them.
+- **Raw ingest fidelity**: how raw CSV loading preserves types until staging.
+- **Post-materialization SQL**: example queries for validation after assets run.
+
+Formatting uses openpyxl (fonts, wrap, column autosize). Content is static reviewer-facing prose + rows.
+"""
 
 from __future__ import annotations
 
@@ -260,6 +268,7 @@ def _autosize(ws, max_width: int = 70) -> None:
 
 
 def main() -> None:
+    # Workbook() creates one default sheet we repurpose as the first tab.
     wb = Workbook()
 
     # --- Sheet 1: inventory ---
