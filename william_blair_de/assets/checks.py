@@ -1,4 +1,8 @@
-"""Structural and business validation checks on staging tables."""
+"""Asset checks attached to staging assets (Dagster runs them after the asset step).
+
+Covers uniqueness, foreign keys, date ordering, and outcome vs close_date rules.
+Failures surface in the UI on the checked asset, not on downstream models.
+"""
 
 from dagster import (
     AssetCheckExecutionContext,

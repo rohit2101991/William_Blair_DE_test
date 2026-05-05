@@ -1,4 +1,4 @@
-"""Analytics layer: partitioned fact + SCD1 dims + reporting rollups."""
+"""Analytics layer: partitioned fact table, SCD1 rollups (hash-gated merge), and reporting tables."""
 
 from dagster import AssetExecutionContext, MaterializeResult, MetadataValue, asset
 
@@ -15,6 +15,7 @@ from william_blair_de.assets.staging import (
 )
 from william_blair_de.materialization_context import (
     ensure_analytics_data_date_column,
+    ensure_analytics_row_content_hash_column,
     materialization_data_date,
     sql_data_date_literal,
 )
@@ -194,6 +195,7 @@ _DIM_ACQUIRER_ACTIVITY_COLS = (
     "first_transaction_date",
     "most_recent_transaction_date",
     "avg_deals_per_active_year",
+    "row_content_hash",
     "dw_updated_at",
     "data_date",
 )
@@ -210,10 +212,38 @@ def dim_acquirer_activity(context: AssetExecutionContext, warehouse: DuckDBWareh
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS analytics")
     activity_src = f"""
-        SELECT *, CURRENT_TIMESTAMP AS dw_updated_at, {lit} AS data_date
+        SELECT
+          act_inner.acquirer_id,
+          act_inner.acquirer_name,
+          act_inner.acquirer_type,
+          act_inner.deal_count,
+          act_inner.total_deal_volume_mm,
+          act_inner.avg_ev_ebitda_multiple,
+          act_inner.avg_ev_revenue_multiple,
+          act_inner.distinct_target_sectors,
+          act_inner.deal_types_observed,
+          act_inner.sectors_touched,
+          act_inner.first_transaction_date,
+          act_inner.most_recent_transaction_date,
+          act_inner.avg_deals_per_active_year,
+          md5(concat_ws(
+            '||',
+            CAST(act_inner.deal_count AS VARCHAR),
+            coalesce(CAST(act_inner.total_deal_volume_mm AS VARCHAR), ''),
+            coalesce(CAST(act_inner.avg_ev_ebitda_multiple AS VARCHAR), ''),
+            coalesce(CAST(act_inner.avg_ev_revenue_multiple AS VARCHAR), ''),
+            CAST(act_inner.distinct_target_sectors AS VARCHAR),
+            coalesce(act_inner.deal_types_observed, ''),
+            coalesce(act_inner.sectors_touched, ''),
+            coalesce(CAST(act_inner.first_transaction_date AS VARCHAR), ''),
+            coalesce(CAST(act_inner.most_recent_transaction_date AS VARCHAR), ''),
+            coalesce(CAST(act_inner.avg_deals_per_active_year AS VARCHAR), '')
+          )) AS row_content_hash,
+          CURRENT_TIMESTAMP AS dw_updated_at,
+          {lit} AS data_date
         FROM ({_DIM_ACQUIRER_ACTIVITY_INNER}) AS act_inner
     """
-    # Same pattern as other dims: bootstrap once, then SCD1 merge.
+    # Bootstrap table once, then hash-gated SCD1 merge (same helper as entity dims).
     if not analytics_table_exists(conn, "dim_acquirer_activity"):
         conn.execute(
             f"""
@@ -223,6 +253,7 @@ def dim_acquirer_activity(context: AssetExecutionContext, warehouse: DuckDBWareh
         )
     else:
         ensure_analytics_data_date_column(conn, "dim_acquirer_activity")
+        ensure_analytics_row_content_hash_column(conn, "dim_acquirer_activity")
         merge_scd1(
             conn,
             target_table="dim_acquirer_activity",

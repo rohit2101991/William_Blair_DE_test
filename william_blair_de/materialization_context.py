@@ -47,3 +47,16 @@ def ensure_analytics_data_date_column(conn, table: str) -> None:
     ).fetchone()
     if row is None:
         conn.execute(f"ALTER TABLE analytics.{table} ADD COLUMN data_date DATE")
+
+
+def ensure_analytics_row_content_hash_column(conn, table: str) -> None:
+    """Add ``row_content_hash`` (MD5 of business attributes) if the analytics table predates hashing."""
+    row = conn.execute(
+        """
+        SELECT 1 FROM information_schema.columns
+        WHERE table_schema = 'analytics' AND table_name = ? AND column_name = 'row_content_hash'
+        """,
+        [table],
+    ).fetchone()
+    if row is None:
+        conn.execute(f"ALTER TABLE analytics.{table} ADD COLUMN row_content_hash VARCHAR")

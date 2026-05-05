@@ -1,4 +1,8 @@
-"""Dagster code location wiring: assets, checks, resources, schedule, sensor."""
+"""Dagster code location: register assets, checks, resources, automation, and executor.
+
+``load_assets_from_modules`` order is not execution order; the asset graph defines run order.
+``in_process_executor`` keeps a single DuckDB writer (one process holds the file lock).
+"""
 
 from dagster import Definitions, in_process_executor, load_asset_checks_from_modules, load_assets_from_modules
 

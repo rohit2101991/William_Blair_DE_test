@@ -1,4 +1,8 @@
-"""Staging transforms: trim, cast, normalize, and quarantine obvious bad rows."""
+"""Staging transforms: trim, cast, normalize, quarantine bad rows, and content hashes.
+
+``row_content_hash`` is an MD5 of all non-primary-key columns (stable string concat) so downstream
+SCD1 merges can skip no-op updates when staging matches the current dimension row.
+"""
 
 from dagster import AssetExecutionContext, MaterializeResult, MetadataValue, asset
 
@@ -20,24 +24,40 @@ def stg_acquirers(context: AssetExecutionContext, warehouse: DuckDBWarehouseReso
         """
         CREATE OR REPLACE TABLE staging.acquirers AS
         SELECT
-          upper(trim(acquirer_id)) AS acquirer_id,
-          trim(acquirer_name) AS acquirer_name,
-          CASE lower(trim(coalesce(acquirer_type, '')))
-            WHEN 'strategic' THEN 'Strategic'
-            WHEN 'financial sponsor' THEN 'Financial Sponsor'
-            ELSE trim(acquirer_type)
-          END AS acquirer_type,
-          trim(primary_sector_focus) AS primary_sector_focus,
-          trim(headquarters) AS headquarters,
-          trim(ticker_or_status) AS ticker_or_status,
-          TRY_CAST(employee_count AS INTEGER) AS employee_count,
-          TRY_CAST(annual_revenue_mm AS DOUBLE) AS annual_revenue_mm,
-          TRY_CAST(
-            replace(trim(founded_date), '/', '-') AS DATE
-          ) AS founded_date,
-          trim(geographic_reach) AS geographic_reach
-        FROM raw.acquirers
-        WHERE acquirer_id IS NOT NULL AND trim(acquirer_id) <> ''
+          b.*,
+          md5(concat_ws(
+            '||',
+            coalesce(b.acquirer_name, ''),
+            coalesce(b.acquirer_type, ''),
+            coalesce(b.primary_sector_focus, ''),
+            coalesce(b.headquarters, ''),
+            coalesce(b.ticker_or_status, ''),
+            coalesce(CAST(b.employee_count AS VARCHAR), ''),
+            coalesce(CAST(b.annual_revenue_mm AS VARCHAR), ''),
+            coalesce(CAST(b.founded_date AS VARCHAR), ''),
+            coalesce(b.geographic_reach, '')
+          )) AS row_content_hash
+        FROM (
+          SELECT
+            upper(trim(acquirer_id)) AS acquirer_id,
+            trim(acquirer_name) AS acquirer_name,
+            CASE lower(trim(coalesce(acquirer_type, '')))
+              WHEN 'strategic' THEN 'Strategic'
+              WHEN 'financial sponsor' THEN 'Financial Sponsor'
+              ELSE trim(acquirer_type)
+            END AS acquirer_type,
+            trim(primary_sector_focus) AS primary_sector_focus,
+            trim(headquarters) AS headquarters,
+            trim(ticker_or_status) AS ticker_or_status,
+            TRY_CAST(employee_count AS INTEGER) AS employee_count,
+            TRY_CAST(annual_revenue_mm AS DOUBLE) AS annual_revenue_mm,
+            TRY_CAST(
+              replace(trim(founded_date), '/', '-') AS DATE
+            ) AS founded_date,
+            trim(geographic_reach) AS geographic_reach
+          FROM raw.acquirers
+          WHERE acquirer_id IS NOT NULL AND trim(acquirer_id) <> ''
+        ) AS b
         """
     )
     n = conn.execute("SELECT COUNT(*) FROM staging.acquirers").fetchone()[0]
@@ -53,19 +73,36 @@ def stg_targets(context: AssetExecutionContext, warehouse: DuckDBWarehouseResour
         """
         CREATE OR REPLACE TABLE staging.targets AS
         SELECT
-          upper(trim(target_id)) AS target_id,
-          trim(target_name) AS target_name,
-          trim(sector) AS sector,
-          trim(sub_sector) AS sub_sector,
-          trim(geography) AS geography,
-          trim(ownership_type) AS ownership_type,
-          TRY_CAST(replace(trim(founded_date), '/', '-') AS DATE) AS founded_date,
-          TRY_CAST(employee_count AS INTEGER) AS employee_count,
-          TRY_CAST(ltm_revenue_mm AS DOUBLE) AS ltm_revenue_mm,
-          TRY_CAST(ebitda_margin_pct AS DOUBLE) AS ebitda_margin_pct,
-          TRY_CAST(revenue_growth_pct AS DOUBLE) AS revenue_growth_pct
-        FROM raw.targets
-        WHERE target_id IS NOT NULL AND trim(target_id) <> ''
+          b.*,
+          md5(concat_ws(
+            '||',
+            coalesce(b.target_name, ''),
+            coalesce(b.sector, ''),
+            coalesce(b.sub_sector, ''),
+            coalesce(b.geography, ''),
+            coalesce(b.ownership_type, ''),
+            coalesce(CAST(b.founded_date AS VARCHAR), ''),
+            coalesce(CAST(b.employee_count AS VARCHAR), ''),
+            coalesce(CAST(b.ltm_revenue_mm AS VARCHAR), ''),
+            coalesce(CAST(b.ebitda_margin_pct AS VARCHAR), ''),
+            coalesce(CAST(b.revenue_growth_pct AS VARCHAR), '')
+          )) AS row_content_hash
+        FROM (
+          SELECT
+            upper(trim(target_id)) AS target_id,
+            trim(target_name) AS target_name,
+            trim(sector) AS sector,
+            trim(sub_sector) AS sub_sector,
+            trim(geography) AS geography,
+            trim(ownership_type) AS ownership_type,
+            TRY_CAST(replace(trim(founded_date), '/', '-') AS DATE) AS founded_date,
+            TRY_CAST(employee_count AS INTEGER) AS employee_count,
+            TRY_CAST(ltm_revenue_mm AS DOUBLE) AS ltm_revenue_mm,
+            TRY_CAST(ebitda_margin_pct AS DOUBLE) AS ebitda_margin_pct,
+            TRY_CAST(revenue_growth_pct AS DOUBLE) AS revenue_growth_pct
+          FROM raw.targets
+          WHERE target_id IS NOT NULL AND trim(target_id) <> ''
+        ) AS b
         """
     )
     n = conn.execute("SELECT COUNT(*) FROM staging.targets").fetchone()[0]
@@ -77,7 +114,7 @@ def stg_targets(context: AssetExecutionContext, warehouse: DuckDBWarehouseResour
 def stg_transactions(context: AssetExecutionContext, warehouse: DuckDBWarehouseResource) -> MaterializeResult:
     conn = warehouse.connect()
     conn.execute("CREATE SCHEMA IF NOT EXISTS staging")
-        # Hard-quality failures are isolated for auditability and easy review.
+    # Hard-quality failures are isolated for auditability and easy review.
     conn.execute(
         """
         CREATE OR REPLACE TABLE staging.transactions_quarantine AS

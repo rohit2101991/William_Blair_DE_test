@@ -1,6 +1,6 @@
-"""Static partition definition used by fct_transactions."""
+"""Partition keys for ``fct_transactions`` (one Dagster run per calendar year)."""
 
 from dagster import StaticPartitionsDefinition
 
-# Distinct deal years present in the provided transactions extract.
+# Static keys 2015–2024: each backfill/materialize supplies a single ``deal_year`` partition.
 DEAL_YEAR_PARTITIONS = StaticPartitionsDefinition([str(y) for y in range(2015, 2025)])

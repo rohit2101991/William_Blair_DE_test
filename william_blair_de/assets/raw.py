@@ -1,4 +1,7 @@
-"""Raw ingest assets: load CSV files as-is (all columns as text)."""
+"""Raw ingest: load each CSV into DuckDB ``raw`` schema with ``all_varchar=true`` (no casting).
+
+Preserves source fidelity; typing and cleaning happen in staging.
+"""
 
 from dagster import AssetExecutionContext, MaterializeResult, MetadataValue, asset
 

@@ -1,5 +1,3 @@
-"""Cron schedules (interviewers often look for schedule + sensor)."""
-
 from dagster import (
     AssetSelection,
     DefaultScheduleStatus,

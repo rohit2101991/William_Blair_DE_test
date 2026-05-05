@@ -249,6 +249,8 @@ That reads the **resolved** warehouse path (same env as Dagster) and overwrites 
 
 **`data_date` (load date) on model tables:** Every table in `analytics` includes a **`data_date`** column (`DATE`). It is set at materialization time from the Dagster run: **run start time in UTC** (from `RunRecord.start_time` when present), else **run creation time**, else **today’s local date** for ad-hoc runs. This gives you a **per-run stamp** for scheduled daily jobs (e.g. `daily_core_ct`) without hard-coding a schedule. See `william_blair_de/materialization_context.py`.
 
+**`row_content_hash` (SCD1):** `staging.acquirers` and `staging.targets` include an **MD5** of all non-key attributes. Entity dimensions and `dim_acquirer_activity` **MERGE** with **update only when the hash differs**, so identical reloads skip row rewrites. Keys that drop out of staging are **not** deleted from dimensions (orphans kept).
+
 **Executor:** `Definitions(executor=in_process_executor)` so **one process** holds the DuckDB file lock (default multiprocess executor conflicts with a single-writer DuckDB file).
 
 **Partitions:** `fct_transactions` uses `StaticPartitionsDefinition` on calendar years 2015–2024. Each run **deletes then inserts** rows for that year into `analytics.fct_transactions` so you can refresh one year without rebuilding others.

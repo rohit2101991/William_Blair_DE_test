@@ -1,4 +1,7 @@
-"""Business-rule checks: non-negative / physically plausible lower bounds on staged numerics."""
+"""Lower-bound / sign plausibility checks on numeric staging columns (separate from structural checks).
+
+Keeps semantic DQ in one module so interviewers can distinguish schema vs business rules.
+"""
 
 from dagster import (
     AssetCheckExecutionContext,
